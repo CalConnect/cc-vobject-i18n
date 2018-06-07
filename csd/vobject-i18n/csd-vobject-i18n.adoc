@@ -21,9 +21,5 @@ include::sections/06-pronunciation.adoc[]
 include::sections/10-security.adoc[]
 include::sections/11-iana.adoc[]
 
-
-// must give references before appendix!
-
-include::sections/97-references.adoc[]
 include::sections/99-acknowledgements.adoc[]
-
+include::sections/97-references.adoc[]
