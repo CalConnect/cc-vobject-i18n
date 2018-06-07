@@ -1,0 +1,9 @@
+== Acknowledgements
+
+The authors wish to thank their families and the following parties who
+helped this materialize and for their support of a better and
+vObject-enabled world:
+
+* The CalConnect TC-VCARD and TC-CALENDAR committees
+* The CalConnect Technical Coordination Committee ("TCC")
+* Members and the Board of Directors of CalConnect

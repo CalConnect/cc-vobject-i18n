@@ -1,0 +1,81 @@
+
+[[pp-phonetic]]
+== Property Parameter: PHONETIC
+
+A number of contact managers have long used "X-properties"
+to to store phonetic information of a vCard's subject, such as
+`X-PHONETIC-NAME`, `X-PHONETIC-FIRST-NAME` and `X-PHONETIC-LAST-NAME`.
+
+However, this is an issue for multiple reasons:
+
+* The value of the X-property does not define the phonetic system
+  used for its transcription;
+* This X-property usage does not enable interoperability since
+  it does not require specification of the language transcribed,
+  as well as the script of the resulting transcription;
+* The scheme of using X-properties does not allow representation
+  of phonetics on other vCard values.
+
+This section defines three property parameters used to
+store pronunciation information of a property value:
+
+. The script used in the pronunciation system;
+. An identifier of the pronunciation system used;
+. The source language that was transcribed by the pronunciation system.
+
+
+The `PHONETIC` property parameter specifies the phonetic
+system used in the transcription of the property value,
+identified by the phonetic system code from the ISO XXXXX
+phonetic system registry.
+
+This property parameter is often applied together with
+the `LANGUAGE` (<<pp-language>>)
+and `SCRIPT` (<<pp-script>>) property parameters.
+
+
+Namespace::
+
+Property parameter name:: PHONETIC
+
+Purpose:: To specify the phonetic system used in the property
+  value, which is amongst the valid codes in the ISO XXXXX registry.
+
+Value type:: TEXT, a single value valid in the ISO XXXXX phonetic system registry.
+
+Description:: The property value of which this property parameter
+applies to must take an identical structure to the property
+value without application of this property parameter.
+
+
+=== vFormat Implementation of PHONETIC
+
+Format definition::
+
+[source,abnf]
+----
+phoneticparam = "PHONETIC" "=" phonetic
+phonetic      = 4ALPHA  ; ISO XXXXX 4-digit phonetic system code
+----
+
+Examples::
+
+[source]
+----
+N;SCRIPT=Hant;LANGUAGE=zho:孫;中山;文,逸仙;;
+N;SCRIPT=Hans;LANGUAGE=zho:孙;中山;文,逸仙;;
+N;PHONETIC=jyut;SCRIPT=Latn;LANGUAGE=yue:syun1;zung1saan1;man4,jat6sin1;;
+N;PHONETIC=ping;SCRIPT=Latn;LANGUAGE=cmn:sun;zhongshan;rixian;;
+----
+
+////
+[source]
+----
+NAME;SCRIPT=Hira=text/hiragana:<U+3084><U+307E><U+3060>
+<U+305F><U+308D><U+3046>;<U+3084><U+307E><U+3060>;
+<U+305F><U+308D><U+3046>
+; <U+XXXX> denotes a UTF8-encoded Unicode character.
+
+PHONETIC-NAME;MEDIATYPE=text/ipa; option=x-sampa:jamada ta4oM;;
+----
+////

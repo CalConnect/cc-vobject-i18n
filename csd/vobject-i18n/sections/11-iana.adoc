@@ -1,0 +1,75 @@
+
+[[iana]]
+== IANA Considerations
+
+IANA is requested to register the following property parameters
+and value types in the corresponding iCalendar and vCard registries.
+
+=== iCalendar and vCard Property Parameter Registration: SCRIPT
+
+Namespace::
+
+Parameter name:: SCRIPT
+
+Purpose:: Given in <<pp-script>>.
+
+Description:: Given in <<pp-script>>.
+
+Format definition:: Given in <<pp-script>>.
+
+Examples:: Given in <<pp-script>>.
+
+=== iCalendar and vCard Property Parameter Registration: PHONETIC
+
+Namespace::
+
+Parameter name:: PHONETIC
+
+Purpose:: Given in <<pp-phonetic>>.
+
+Description:: Given in <<pp-phonetic>>.
+
+Format definition:: Given in <<pp-phonetic>>.
+
+Examples:: Given in <<pp-phonetic>>.
+
+
+=== iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE
+
+Value name:: SCRIPT-CODE
+
+Purpose:: Indicate script used in property value
+  using a valid value from the ISO 15924 registry.
+
+Description:: Used by the SCRIPT property parameter.
+
+Format definition::
+[source,abnf]
+----
+script-code = 4ALPHA
+            ; ISO 15924 4-digit script code
+----
+
+Examples:: `Latn`, `Cyrl`, `Hani`
+
+
+=== iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE
+
+
+Value name:: PHONETIC-CODE
+
+Purpose:: Indicate phonetic system used in the transcription
+  of property value,
+  using a valid value from the ISO XXXXX registry.
+
+Description:: Used by the SCRIPT property parameter.
+
+Format definition::
+[source,abnf]
+----
+phonetic-code = 4ALPHA
+              ; ISO XXXXX 4-digit script code
+----
+
+Examples:: `ipa`, `jyut`, `ping`
+

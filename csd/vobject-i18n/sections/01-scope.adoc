@@ -1,0 +1,7 @@
+
+[[scope]]
+== Scope
+
+Methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <<RFC6350>> and
+iCalendar <<RFC5545>>.

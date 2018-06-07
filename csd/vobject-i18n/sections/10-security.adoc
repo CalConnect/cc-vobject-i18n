@@ -1,0 +1,21 @@
+
+[[security]]
+== Security Considerations
+
+Security considerations of the vObject formats
+themselves *MUST* be adhered to, including:
+
+* vCard: <<RFC6350>>
+* iCalendar: <<RFC5545>>, <<RFC4791>>
+* vObject: <<I-D.calconnect-vobject-vformat>>
+
+vObject formats, especially for calendaring, scheduling
+and contact exchange, often involve privacy-sensitive information.
+Internationalization features defined in this document
+*MAY* pose risk of exposing private information if
+interchanged through unprotected communication channels.
+
+Mechanisms used for the transmission of such information
+should implement security measures to protect against possible threats,
+such as eavesdropping, replay, message insertion, deletion,
+modification, and man-in-the-middle attacks.

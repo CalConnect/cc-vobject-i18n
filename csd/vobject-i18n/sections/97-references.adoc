@@ -1,0 +1,20 @@
+
+[bibliography]
+== Bibliography
+
+* [[[CALCONNECT-VCARD,CalConnect TC VCARD]]] _CalConnect VCARD Technical Committee_
+* [[[CALCONNECT-CALENDAR,CalConnect TC CALENDAR]]] _CalConnect CALENDAR Technical Committee_
+* [[[ISO5127,ISO 5127]]] _Information and documentation -- Vocabulary_
+* [[[ISO24624,ISO 24624]]] _Language resource management -- Transcription of spoken language_
+* [[[RFC2119,IETF RFC 2119]]] _Key words for use in RFCs to Indicate Requirement Levels_
+* [[[RFC3986,IETF RFC 3986]]] _Uniform Resource Identifier (URI): Generic Syntax_
+* [[[RFC5646,IETF RFC 5646]]] _Tags for Identifying Languages_
+* [[[RFC8174,IETF RFC 8174]]] _Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words_
+* [[[RFC6321,IETF RFC 6321]]] _xCal: The XML Format for iCalendar_
+* [[[RFC7265,IETF RFC 7265]]] _jCal: The JSON Format for iCalendar_
+* [[[RFC7095,IETF RFC 7095]]] _jCard: The JSON Format for vCard_
+* [[[RFC6352,IETF RFC 6352]]] _CardDAV: vCard Extensions to Web Distributed Authoring and Versioning (WebDAV)_
+* [[[RFC6351,IETF RFC 6351]]] _xCard: vCard XML Representation_
+* [[[RFC4791,IETF RFC 4791]]] _Calendaring Extensions to WebDAV (CalDAV)_
+* [[[RFC5234,IETF RFC 5234]]] _Augmented BNF for Syntax Specifications: ABNF_
+* [[[RFC8126,IETF RFC 8126]]] _Guidelines for Writing an IANA Considerations Section in RFCs_

@@ -1,0 +1,9 @@
+
+[bibliography]
+== Normative References
+
+* [[[RFC5545,IETF RFC 5545]]], _Internet Calendaring and Scheduling Core Object Specification (iCalendar)_
+
+* [[[RFC6350,IETF RFC 6350]]], _vCard Format Specification_
+
+* [[[I-D.calconnect-vobject-vformat,IETF I-D.calconnect-vobject-vformat]]] _The vObject Model and vFormat Syntax_

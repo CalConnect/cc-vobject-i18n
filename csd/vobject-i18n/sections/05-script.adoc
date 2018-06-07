@@ -1,0 +1,54 @@
+
+[[pp-script]]
+
+== Property Parameter: SCRIPT
+
+The `SCRIPT` property parameter specifies the written script
+used in the property value which contains the parameter,
+which is amongst the valid codes in the ISO 15924 registry.
+
+It is separated from the `LANGUAGE` property parameter
+defined in <<RFC5545>> and <<RFC6350>> for reasons
+stated in <<pp-language>>.
+
+Namespace::
+
+Property parameter name:: SCRIPT
+
+Purpose:: To specify the script used in the property
+  value, which is amongst the valid codes in the ISO 15924 registry.
+
+Value type:: TEXT, a single value valid in the ISO 15924 script registry.
+
+Description:: The property value of which this property parameter
+applies to must have identical structure to
+
+=== vFormat Implementation of SCRIPT
+
+Format definition::
+[source,abnf]
+----
+scriptparam = "SCRIPT" "=" script-code
+            ; script-code defined in the value type SCRIPT-CODE
+----
+
+Examples::
+
+[source]
+----
+N;SCRIPT=Hira;LANGUAGE=jp:みやざき;はやお;;;
+N;SCRIPT=Hani;LANGUAGE=jp:宮崎;駿;;;
+----
+
+
+////
+[source]
+----
+NAME;SCRIPT=Hira=text/hiragana:<U+3084><U+307E><U+3060>
+<U+305F><U+308D><U+3046>;<U+3084><U+307E><U+3060>;
+<U+305F><U+308D><U+3046>
+; <U+XXXX> denotes a UTF8-encoded Unicode character.
+
+PHONETIC-NAME;MEDIATYPE=text/ipa; option=x-sampa:jamada ta4oM;;
+----
+////

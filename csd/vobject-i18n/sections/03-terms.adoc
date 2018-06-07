@@ -1,0 +1,56 @@
+
+[[terms]]
+== Terms and Definitions
+
+=== General
+
+The key words "*MUST*", "*MUST NOT*", "*REQUIRED*", "*SHALL*", "*SHALL NOT*",
+"*SHOULD*", "*SHOULD NOT*", "*RECOMMENDED*", "*NOT RECOMMENDED*", "*MAY*",
+and "*OPTIONAL*" in this document are to be interpreted as
+described in BCP 14 <<RFC2119>> <<RFC8174>> when, and only when, they
+appear in all capitals, as shown here.
+
+The key words "*Private Use*", "*Experimental Use*",
+"*Hierarchical Allocation*", "*First Come First Served*",
+"*Expert Review*", "*Specification Required*", "*RFC Required*",
+"*IETF Review*", "*Standards Action*" and "*IESG Approval*" in
+this document are to be interpreted as described in <<RFC8126,4>>.
+
+Notation in this document is described in ABNF <<RFC5234>> as used by
+<<RFC6350>>.
+
+Definitions from <<RFC6350>> apply to this specification except when
+explicitly overridden.
+
+All names of properties, property parameters, enumerated property
+values, and property parameter values are case-insensitive. However,
+all property values are case-sensitive, unless otherwise stated.
+
+=== Definitions
+
+////
+==== phonetic system
+
+method of transcription of language in a script that allows
+phonetic reproduction
+////
+
+==== transliteration
+
+operation which consists of representing the characters (3.1.4.02) of an entirely alphabetical (3.1.5.16) character or alphanumeric character writing system (3.1.6.01) by the characters of the conversion alphabet
+
+[.source]
+<<ISO5127,3.1.6.11>>
+
+==== script
+
+particular graphic representation or class of representations of a set of characters used to write one or more languages
+
+[.source]
+<<ISO5127,3.1.6.02>>
+
+==== phonetic transcription
+
+representation or modelling of spoken language based on the sound system of the respective language
+<<ISO24624,3.5>>
+

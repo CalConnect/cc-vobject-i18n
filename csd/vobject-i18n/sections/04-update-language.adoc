@@ -1,0 +1,83 @@
+
+[[pp-language]]
+== Property Parameter Usage Clarification: LANGUAGE
+
+This section clarifies the intent of the `LANGUAGE` property
+parameter in <<RFC5545>> and <<RFC6350>> to be for the
+identification of the language used in the property value
+where the parameter is specified.
+
+The <<RFC5646>> defined `language-tag` allows specification
+of multiple attributes (called "subtags") in addition
+to just language. Its basic form includes:
+
+* a mandatory language subtag, using a language identifier
+from ISO 639 (-2, -3) (called a "primary" or "extended" language subtag)
+
+* an optional script subtag, using a script identifier
+from ISO 15924
+
+* an optional region subtag, using country codes listed in ISO 3166
+or a UN numeric code
+
+* one or more, optional, variant and extension subtags
+defined in the IANA language subtag registry.
+
+
+In practical usage of vObject standards, including
+<<RFC5545>> and <<RFC6350>>, it is determined that
+the combinatorial enumeration of non-language subtags often cause
+unnecessary confusion in interpretation and parsing, especially
+when the registry contain variant and extension subtags that either
+conflict in semantics or have overly restrictive in their
+supported prefixes.
+
+This document therefore clarifies the intent of
+<<RFC5545,3.2.10>> and <<RFC6350,5.1>>, such that
+the `LANGUAGE` property parameter *SHOULD* only support
+the mandatory language subtag.
+
+Other subtags *MAY* be supplied as specified in <<RFC5646>>,
+but they are purely for informational purposes not used
+in the vObject specification.
+
+
+Namespace::
+
+Property parameter name:: `LANGUAGE`
+
+Purpose:: To specify the language used in the property value.
+
+Value type:: `LANGUAGE-TAG` <<RFC6350,4.8>>
+
+Description:: As provided above.
+
+
+
+=== vFormat Implementation of LANGUAGE
+
+The value of the `LANGUAGE` property parameter is
+re-defined as shown below.
+
+Format definition::
+
+[source,abnf]
+----
+languageparam = "LANGUAGE" "=" language *(subpart)
+
+language = iso-639-3-code / iso-639-2-code
+          ; a 2-alpha or 3-alpha language code
+          ; defined in ISO 639
+
+subpart  = "-" *alphanum
+           ; all other subparts unsupported
+----
+
+Examples::
+
+[source]
+----
+N;LANGUAGE=en:Miyazaki;Hayao;;;
+N;LANGUAGE=jp:宮崎;駿;;;
+----
+
