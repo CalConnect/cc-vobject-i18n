@@ -3,7 +3,7 @@
 == Introduction
 
 vCard <<RFC6350>> and iCalendar <<RFC5545>> are standards compliant to
-the vObject data model <<I-D.calconnect-vobject-vformat>>.
+the vObject data model <<I-D.calconnect-vobject-vformat-03>>.
 
 These standards are used worldwide and require proper certain
 localization elements suitable for multi-cultural use.
@@ -18,6 +18,10 @@ This document:
 including a separate property parameter that denotes the script used in a
 property value, and a method to specify pronunciation of a property value
 * defines realization methods of vObject internationalization in vFormat
+
+The methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <<RFC6350>> and
+iCalendar <<RFC5545>>.
 
 This is a work product of the CalConnect TC-VCARD <<CALCONNECT-VCARD>>
 and TC-CALENDAR <<CALCONNECT-CALENDAR>> committees.

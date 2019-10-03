@@ -7,7 +7,7 @@ themselves *MUST* be adhered to, including:
 
 * vCard: <<RFC6350>>
 * iCalendar: <<RFC5545>>, <<RFC4791>>
-* vObject: <<I-D.calconnect-vobject-vformat>>
+* vObject: <<I-D.calconnect-vobject-vformat-03>>
 
 vObject formats, especially for calendaring, scheduling
 and contact exchange, often involve privacy-sensitive information.

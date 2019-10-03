@@ -1,0 +1,18 @@
+<reference anchor='ISO5127' target='https://www.iso.org'>
+  <front>
+    <title>ISO 5127 Information and documentation -- Foundation and vocabulary</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+      <address>
+        <postal>
+         <street>Chemin de Blandonnet 8</street>
+				 <street>1214 Vernier</street>
+         <city>Geneva</city>
+         <country>Switzerland</country>
+        </postal>
+        <uri>https://www.iso.org</uri>
+      </address>
+    </author>
+    <date month='April' year='2017'/>
+  </front>
+</reference>

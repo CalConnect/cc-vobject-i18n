@@ -1,0 +1,99 @@
+idnits 2.15.01 
+
+draft-calconnect-vobject-i18n-00.txt:
+draft-calconnect-vobject-i18n-00.txt(301): Line is too long: the offending characters are '20;&#12362;;;;'
+draft-calconnect-vobject-i18n-00.txt(375): Line is too long: the offending characters are '20185;;;'
+draft-calconnect-vobject-i18n-00.txt(376): Line is too long: the offending characters are '20185;;;'
+draft-calconnect-vobject-i18n-00.txt(377): Line is too long: the offending characters are ';'
+
+
+  Checking boilerplate required by RFC 5378 and the IETF Trust (see
+  https://trustee.ietf.org/license-info):
+  ----------------------------------------------------------------------------
+
+     No issues found here.
+
+  Checking nits according to https://www.ietf.org/id-info/1id-guidelines.txt:
+  ----------------------------------------------------------------------------
+
+     No issues found here.
+
+  Checking nits according to https://www.ietf.org/id-info/checklist :
+  ----------------------------------------------------------------------------
+
+  ** There are 4 instances of too long lines in the document, the longest one
+     being 14 characters in excess of 72.
+
+  -- The draft header indicates that this document updates 2, but the abstract
+     doesn't seem to directly say this.  It does mention 2 though, so this could
+     be OK.
+
+  -- The draft header indicates that this document updates 3, but the abstract
+     doesn't seem to directly say this.  It does mention 3 though, so this could
+     be OK.
+
+  -- The draft header indicates that this document updates 4, but the abstract
+     doesn't seem to mention this, which it should.
+
+  -- The draft header indicates that this document updates 5, but the abstract
+     doesn't seem to mention this, which it should.
+
+  -- The draft header indicates that this document updates RFC5545, but the
+     abstract doesn't seem to mention this, which it should.
+
+
+  Miscellaneous warnings:
+  ----------------------------------------------------------------------------
+
+  == Couldn't figure out when the document was first submitted -- there may
+     comments or warnings related to the use of a disclaimer for pre-RFC5378
+     work that could not be issued because of this.  Please check the Legal
+     Provisions document at https://trustee.ietf.org/license-info to determine
+     if you need the pre-RFC5378 disclaimer.
+
+
+  Checking references for intended status: Proposed Standard
+  ----------------------------------------------------------------------------
+
+     (See RFCs 3967 and 4897 for information about using normative references
+     to lower-maturity documents in RFCs)
+
+  == Unused Reference: 'RFC3986' is defined on line 440, but no explicit
+     reference was found in the text
+     '[RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform...'
+
+  == Unused Reference: 'RFC6321' is defined on line 496, but no explicit
+     reference was found in the text
+     '[RFC6321]  Daboo, C., Douglass, M., and S. Lees, "xCal: The XML Form...'
+
+  == Unused Reference: 'RFC6351' is defined on line 500, but no explicit
+     reference was found in the text
+     '[RFC6351]  Perreault, S., "xCard: vCard XML Representation", RFC 635...'
+
+  == Unused Reference: 'RFC6352' is defined on line 504, but no explicit
+     reference was found in the text
+     '[RFC6352]  Daboo, C., "CardDAV: vCard Extensions to Web Distributed...'
+
+  == Unused Reference: 'RFC7095' is defined on line 509, but no explicit
+     reference was found in the text
+     '[RFC7095]  Kewisch, P., "jCard: The JSON Format for vCard", RFC 7095...'
+
+  == Unused Reference: 'RFC7265' is defined on line 513, but no explicit
+     reference was found in the text
+     '[RFC7265]  Kewisch, P., Daboo, C., and M. Douglass, "jCal: The JSON...'
+
+  == Unused Reference: 'RFC7953' is defined on line 517, but no explicit
+     reference was found in the text
+     '[RFC7953]  Daboo, C. and M. Douglass, "Calendar Availability", RFC 7...'
+
+  == Unused Reference: 'RFC7986' is defined on line 521, but no explicit
+     reference was found in the text
+     '[RFC7986]  Daboo, C., "New Properties for iCalendar", RFC 7986, DOI...'
+
+  == Unused Reference: 'RFC8259' is defined on line 525, but no explicit
+     reference was found in the text
+     '[RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Dat...'
+
+
+     Summary: 1 error (**), 0 flaws (~~), 10 warnings (==), 5 comments (--).
+

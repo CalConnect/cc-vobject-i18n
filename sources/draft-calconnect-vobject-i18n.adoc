@@ -1,0 +1,63 @@
+= vObject Internationalization
+:doctype: internet-draft
+:name: draft-calconnect-vobject-i18n-01
+:abbrev: vObject and vFormat
+:status: standard
+:ipr: trust200902
+:area: internet
+:intended-series: full-standard
+:workgroup: Calendaring Extensions
+:updates: 5545, 6321, 6350, 6351, 7953, 7265, 7095
+:revdate: 2018-06-08T00:00:00Z
+:fullname: Ronald Henry Tse
+:lastname: Tse
+:forename_initials: R. H.
+:organization: Ribose
+:street: Suite 1111, 1 Pedder Street
+:city: Central
+:country: Hong Kong
+:uri: https://www.ribose.com
+:email: ronald.tse@ribose.com
+:fullname_2: Peter Kwan Yu Tam
+:lastname_2: Tam
+:forename_initials_2: P.
+:organization_2: Ribose
+:street_2: Suite 1111, 1 Pedder Street
+:city_2: Central
+:country_2: Hong Kong
+:uri_2: https://www.ribose.com
+:email_2: peter.tam@ribose.com
+:fullname_3: Mike Douglass
+:lastname_3: Douglass
+:forename_initials_3: M.
+:organization_3: Spherical Cow Group
+:street_3: 226 3rd Street
+:city_3: Troy
+:code_3: 12180
+:region_3: NY
+:country_3: United States of America
+:uri_3: http://sphericalcowgroup.com
+:email_3: mdouglass@sphericalcowgroup.com
+:docfile: draft-calconnect-vobject-i18n.adoc
+:mn-document-class: ietf
+:mn-output-extensions: xmlrfc2,txt,html
+
+include::sections/00-abstract.adoc[]
+
+include::sections/01-intro.adoc[]
+
+include::sections-ietf/02-conventions.adoc[]
+include::sections/04-update-language.adoc[]
+include::sections/05-script.adoc[]
+include::sections/06-pronunciation.adoc[]
+include::sections/10-security.adoc[]
+include::sections/11-iana.adoc[]
+
+
+// must give references before appendix!
+
+include::sections-ietf/97-references.adoc[]
+
+// include::sections/98-examples.adoc[]
+include::sections/99-acknowledgements.adoc[]
+

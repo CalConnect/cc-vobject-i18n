@@ -5,7 +5,7 @@ vObject content and its realization in vFormat.
 
 This document updates the following specifications:
 
-* I-D.calconnect-vobject-vformat
+* I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax
 * RFC 6350, vCard version 4.0
 * RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)
 * RFC 7953, Calendar Availability Extensions

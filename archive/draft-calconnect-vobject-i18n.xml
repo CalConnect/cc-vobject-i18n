@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<?xml-stylesheet type="text/xsl" href="rfc2629.xslt"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC3986 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3986.xml">
+<!ENTITY RFC5545 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5545.xml">
+<!ENTITY RFC5646 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5646.xml">
+<!ENTITY RFC6350 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6350.xml">
+<!ENTITY RFC8126 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8126.xml">
+<!ENTITY RFC8174 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
+<!ENTITY RFC4791 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.4791.xml">
+<!ENTITY RFC5234 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5234.xml">
+<!ENTITY RFC6321 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6321.xml">
+<!ENTITY RFC6351 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6351.xml">
+<!ENTITY RFC6352 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6352.xml">
+<!ENTITY RFC7095 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7095.xml">
+<!ENTITY RFC7265 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7265.xml">
+<!ENTITY RFC7953 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7953.xml">
+<!ENTITY RFC7986 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.7986.xml">
+<!ENTITY RFC8259 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8259.xml">
+]>
+<?rfc strict="yes"?>
+<?rfc compact="yes"?>
+<?rfc subcompact="no"?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes"?>
+<rfc ipr="trust200902" updates="5545, 6321, 6350, 6351, 7953, 7265, 7095" category="std" submissionType="IETF" docName="draft-calconnect-vobject-i18n-00">
+<front>
+  <title abbrev="vObject and vFormat">vObject Internationalization</title>
+  <author fullname="Ronald Henry Tse" surname="Tse" initials="R. H.">
+    <organization>Ribose</organization>
+    <address>
+      <postal>
+        <street>Suite 1111, 1 Pedder Street</street>
+        <city>Central</city>
+        <country>Hong Kong</country>
+      </postal>
+      <email>ronald.tse@ribose.com</email>
+      <uri>https://www.ribose.com</uri>
+    </address>
+  </author>
+  <author fullname="Peter Kwan Yu Tam" surname="Tam" initials="P.">
+    <organization>Ribose</organization>
+    <address>
+      <postal>
+        <street>Suite 1111, 1 Pedder Street</street>
+        <city>Central</city>
+        <country>Hong Kong</country>
+      </postal>
+      <email>peter.tam@ribose.com</email>
+      <uri>https://www.ribose.com</uri>
+    </address>
+  </author>
+  <author fullname="Mike Douglass" surname="Douglass" initials="M.">
+    <organization>Spherical Cow Group</organization>
+    <address>
+      <postal>
+        <street>226 3rd Street</street>
+        <city>Troy</city>
+        <region>NY</region>
+        <code>12180</code>
+        <country>United States of America</country>
+      </postal>
+      <email>mdouglass@sphericalcowgroup.com</email>
+      <uri>http://sphericalcowgroup.com</uri>
+    </address>
+  </author>
+  <date day="8" month="June" year="2018"/>
+  <area>internet</area>
+  <workgroup>Calendaring Extensions</workgroup>
+
+<abstract><t>This document specifies mechanisms for the internationalization of
+vObject content and its realization in vFormat.</t>
+<t>This document updates the following specifications:</t>
+<t>
+  <list style="symbols">
+    <t>I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax</t>
+    <t>RFC 6350, vCard version 4.0</t>
+    <t>RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)</t>
+    <t>RFC 7953, Calendar Availability Extensions</t>
+  </list>
+</t>
+<t>This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</t></abstract>
+</front><middle>
+<section anchor="introduction" title="Introduction"><t>vCard <xref target="RFC6350"/> and iCalendar <xref target="RFC5545"/> are standards compliant to
+the vObject data model <xref target="I-D.calconnect-vobject-vformat-03"/>.</t>
+<t>These standards are used worldwide and require proper certain
+localization elements suitable for multi-cultural use.</t>
+<t>Previously, the only internationalization method for
+vCard <xref target="RFC6350"/> and iCalendar <xref target="RFC5545"/> standards was
+the <spanx style="verb">language</spanx> property parameter (<xref target="RFC5545">3.2.10</xref>).</t>
+<t>This document:</t>
+<t>
+  <list style="symbols">
+    <t>defines additional internationalization features for the vObject data model,
+including a separate property parameter that denotes the script used in a
+property value, and a method to specify pronunciation of a property value</t>
+    <t>defines realization methods of vObject internationalization in vFormat</t>
+  </list>
+</t>
+<t>The methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <xref target="RFC6350"/> and
+iCalendar <xref target="RFC5545"/>.</t>
+<t>This is a work product of the CalConnect TC-VCARD <xref target="CALCONNECT-VCARD"/>
+and TC-CALENDAR <xref target="CALCONNECT-CALENDAR"/> committees.</t></section>
+<section anchor="conventions" title="Terms and Definitions"><t>The key words "<spanx style="strong">MUST</spanx>", "<spanx style="strong">MUST NOT</spanx>", "<spanx style="strong">REQUIRED</spanx>", "<spanx style="strong">SHALL</spanx>", "<spanx style="strong">SHALL NOT</spanx>",
+"<spanx style="strong">SHOULD</spanx>", "<spanx style="strong">SHOULD NOT</spanx>", "<spanx style="strong">RECOMMENDED</spanx>", "<spanx style="strong">NOT RECOMMENDED</spanx>", "<spanx style="strong">MAY</spanx>",
+and "<spanx style="strong">OPTIONAL</spanx>" in this document are to be interpreted as
+described in BCP 14 <xref target="RFC2119"/> <xref target="RFC8174"/> when, and only when, they
+appear in all capitals, as shown here.</t>
+<t>The key words "<spanx style="strong">Private Use</spanx>", "<spanx style="strong">Experimental Use</spanx>",
+"<spanx style="strong">Hierarchical Allocation</spanx>", "<spanx style="strong">First Come First Served</spanx>",
+"<spanx style="strong">Expert Review</spanx>", "<spanx style="strong">Specification Required</spanx>", "<spanx style="strong">RFC Required</spanx>",
+"<spanx style="strong">IETF Review</spanx>", "<spanx style="strong">Standards Action</spanx>" and "<spanx style="strong">IESG Approval</spanx>" in
+this document are to be interpreted as described in <xref target="RFC8126">4</xref>.</t>
+<t>Notation in this document is described in ABNF <xref target="RFC5234"/> as used by
+<xref target="RFC6350"/>.</t>
+<t>Definitions from <xref target="RFC6350"/> apply to this specification except when
+explicitly overridden.</t>
+<t>All names of properties, property parameters, enumerated property
+values, and property parameter values are case-insensitive. However,
+all property values are case-sensitive, unless otherwise stated.</t>
+<section anchor="_definitions" title="Definitions">
+  <t>
+  <list style="hanging">
+    <t hangText="phonetic system"><vspace blankLines="0"/>method of transcription of language in a script that allows
+phonetic reproduction</t>
+  </list>
+</t>
+</section></section>
+<section anchor="pp-language" title="Property Parameter Usage Clarification: LANGUAGE"><t>This section clarifies the intent of the <spanx style="verb">LANGUAGE</spanx> property
+parameter in <xref target="RFC5545"/> and <xref target="RFC6350"/> to be for the
+identification of the language used in the property value
+where the parameter is specified.</t>
+<t>The <xref target="RFC5646"/> defined <spanx style="verb">language-tag</spanx> allows specification
+of multiple attributes (called "subtags") in addition
+to just language. Its basic form includes:</t>
+<t>
+  <list style="symbols">
+    <t>a mandatory language subtag, using a language identifier
+from ISO 639 (-2, -3) (called a "primary" or "extended" language subtag)</t>
+    <t>an optional script subtag, using a script identifier
+from ISO 15924</t>
+    <t>an optional region subtag, using country codes listed in ISO 3166
+or a UN numeric code</t>
+    <t>one or more, optional, variant and extension subtags
+defined in the IANA language subtag registry.</t>
+  </list>
+</t>
+<t>In practical usage of vObject standards, including
+<xref target="RFC5545"/> and <xref target="RFC6350"/>, it is determined that
+the combinatorial enumeration of non-language subtags often cause
+unnecessary confusion in interpretation and parsing, especially
+when the registry contain variant and extension subtags that either
+conflict in semantics or have overly restrictive in their
+supported prefixes.</t>
+<t>This document therefore clarifies the intent of
+<xref target="RFC5545">3.2.10</xref> and <xref target="RFC6350">5.1</xref>, such that
+the <spanx style="verb">LANGUAGE</spanx> property parameter <spanx style="strong">SHOULD</spanx> only support
+the mandatory language subtag.</t>
+<t>Other subtags <spanx style="strong">MAY</spanx> be supplied as specified in <xref target="RFC5646"/>,
+but they are purely for informational purposes not used
+in the vObject specification.</t>
+<t>
+  <list style="hanging">
+    <t hangText="Namespace"/>
+    <t hangText="Property parameter name">
+      <vspace blankLines="0"/><spanx style="verb">LANGUAGE</spanx>
+    </t>
+    <t hangText="Purpose"><vspace blankLines="0"/>To specify the language used in the property value.</t>
+    <t hangText="Value type"><vspace blankLines="0"/><spanx style="verb">LANGUAGE-TAG</spanx> <xref target="RFC6350">4.8</xref></t>
+    <t hangText="Description"><vspace blankLines="0"/>As provided above.</t>
+  </list>
+</t>
+<section anchor="_vformat_implementation_of_language" title="vFormat Implementation of LANGUAGE"><t>The value of the <spanx style="verb">LANGUAGE</spanx> property parameter is
+re-defined as shown below.</t>
+<t>
+  <list style="hanging">
+    <t hangText="Format definition"/>
+  </list>
+</t>
+<figure>
+  <artwork type="abnf"><![CDATA[
+languageparam = "LANGUAGE" "=" language *(subpart)
+
+language = iso-639-3-code / iso-639-2-code
+          ; a 2-alpha or 3-alpha language code
+          ; defined in ISO 639
+
+subpart  = "-" *alphanum
+           ; all other subparts unsupported
+]]></artwork>
+</figure>
+<t>
+  <list style="hanging">
+    <t hangText="Examples"/>
+  </list>
+</t>
+<figure>
+  <artwork><![CDATA[
+N;LANGUAGE=en:Miyazaki;Hayao;;;
+N;LANGUAGE=jp:&#23470;&#23822;;&#39423;;;;
+]]></artwork>
+</figure></section></section>
+<section anchor="pp-script" title="Property Parameter: SCRIPT"><t>The <spanx style="verb">SCRIPT</spanx> property parameter specifies the written script
+used in the property value which contains the parameter,
+which is amongst the valid codes in the ISO 15924 registry.</t>
+<t>It is separated from the <spanx style="verb">LANGUAGE</spanx> property parameter
+defined in <xref target="RFC5545"/> and <xref target="RFC6350"/> for reasons
+stated in <xref target="pp-language"/>.</t>
+<t>
+  <list style="hanging">
+    <t hangText="Namespace"/>
+    <t hangText="Property parameter name"><vspace blankLines="0"/>SCRIPT</t>
+    <t hangText="Purpose"><vspace blankLines="0"/>To specify the script used in the property
+value, which is amongst the valid codes in the ISO 15924 registry.</t>
+    <t hangText="Value type"><vspace blankLines="0"/>TEXT, a single value valid in the ISO 15924 script registry.</t>
+    <t hangText="Description"><vspace blankLines="0"/>The property value of which this property parameter
+applies to must have identical structure to</t>
+  </list>
+</t>
+<section anchor="_vformat_implementation_of_script" title="vFormat Implementation of SCRIPT"><t>
+  <list style="hanging">
+    <t hangText="Format definition"/>
+  </list>
+</t>
+<figure>
+  <artwork type="abnf"><![CDATA[
+scriptparam = "SCRIPT" "=" script-code
+            ; script-code defined in the value type SCRIPT-CODE
+]]></artwork>
+</figure>
+<t>
+  <list style="hanging">
+    <t hangText="Examples"/>
+  </list>
+</t>
+<figure>
+  <artwork><![CDATA[
+N;SCRIPT=Hira;LANGUAGE=jp:&#12415;&#12420;&#12374;&#12365;;&#12399;&#12420;&#12362;;;;
+N;SCRIPT=Hani;LANGUAGE=jp:&#23470;&#23822;;&#39423;;;;
+]]></artwork>
+</figure></section></section>
+<section anchor="pp-phonetic" title="Property Parameter: PHONETIC"><t>A number of contact managers have long used "X-properties"
+to to store phonetic information of a vCard&#8217;s subject, such as
+<spanx style="verb">X-PHONETIC-NAME</spanx>, <spanx style="verb">X-PHONETIC-FIRST-NAME</spanx> and <spanx style="verb">X-PHONETIC-LAST-NAME</spanx>.</t>
+<t>However, this is an issue for multiple reasons:</t>
+<t>
+  <list style="symbols">
+    <t>The value of the X-property does not define the phonetic system
+used for its transcription;</t>
+    <t>This X-property usage does not enable interoperability since
+it does not require specification of the language transcribed,
+as well as the script of the resulting transcription;</t>
+    <t>The scheme of using X-properties does not allow representation
+of phonetics on other vCard values.</t>
+  </list>
+</t>
+<t>This section defines three property parameters used to
+store pronunciation information of a property value:</t>
+<t>
+  <list style="numbers">
+    <t>The script used in the pronunciation system;</t>
+    <t>An identifier of the pronunciation system used;</t>
+    <t>The source language that was transcribed by the pronunciation system.</t>
+  </list>
+</t>
+<t>The <spanx style="verb">PHONETIC</spanx> property parameter specifies the phonetic
+system used in the transcription of the property value,
+identified by the phonetic system code from the ISO XXXXX
+phonetic system registry.</t>
+<t>This property parameter is often applied together with
+the <spanx style="verb">LANGUAGE</spanx> (<xref target="pp-language"/>)
+and <spanx style="verb">SCRIPT</spanx> (<xref target="pp-script"/>) property parameters.</t>
+<t>
+  <list style="hanging">
+    <t hangText="Namespace"/>
+    <t hangText="Property parameter name"><vspace blankLines="0"/>PHONETIC</t>
+    <t hangText="Purpose"><vspace blankLines="0"/>To specify the phonetic system used in the property
+value, which is amongst the valid codes in the ISO XXXXX registry.</t>
+    <t hangText="Value type"><vspace blankLines="0"/>TEXT, a single value valid in the ISO XXXXX phonetic system registry.</t>
+    <t hangText="Description"><vspace blankLines="0"/>The property value of which this property parameter
+applies to must take an identical structure to the property
+value without application of this property parameter.</t>
+  </list>
+</t>
+<section anchor="_vformat_implementation_of_phonetic" title="vFormat Implementation of PHONETIC"><t>
+  <list style="hanging">
+    <t hangText="Format definition"/>
+  </list>
+</t>
+<figure>
+  <artwork type="abnf"><![CDATA[
+phoneticparam = "PHONETIC" "=" phonetic
+phonetic      = 4ALPHA  ; ISO XXXXX 4-digit phonetic system code
+]]></artwork>
+</figure>
+<t>
+  <list style="hanging">
+    <t hangText="Examples"/>
+  </list>
+</t>
+<figure>
+  <artwork><![CDATA[
+N;SCRIPT=Hant;LANGUAGE=zho:&#23403;;&#20013;&#23665;;&#25991;,&#36920;&#20185;;;
+N;SCRIPT=Hans;LANGUAGE=zho:&#23385;;&#20013;&#23665;;&#25991;,&#36920;&#20185;;;
+N;PHONETIC=jyut;SCRIPT=Latn;LANGUAGE=yue:syun1;zung1saan1;man4,jat6sin1;;
+N;PHONETIC=ping;SCRIPT=Latn;LANGUAGE=cmn:sun;zhongshan;rixian;;
+]]></artwork>
+</figure></section></section>
+<section anchor="security" title="Security Considerations"><t>Security considerations of the vObject formats
+themselves <spanx style="strong">MUST</spanx> be adhered to, including:</t>
+<t>
+  <list style="symbols">
+    <t>vCard: <xref target="RFC6350"/></t>
+    <t>iCalendar: <xref target="RFC5545"/>, <xref target="RFC4791"/></t>
+    <t>vObject: <xref target="I-D.calconnect-vobject-vformat-03"/></t>
+  </list>
+</t>
+<t>vObject formats, especially for calendaring, scheduling
+and contact exchange, often involve privacy-sensitive information.
+Internationalization features defined in this document
+<spanx style="strong">MAY</spanx> pose risk of exposing private information if
+interchanged through unprotected communication channels.</t>
+<t>Mechanisms used for the transmission of such information
+should implement security measures to protect against possible threats,
+such as eavesdropping, replay, message insertion, deletion,
+modification, and man-in-the-middle attacks.</t></section>
+<section anchor="iana" title="IANA Considerations"><t>IANA is requested to register the following property parameters
+and value types in the corresponding iCalendar and vCard registries.</t>
+<section anchor="_icalendar_and_vcard_property_parameter_registration_script" title="iCalendar and vCard Property Parameter Registration: SCRIPT">
+  <t>
+  <list style="hanging">
+    <t hangText="Namespace"/>
+    <t hangText="Parameter name"><vspace blankLines="0"/>SCRIPT</t>
+    <t hangText="Purpose"><vspace blankLines="0"/>Given in <xref target="pp-script"/>.</t>
+    <t hangText="Description"><vspace blankLines="0"/>Given in <xref target="pp-script"/>.</t>
+    <t hangText="Format definition"><vspace blankLines="0"/>Given in <xref target="pp-script"/>.</t>
+    <t hangText="Examples"><vspace blankLines="0"/>Given in <xref target="pp-script"/>.</t>
+  </list>
+</t>
+</section>
+<section anchor="_icalendar_and_vcard_property_parameter_registration_phonetic" title="iCalendar and vCard Property Parameter Registration: PHONETIC">
+  <t>
+  <list style="hanging">
+    <t hangText="Namespace"/>
+    <t hangText="Parameter name"><vspace blankLines="0"/>PHONETIC</t>
+    <t hangText="Purpose"><vspace blankLines="0"/>Given in <xref target="pp-phonetic"/>.</t>
+    <t hangText="Description"><vspace blankLines="0"/>Given in <xref target="pp-phonetic"/>.</t>
+    <t hangText="Format definition"><vspace blankLines="0"/>Given in <xref target="pp-phonetic"/>.</t>
+    <t hangText="Examples"><vspace blankLines="0"/>Given in <xref target="pp-phonetic"/>.</t>
+  </list>
+</t>
+</section>
+<section anchor="_icalendar_and_vcard_registration_for_value_data_type_script_code" title="iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE"><t>
+  <list style="hanging">
+    <t hangText="Value name"><vspace blankLines="0"/>SCRIPT-CODE</t>
+    <t hangText="Purpose"><vspace blankLines="0"/>Indicate script used in property value
+using a valid value from the ISO 15924 registry.</t>
+    <t hangText="Description"><vspace blankLines="0"/>Used by the SCRIPT property parameter.</t>
+    <t hangText="Format definition"/>
+  </list>
+</t>
+<figure>
+  <artwork type="abnf"><![CDATA[
+script-code = 4ALPHA
+            ; ISO 15924 4-digit script code
+]]></artwork>
+</figure>
+<t>
+  <list style="hanging">
+    <t hangText="Examples"><vspace blankLines="0"/><spanx style="verb">Latn</spanx>, <spanx style="verb">Cyrl</spanx>, <spanx style="verb">Hani</spanx></t>
+  </list>
+</t></section>
+<section anchor="_icalendar_and_vcard_registration_for_value_data_type_phonetic_code" title="iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE"><t>
+  <list style="hanging">
+    <t hangText="Value name"><vspace blankLines="0"/>PHONETIC-CODE</t>
+    <t hangText="Purpose"><vspace blankLines="0"/>Indicate phonetic system used in the transcription
+of property value,
+using a valid value from the ISO XXXXX registry.</t>
+    <t hangText="Description"><vspace blankLines="0"/>Used by the SCRIPT property parameter.</t>
+    <t hangText="Format definition"/>
+  </list>
+</t>
+<figure>
+  <artwork type="abnf"><![CDATA[
+phonetic-code = 4ALPHA
+              ; ISO XXXXX 4-digit script code
+]]></artwork>
+</figure>
+<t>
+  <list style="hanging">
+    <t hangText="Examples"><vspace blankLines="0"/><spanx style="verb">ipa</spanx>, <spanx style="verb">jyut</spanx>, <spanx style="verb">ping</spanx></t>
+  </list>
+</t></section></section>
+</middle><back>
+<references title="Normative References">
+  &RFC2119;
+  &RFC3986;
+  &RFC5545;
+  &RFC5646;
+  &RFC6350;
+  &RFC8126;
+  &RFC8174;
+</references>
+<references title="Informative References">
+  <reference anchor="CALCONNECT-CALENDAR" target="https://www.calconnect.org/about/technical-committees/calendar-technical-committee">
+  <front>
+    <title>CalConnect CALENDAR Technical Committee</title>
+    <author>
+      <organization>The Calendaring and Scheduling Consortium</organization>
+      <address>
+        <postal>
+         <street>4390 Chaffin Lane</street>
+         <city>McKinleyville</city>
+         <region>CA</region>
+         <code>95519-8028</code>
+         <country>United States of America</country>
+        </postal>
+        <email>contact@calconnect.org</email>
+        <uri>https://www.calconnect.org</uri>
+      </address>
+    </author>
+    <date month="April" year="2018"/>
+  </front>
+</reference>
+  <reference anchor="CALCONNECT-VCARD" target="http://www.calconnect.org/about/technical-committees/vcard-technical-committee">
+  <front>
+    <title>CalConnect VCARD Technical Committee</title>
+    <author>
+      <organization>The Calendaring and Scheduling Consortium</organization>
+      <address>
+        <postal>
+         <street>4390 Chaffin Lane</street>
+         <city>McKinleyville</city>
+         <region>CA</region>
+         <code>95519-8028</code>
+         <country>United States of America</country>
+        </postal>
+        <email>contact@calconnect.org</email>
+        <uri>https://www.calconnect.org</uri>
+      </address>
+    </author>
+    <date month="April" year="2018"/>
+  </front>
+</reference>
+  <reference anchor="I-D.calconnect-vobject-vformat-03">
+<front>
+<title>The vObject Model and vFormat Syntax</title>
+
+<author initials="R" surname="Tse" fullname="Ronald Tse">
+    <organization/>
+</author>
+
+<author initials="P" surname="Tam" fullname="Peter Tam">
+    <organization/>
+</author>
+
+<author initials="C" surname="Daboo" fullname="Cyrus Daboo">
+    <organization/>
+</author>
+
+<author initials="K" surname="Murchison" fullname="Ken Murchison">
+    <organization/>
+</author>
+
+<date month="June" day="2" year="2018"/>
+
+<abstract><t>This document specifies the vObject data model and its corresponding syntax vFormat.  vObject represents the generalized data model, and vFormat the generalized data format, of the following specifications and fully covers them:  o  RFC 6350, vCard version 4.0: the VCARD component;  o  RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar): the VCALENDAR, VEVENT, VJOURNAL, VFREEBUSY, VTIMEZONE, VALARM, VTODO, STANDARD and DAYLIGHT components;  o  RFC 7953, Calendar Availability Extensions: the VAVAILABILITY and AVAILABLE components;  o  I-Ddaboo-icalendar-vpatch, iCalendar Patching: the VPATCH component; and  o  alternative formats for iCalendar and vCard, including RFC 6321, xCal; RFC 7265, jCal; RFC 6351, xCard; and RFC 7095, jCard.  This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</t></abstract>
+
+</front>
+
+<seriesInfo name="Internet-Draft" value="draft-calconnect-vobject-vformat-03"/>
+<format type="TXT" target="http://www.ietf.org/internet-drafts/draft-calconnect-vobject-vformat-03.txt"/>
+</reference>
+  &RFC4791;
+  &RFC5234;
+  &RFC6321;
+  &RFC6351;
+  &RFC6352;
+  &RFC7095;
+  &RFC7265;
+  &RFC7953;
+  &RFC7986;
+  &RFC8259;
+</references>
+</back>
+</rfc>

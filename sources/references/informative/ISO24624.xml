@@ -1,0 +1,19 @@
+<reference anchor='ISO24624' target='https://www.iso.org'>
+  <front>
+    <title>ISO 24624 Language resource management -- Transcription of spoken language</title>
+    <author>
+      <organization>International Organization for Standardization</organization>
+      <address>
+        <postal>
+         <street>Chemin de Blandonnet 8</street>
+				 <street>1214 Vernier</street>
+         <city>Geneva</city>
+         <country>Switzerland</country>
+        </postal>
+        <uri>https://www.iso.org</uri>
+      </address>
+    </author>
+    <date month='April' year='2016'/>
+  </front>
+</reference>
+

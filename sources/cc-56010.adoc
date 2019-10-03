@@ -1,0 +1,48 @@
+= vObject -- Internationalization
+:docnumber: 56010
+:copyright-year: 2019
+:language: en
+:doctype: standard
+:edition: 1
+:status: working-draft
+:revdate: 2018-06-08
+:published-date: 2019-06-05
+:script: Latn
+:technical-committee: VCARD
+:fullname: Ronald Tse
+:surname: Tse
+:givenname: Ronald
+:fullname_2: Peter Kwan Yu
+:surname_2: Tam
+:givenname_2: Jeffrey
+:fullname_3: Mike Douglass
+:surname_3: Douglass
+:givenname_3: Mike
+:draft:
+:toc:
+:stem:
+:xrefstyle: short
+:docfile: cc-56010.adoc
+:mn-document-class: csd
+:mn-output-extensions: xml,html,pdf,rxl
+:local-cache-only:
+:data-uri-image:
+
+:sectnums!:
+
+include::sections/00-abstract.adoc[]
+include::sections/01-intro.adoc[]
+
+:sectnums:
+
+include::sections/01-scope.adoc[]
+include::sections/02-normative-references.adoc[]
+include::sections/03-terms.adoc[]
+include::sections/04-update-language.adoc[]
+include::sections/05-script.adoc[]
+include::sections/06-pronunciation.adoc[]
+include::sections/10-security.adoc[]
+include::sections/11-iana.adoc[]
+
+include::sections/99-acknowledgements.adoc[]
+include::sections/97-references.adoc[]
