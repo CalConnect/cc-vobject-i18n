@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ietf-standard xmlns="https://www.metanorma.org/ns/ietf">
+<bibdata type="standard">
+<title language="en" format="text/plain" type="main">vObject Internationalization</title>
+<title language="en" format="text/plain" type="abbrev">vObject and vFormat</title>
+<uri>https://www.ribose.com</uri>
+
+
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Ronald Henry Tse</completename>
+</name>
+<email>ronald.tse@ribose.com</email>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Peter Kwan Yu Tam</completename>
+</name>
+<email>peter.tam@ribose.com</email>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Mike Douglass</completename>
+</name>
+<email>mdouglass@sphericalcowgroup.com</email>
+</person>
+</contributor>
+<contributor>
+<role type="publisher"/>
+<organization>
+<name>Internet Engineering Task Force</name>
+<abbreviation>IETF</abbreviation>
+</organization>
+</contributor>
+<version>
+<revision-date>2018-06-08T00:00:00Z</revision-date>
+</version>
+<language>en</language>
+<script>Latn</script>
+<status>
+<stage>standard</stage>
+</status>
+<copyright>
+<from>2020</from>
+<owner>
+<organization>
+<name>Internet Engineering Task Force</name>
+<abbreviation>IETF</abbreviation>
+</organization>
+</owner>
+</copyright>
+<relation type="updates">
+<bibitem>
+<title>6321</title>
+<docidentifier>5545</docidentifier>
+</bibitem>
+</relation>
+<series type="stream">
+<title>IETF</title>
+</series>
+<series type="intended">
+<title>full-standard</title>
+</series>
+<ext>
+<doctype>internet-draft</doctype>
+<editorialgroup>
+<workgroup>Calendaring Extensions</workgroup>
+</editorialgroup>
+<area>internet</area>
+<ipr>trust200902</ipr>
+<pi>
+<toc>yes</toc>
+</pi>
+</ext>
+</bibdata>
+<preface><foreword id="_40bc1708-4e2e-45b5-9cf5-3af97ee521b4" obligation="informative"><title>Foreword</title>
+<p id="_08453340-a19c-410b-9640-a45c2eb0898f">This document updates the following specifications:</p>
+<ul id="_656b1548-2f54-46d4-a635-f330703e8bad">
+<li>
+<p id="_bb2a9d16-502e-4a7a-98df-19ccd53074f7">I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax</p>
+</li>
+<li>
+<p id="_a8e61e11-fa63-432a-a097-fdb23e214e27">RFC 6350, vCard version 4.0</p>
+</li>
+<li>
+<p id="_7c8f1795-1de0-41af-ad2a-0b073d27919d">RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)</p>
+</li>
+<li>
+<p id="_a8f4beca-f3be-438f-acbc-c4949b4ecf73">RFC 7953, Calendar Availability Extensions</p>
+</li>
+</ul>
+<p id="_da51439e-a2fa-49db-904e-86e9b6cd1438">This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</p></foreword><annex id="_f914305d-40db-4330-bc8b-98d7fb30a653" obligation="" language="" script=""><acknowledgements id="_acknowledgements" obligation="informative"><title>Acknowledgements</title><p id="_6e221413-987d-49d5-8f71-dc1a65231b52">The authors wish to thank their families and the following parties who
+helped this materialize and for their support of a better and
+vObject-enabled world:</p>
+<ul id="_46f42358-6832-4ed9-95d4-cac72efce95e">
+<li>
+<p id="_01a849a7-e9ee-468d-b2ca-3587589f5de6">The CalConnect TC-VCARD and TC-CALENDAR committees</p>
+</li>
+<li>
+<p id="_9c3a7cbe-8a36-4dc2-bf1c-5850173ab03e">The CalConnect Technical Coordination Committee ("TCC")</p>
+</li>
+<li>
+<p id="_3563da8b-a98c-44ce-a03f-c77a48b5e23e">Members and the Board of Directors of CalConnect</p>
+</li>
+</ul></acknowledgements></annex></preface><sections>
+<clause id="introduction" inline-header="false" obligation="normative"><title>Introduction</title><p id="_9d66bbd4-f121-45db-9ff7-a1f08e2328e0">vCard <xref target="RFC6350"/> and iCalendar <xref target="RFC5545"/> are standards compliant to
+the vObject data model <xref target="I-D.calconnect-vobject-vformat-03"/>.</p>
+<p id="_de0c3bdf-f3bb-4f53-91c4-c1b743e3376d">These standards are used worldwide and require proper certain
+localization elements suitable for multi-cultural use.</p>
+<p id="_5f82288d-5b2d-4e67-b75e-2732a8311049">Previously, the only internationalization method for
+vCard <xref target="RFC6350"/> and iCalendar <xref target="RFC5545"/> standards was
+the <tt>language</tt> property parameter (<xref target="RFC5545">3.2.10</xref>).</p>
+<p id="_288a8280-c975-4ece-a5de-17be8e187971">This document:</p>
+<ul id="_906a6efc-7ffe-41a7-83ae-d24b9c71c28b">
+<li>
+<p id="_4442feca-3214-48d9-8193-c703b6ebed1a">defines additional internationalization features for the vObject data model,
+including a separate property parameter that denotes the script used in a
+property value, and a method to specify pronunciation of a property value</p>
+</li>
+<li>
+<p id="_2459db98-c5eb-459e-88df-31e2ad230f9c">defines realization methods of vObject internationalization in vFormat</p>
+</li>
+</ul>
+<p id="_3df93af4-4adf-4a84-bc4a-02abf5d08f4a">The methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <xref target="RFC6350"/> and
+iCalendar <xref target="RFC5545"/>.</p>
+<p id="_7ae57f4b-6c2a-4ee3-a2a1-bfa3f43e82b9">This is a work product of the CalConnect TC-VCARD <xref target="CALCONNECT-VCARD"/>
+and TC-CALENDAR <xref target="CALCONNECT-CALENDAR"/> committees.</p></clause>
+<terms id="conventions" obligation="normative"><title>Terms and definitions</title><p id="_17162033-ad2c-4232-83e2-3cf69d924032">For the purposes of this document, 
+    the following terms and definitions apply.</p>
+
+
+
+
+
+<term id="_definitions"><preferred>Definitions</preferred><dl id="_b626033b-b48f-476b-94c6-b84ca1a510e5">
+<dt>phonetic system</dt>
+<dd>
+<p id="_c0e90498-aeae-4f3b-a62f-aaf39393d18a">method of transcription of language in a script that allows
+phonetic reproduction</p>
+</dd>
+<dt>transliteration</dt>
+<dd>
+<p id="_4bcf7460-986e-4894-b010-e11b3fae4742">operation which consists of representing the characters  of an entirely alphabetical character or alphanumeric character writing system  by the characters of the conversion alphabet</p>
+</dd>
+</dl>
+
+<dl id="_2360ce4c-eb27-448a-b989-4aa22976f042">
+<dt>script</dt>
+<dd>
+<p id="_a5f82528-63d0-4c44-9821-aa1444be7403">particular graphic representation or class of representations of a set of characters used to write one or more languages</p>
+</dd>
+</dl>
+
+<dl id="_69b44578-26b2-4e2f-b710-f1bcc3948da0">
+<dt>phonetic transcription</dt>
+<dd>
+<p id="_8f256b10-2f52-4d4f-ba47-f4f4fa463596">representation or modelling of spoken language based on the sound system of the respective language
+<xref target="ISO24624">3.5</xref></p>
+</dd>
+</dl><termsource status="identical">
+<origin bibitemid="ISO5127" type="inline" citeas="">3.1.6.11</origin>
+</termsource><termsource status="identical">
+<origin bibitemid="ISO5127" type="inline" citeas="">3.1.6.02</origin>
+</termsource></term></terms>
+<clause id="pp-language" inline-header="false" obligation="normative"><title>Property Parameter Usage Clarification: LANGUAGE</title><p id="_5cceb834-cc38-4701-8737-80a92b5b078a">This section clarifies the intent of the <tt>LANGUAGE</tt> property
+parameter in <xref target="RFC5545"/> and <xref target="RFC6350"/> to be for the
+identification of the language used in the property value
+where the parameter is specified.</p>
+<p id="_3b828cb0-9a90-4f06-a32d-10f3e194fc7e">The <xref target="RFC5646"/> defined <tt>language-tag</tt> allows specification
+of multiple attributes (called "subtags") in addition
+to just language. Its basic form includes:</p>
+<ul id="_ce4438a9-7543-45ed-a5d7-afb186e902f2">
+<li>
+<p id="_d5b04883-c5c8-454b-9f84-8abc0c26cbcb">a mandatory language subtag, using a language identifier
+from ISO 639 (-2, -3) (called a "primary" or "extended" language subtag)</p>
+</li>
+<li>
+<p id="_a038dcff-0146-4e87-a1c0-510e1ef62515">an optional script subtag, using a script identifier
+from ISO 15924</p>
+</li>
+<li>
+<p id="_866412b5-204e-4610-a462-6eaf2d17b733">an optional region subtag, using country codes listed in ISO 3166
+or a UN numeric code</p>
+</li>
+<li>
+<p id="_cdeb5b79-5181-4767-a332-b56189028d10">one or more, optional, variant and extension subtags
+defined in the IANA language subtag registry.</p>
+</li>
+</ul>
+<p id="_30cc1bc1-62a3-476e-8837-fe7b3bc431d9">In practical usage of vObject standards, including
+<xref target="RFC5545"/> and <xref target="RFC6350"/>, it is determined that
+the combinatorial enumeration of non-language subtags often cause
+unnecessary confusion in interpretation and parsing, especially
+when the registry contain variant and extension subtags that either
+conflict in semantics or have overly restrictive in their
+supported prefixes.</p>
+<p id="_2eebb1c0-40bf-49ec-8b21-e9a021b0e5a7">This document therefore clarifies the intent of
+<xref target="RFC5545">3.2.10</xref> and <xref target="RFC6350">5.1</xref>, such that
+the <tt>LANGUAGE</tt> property parameter <bcp14>SHOULD</bcp14> only support
+the mandatory language subtag.</p>
+<p id="_f81ba383-80c4-4330-8e24-64e12d448c5b">Other subtags <bcp14>MAY</bcp14> be supplied as specified in <xref target="RFC5646"/>,
+but they are purely for informational purposes not used
+in the vObject specification.</p>
+<dl id="_f496445f-aaa3-453c-8f22-86c5f9bba76f">
+<dt>Namespace</dt>
+<dd/>
+<dt>Property parameter name</dt>
+<dd>
+<p id="_a89545e1-5e2b-4dea-bc1f-d758ea0000d8">
+<tt>LANGUAGE</tt>
+</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_c8fe7667-2833-4b0b-9251-5d8506fb37c7">To specify the language used in the property value.</p>
+</dd>
+<dt>Value type</dt>
+<dd>
+<p id="_713fdb45-e1c8-4107-8734-4f13ee6e33ce"><tt>LANGUAGE-TAG</tt> <xref target="RFC6350">4.8</xref></p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_3412377d-ddad-4515-8394-ec98a2b6bec6">As provided above.</p>
+</dd>
+</dl>
+<clause id="_vformat_implementation_of_language" inline-header="false" obligation="normative"><title>vFormat Implementation of LANGUAGE</title><p id="_db26a14c-1253-4776-8368-1c4287bc4569">The value of the <tt>LANGUAGE</tt> property parameter is
+re-defined as shown below.</p>
+<dl id="_92adff71-04d6-4490-917c-436895170ef6">
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_5d810d7e-af12-4a61-bb44-1a872748e185">languageparam = "LANGUAGE" "=" language *(subpart)
+
+language = iso-639-3-code / iso-639-2-code
+          ; a 2-alpha or 3-alpha language code
+          ; defined in ISO 639
+
+subpart  = "-" *alphanum
+           ; all other subparts unsupported</sourcecode>
+
+<dl id="_4811aa97-fb67-4073-b090-d6453f392627">
+<dt>Examples</dt>
+<dd/>
+</dl>
+<sourcecode id="_ff37d1e4-e078-4c83-961d-d6f161d17270">N;LANGUAGE=en:Miyazaki;Hayao;;;
+N;LANGUAGE=jp:宮崎;駿;;;</sourcecode>
+</clause></clause>
+<clause id="pp-script" inline-header="false" obligation="normative"><title>Property Parameter: SCRIPT</title><p id="_356ee883-f6af-4f66-81db-0255de5d6c4d">The <tt>SCRIPT</tt> property parameter specifies the written script
+used in the property value which contains the parameter,
+which is amongst the valid codes in the ISO 15924 registry.</p>
+<p id="_6051246f-6661-424d-be33-1fe4b9c0b7a0">It is separated from the <tt>LANGUAGE</tt> property parameter
+defined in <xref target="RFC5545"/> and <xref target="RFC6350"/> for reasons
+stated in <xref target="pp-language"/>.</p>
+<dl id="_56d8cf38-514d-4de4-837e-3c14e863a5d0">
+<dt>Namespace</dt>
+<dd/>
+<dt>Property parameter name</dt>
+<dd>
+<p id="_86e92e25-13a0-4747-9de7-0dd15441a7b3">SCRIPT</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_acfd8e45-ab2f-4f40-8ece-761ec3f095a6">To specify the script used in the property
+value, which is amongst the valid codes in the ISO 15924 registry.</p>
+</dd>
+<dt>Value type</dt>
+<dd>
+<p id="_f8425be8-66eb-41e8-a1fc-9742f11d16d6">TEXT, a single value valid in the ISO 15924 script registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_520c6aea-e28c-46ca-b01b-86891ca7aa6f">The property value of which this property parameter
+applies to must have identical structure to</p>
+</dd>
+</dl>
+<clause id="_vformat_implementation_of_script" inline-header="false" obligation="normative"><title>vFormat Implementation of SCRIPT</title><dl id="_e2f85f12-9c58-48d5-8d15-53f2a5d48cf5">
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_798e36a2-1575-4612-a474-14dc20130122">scriptparam = "SCRIPT" "=" script-code
+            ; script-code defined in the value type SCRIPT-CODE</sourcecode>
+
+<dl id="_9cc26a1b-7643-49ac-a508-c99859a93443">
+<dt>Examples</dt>
+<dd/>
+</dl>
+<sourcecode id="_a95497e2-cd3f-40a6-9808-2db522d0a6ba">N;SCRIPT=Hira;LANGUAGE=jp:みやざき;はやお;;;
+N;SCRIPT=Hani;LANGUAGE=jp:宮崎;駿;;;</sourcecode>
+</clause></clause>
+<clause id="pp-phonetic" inline-header="false" obligation="normative"><title>Property Parameter: PHONETIC</title><p id="_787f77cb-7145-419d-ad07-9a42a61b3635">A number of contact managers have long used "X-properties"
+to to store phonetic information of a vCard's subject, such as
+<tt>X-PHONETIC-NAME</tt>, <tt>X-PHONETIC-FIRST-NAME</tt> and <tt>X-PHONETIC-LAST-NAME</tt>.</p>
+<p id="_0e9a8c2b-beb0-4435-a0bc-76fff12b03eb">However, this is an issue for multiple reasons:</p>
+<ul id="_f15bd984-385d-4b03-b9eb-d29f5f5a7282">
+<li>
+<p id="_c9418d1f-47a7-47b8-9739-1886d2e15fc5">The value of the X-property does not define the phonetic system
+used for its transcription;</p>
+</li>
+<li>
+<p id="_57c8f15a-5d28-4f6c-928e-3dddba5fb121">This X-property usage does not enable interoperability since
+it does not require specification of the language transcribed,
+as well as the script of the resulting transcription;</p>
+</li>
+<li>
+<p id="_d8764e98-bcf5-442b-8f00-fd62efa30ebe">The scheme of using X-properties does not allow representation
+of phonetics on other vCard values.</p>
+</li>
+</ul>
+<p id="_4800dfed-ba2d-46ad-8d09-7331a5e296d2">This section defines three property parameters used to
+store pronunciation information of a property value:</p>
+<ol id="_09c8a36c-5f6c-490e-be96-ec9ce40308b3" type="arabic">
+<li>
+<p id="_931f99a4-fcb3-455d-8db0-bac1c425da78">The script used in the pronunciation system;</p>
+</li>
+<li>
+<p id="_97fdb118-a25d-4ea8-8304-ac0de83290c2">An identifier of the pronunciation system used;</p>
+</li>
+<li>
+<p id="_e91a56c1-3e3d-4cee-85ce-45b8fa9ff07d">The source language that was transcribed by the pronunciation system.</p>
+</li>
+</ol>
+<p id="_f9fc9fb5-801c-4c74-a4c5-d608b9d45aaf">The <tt>PHONETIC</tt> property parameter specifies the phonetic
+system used in the transcription of the property value,
+identified by the phonetic system code from the ISO XXXXX
+phonetic system registry.</p>
+<p id="_708593e2-3e50-44f5-a9fd-265738e66ccf">This property parameter is often applied together with
+the <tt>LANGUAGE</tt> (<xref target="pp-language"/>)
+and <tt>SCRIPT</tt> (<xref target="pp-script"/>) property parameters.</p>
+<dl id="_01cc43d6-e714-4940-b932-98dd3ffc259a">
+<dt>Namespace</dt>
+<dd/>
+<dt>Property parameter name</dt>
+<dd>
+<p id="_8c462492-3a0c-4b25-81dd-be4d3f92ca06">PHONETIC</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_86c05e57-b3e4-47f8-9e59-e486f90b2621">To specify the phonetic system used in the property
+value, which is amongst the valid codes in the ISO XXXXX registry.</p>
+</dd>
+<dt>Value type</dt>
+<dd>
+<p id="_99cf9ee7-e361-4477-8d4b-ec57edee191c">TEXT, a single value valid in the ISO XXXXX phonetic system registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_e3e2b570-b999-4a48-84e8-208ca2cc8a5a">The property value of which this property parameter
+applies to must take an identical structure to the property
+value without application of this property parameter.</p>
+</dd>
+</dl>
+<clause id="_vformat_implementation_of_phonetic" inline-header="false" obligation="normative"><title>vFormat Implementation of PHONETIC</title><dl id="_07988de2-349d-4abf-955e-a8fa3e899763">
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_66418c54-a79c-4e7e-88f5-ac90258e75bd">phoneticparam = "PHONETIC" "=" phonetic
+phonetic      = 4ALPHA  ; ISO XXXXX 4-digit phonetic system code</sourcecode>
+
+<dl id="_346a8213-63bc-4fdc-ba45-8c8fa1df47ea">
+<dt>Examples</dt>
+<dd/>
+</dl>
+<sourcecode id="_ff3fab9f-e450-4a34-bbd7-a07a79e64288">N;SCRIPT=Hant;LANGUAGE=zho:孫;中山;文,逸仙;;
+N;SCRIPT=Hans;LANGUAGE=zho:孙;中山;文,逸仙;;
+N;PHONETIC=jyut;SCRIPT=Latn;LANGUAGE=yue:syun1;zung1saan1;man4,jat6sin1;;
+N;PHONETIC=ping;SCRIPT=Latn;LANGUAGE=cmn:sun;zhongshan;rixian;;</sourcecode>
+</clause></clause>
+<clause id="security" inline-header="false" obligation="normative"><title>Security Considerations</title><p id="_31fe62e1-e13f-4955-9f9f-ba28b82c68f0">Security considerations of the vObject formats
+themselves <bcp14>MUST</bcp14> be adhered to, including:</p>
+<ul id="_5e01a67c-7340-4dba-aa1b-640b1a4b28a5">
+<li>
+<p id="_2df4876c-a270-4c81-8a34-4d41246282da">vCard: <xref target="RFC6350"/></p>
+</li>
+<li>
+<p id="_98558ecc-72b3-4afb-9247-0243ab301d03">iCalendar: <xref target="RFC5545"/>, <xref target="RFC4791"/></p>
+</li>
+<li>
+<p id="_9b4ebd90-eb18-438b-a3f3-408f57202095">vObject: <xref target="I-D.calconnect-vobject-vformat-03"/></p>
+</li>
+</ul>
+<p id="_de1d78fc-fd2b-418c-8ec2-49d364cdf386">vObject formats, especially for calendaring, scheduling
+and contact exchange, often involve privacy-sensitive information.
+Internationalization features defined in this document
+<bcp14>MAY</bcp14> pose risk of exposing private information if
+interchanged through unprotected communication channels.</p>
+<p id="_ac0630f8-69af-41de-a681-d6cf80f8f1ac">Mechanisms used for the transmission of such information
+should implement security measures to protect against possible threats,
+such as eavesdropping, replay, message insertion, deletion,
+modification, and man-in-the-middle attacks.</p></clause>
+<clause id="iana" inline-header="false" obligation="normative"><title>IANA Considerations</title><p id="_80a3068e-eca3-4a17-8708-e1a8ad651a99">IANA is requested to register the following property parameters
+and value types in the corresponding iCalendar and vCard registries.</p>
+<clause id="_icalendar_and_vcard_property_parameter_registration_script" inline-header="false" obligation="normative">
+<title>iCalendar and vCard Property Parameter Registration: SCRIPT</title>
+<dl id="_504ec342-aaca-4980-8bfe-685109bb0f19">
+<dt>Namespace</dt>
+<dd/>
+<dt>Parameter name</dt>
+<dd>
+<p id="_80fcc788-616a-4eb0-b203-e65bf1d1a030">SCRIPT</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_fcb7df74-46a7-4e9d-8cef-c5fd6793e470">Given in <xref target="pp-script"/>.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_0442f945-99c2-4344-aa2b-617b65f53020">Given in <xref target="pp-script"/>.</p>
+</dd>
+<dt>Format definition</dt>
+<dd>
+<p id="_5f5b231d-4c07-4fe2-bc1d-81f8b4b04c3a">Given in <xref target="pp-script"/>.</p>
+</dd>
+<dt>Examples</dt>
+<dd>
+<p id="_88b76155-e815-4d11-a8c2-bef0834a8643">Given in <xref target="pp-script"/>.</p>
+</dd>
+</dl>
+</clause>
+<clause id="_icalendar_and_vcard_property_parameter_registration_phonetic" inline-header="false" obligation="normative">
+<title>iCalendar and vCard Property Parameter Registration: PHONETIC</title>
+<dl id="_c55ee00e-c263-46cf-bca2-9ff558305b2c">
+<dt>Namespace</dt>
+<dd/>
+<dt>Parameter name</dt>
+<dd>
+<p id="_16c8a153-4c0d-4f91-b956-db5bf10924ea">PHONETIC</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_312d9f1c-f5ac-4171-85f0-83e8a19e1fd0">Given in <xref target="pp-phonetic"/>.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_05ceca37-2a46-4083-88ba-43c8e851a059">Given in <xref target="pp-phonetic"/>.</p>
+</dd>
+<dt>Format definition</dt>
+<dd>
+<p id="_af3e5161-9ea0-4aa6-9a12-9bcc61110687">Given in <xref target="pp-phonetic"/>.</p>
+</dd>
+<dt>Examples</dt>
+<dd>
+<p id="_c8aad4c5-1101-40fa-8ec5-c1e9e6def476">Given in <xref target="pp-phonetic"/>.</p>
+</dd>
+</dl>
+</clause>
+<clause id="_icalendar_and_vcard_registration_for_value_data_type_script_code" inline-header="false" obligation="normative"><title>iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE</title><dl id="_a0c64fd4-00dc-4201-9b18-b31766721d94">
+<dt>Value name</dt>
+<dd>
+<p id="_e6134ed2-6843-44f8-a07d-a8af6eddbb69">SCRIPT-CODE</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_da4b74a4-986b-4ca7-a6b9-e33fabc72fd7">Indicate script used in property value
+using a valid value from the ISO 15924 registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_09f4f881-b3dc-41c6-aca8-22140cabcd25">Used by the SCRIPT property parameter.</p>
+</dd>
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_e1f8f451-c673-4a46-b276-4f1f4053f99c">script-code = 4ALPHA
+            ; ISO 15924 4-digit script code</sourcecode>
+
+<dl id="_a3f53fd8-211c-47f3-9a0d-66399aae0f1d">
+<dt>Examples</dt>
+<dd>
+<p id="_dde0d32b-1239-431b-a417-6d166b8563c3"><tt>Latn</tt>, <tt>Cyrl</tt>, <tt>Hani</tt></p>
+</dd>
+</dl></clause>
+<clause id="_icalendar_and_vcard_registration_for_value_data_type_phonetic_code" inline-header="false" obligation="normative"><title>iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE</title><dl id="_f98b105c-6db9-4891-8909-bebb7959c61d">
+<dt>Value name</dt>
+<dd>
+<p id="_b22aec35-e31e-4d3d-a43a-e0d01086046f">PHONETIC-CODE</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_73c83273-09d5-4a09-90e7-de5285084a44">Indicate phonetic system used in the transcription
+of property value,
+using a valid value from the ISO XXXXX registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_c79876a2-3a73-4a7e-8a50-862644c026bc">Used by the SCRIPT property parameter.</p>
+</dd>
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_1e940d55-7b6f-43ea-88a3-2d534577b7fd">phonetic-code = 4ALPHA
+              ; ISO XXXXX 4-digit script code</sourcecode>
+
+<dl id="_b388a6a4-f822-495e-a622-402052901cc4">
+<dt>Examples</dt>
+<dd>
+<p id="_5ba6cea6-00c1-4265-addd-d84be60678ab"><tt>ipa</tt>, <tt>jyut</tt>, <tt>ping</tt></p>
+</dd>
+</dl></clause></clause>
+
+
+</sections><bibliography><references id="_normative_references" normative="true" obligation="informative">
+<title>Normative References</title>
+<passthrough>&lt;reference  anchor='RFC2119' target='https://www.rfc-editor.org/info/rfc2119'&gt;
+&lt;front&gt;
+&lt;title&gt;Key words for use in RFCs to Indicate Requirement Levels&lt;/title&gt;
+&lt;author initials='S.' surname='Bradner' fullname='S. Bradner'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='1997' month='March' /&gt;
+&lt;abstract&gt;&lt;t&gt;In many standards track documents several words are used to signify the requirements in the specification.  These words are often capitalized. This document defines these words as they should be interpreted in IETF documents.  This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='BCP' value='14'/&gt;
+&lt;seriesInfo name='RFC' value='2119'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC2119'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC3986' target='https://www.rfc-editor.org/info/rfc3986'&gt;
+&lt;front&gt;
+&lt;title&gt;Uniform Resource Identifier (URI): Generic Syntax&lt;/title&gt;
+&lt;author initials='T.' surname='Berners-Lee' fullname='T. Berners-Lee'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='R.' surname='Fielding' fullname='R. Fielding'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='L.' surname='Masinter' fullname='L. Masinter'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2005' month='January' /&gt;
+&lt;abstract&gt;&lt;t&gt;A Uniform Resource Identifier (URI) is a compact sequence of characters that identifies an abstract or physical resource.  This specification defines the generic URI syntax and a process for resolving URI references that might be in relative form, along with guidelines and security considerations for the use of URIs on the Internet.  The URI syntax defines a grammar that is a superset of all valid URIs, allowing an implementation to parse the common components of a URI reference without knowing the scheme-specific requirements of every possible identifier.  This specification does not define a generative grammar for URIs; that task is performed by the individual specifications of each URI scheme.  [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='STD' value='66'/&gt;
+&lt;seriesInfo name='RFC' value='3986'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC3986'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC5545' target='https://www.rfc-editor.org/info/rfc5545'&gt;
+&lt;front&gt;
+&lt;title&gt;Internet Calendaring and Scheduling Core Object Specification (iCalendar)&lt;/title&gt;
+&lt;author initials='B.' surname='Desruisseaux' fullname='B. Desruisseaux' role='editor'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2009' month='September' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document defines the iCalendar data format for representing and exchanging calendaring and scheduling information such as events, to-dos, journal entries, and free/busy information, independent of any particular calendar service or protocol. [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='5545'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC5545'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC5646' target='https://www.rfc-editor.org/info/rfc5646'&gt;
+&lt;front&gt;
+&lt;title&gt;Tags for Identifying Languages&lt;/title&gt;
+&lt;author initials='A.' surname='Phillips' fullname='A. Phillips' role='editor'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='M.' surname='Davis' fullname='M. Davis' role='editor'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2009' month='September' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document describes the structure, content, construction, and semantics of language tags for use in cases where it is desirable to indicate the language used in an information object.  It also describes how to register values for use in language tags and the creation of user-defined extensions for private interchange.  This document  specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='BCP' value='47'/&gt;
+&lt;seriesInfo name='RFC' value='5646'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC5646'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC6350' target='https://www.rfc-editor.org/info/rfc6350'&gt;
+&lt;front&gt;
+&lt;title&gt;vCard Format Specification&lt;/title&gt;
+&lt;author initials='S.' surname='Perreault' fullname='S. Perreault'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2011' month='August' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document defines the vCard data format for representing and exchanging a variety of information about individuals and other entities (e.g., formatted and structured name and delivery addresses, email address, multiple telephone numbers, photograph, logo, audio clips, etc.).  This document obsoletes RFCs 2425, 2426, and 4770, and updates RFC 2739.  [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='6350'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC6350'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC8126' target='https://www.rfc-editor.org/info/rfc8126'&gt;
+&lt;front&gt;
+&lt;title&gt;Guidelines for Writing an IANA Considerations Section in RFCs&lt;/title&gt;
+&lt;author initials='M.' surname='Cotton' fullname='M. Cotton'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='B.' surname='Leiba' fullname='B. Leiba'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='T.' surname='Narten' fullname='T. Narten'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2017' month='June' /&gt;
+&lt;abstract&gt;&lt;t&gt;Many protocols make use of points of extensibility that use constants to identify various protocol parameters.  To ensure that the values in these fields do not have conflicting uses and to promote interoperability, their allocations are often coordinated by a central record keeper.  For IETF protocols, that role is filled by the Internet Assigned Numbers Authority (IANA).&lt;/t&gt;&lt;t&gt;To make assignments in a given registry prudently, guidance describing the conditions under which new values should be assigned, as well as when and how modifications to existing values can be made, is needed.  This document defines a framework for the documentation of these guidelines by specification authors, in order to assure that the provided guidance for the IANA Considerations is clear and addresses the various issues that are likely in the operation of a registry.&lt;/t&gt;&lt;t&gt;This is the third edition of this document; it obsoletes RFC 5226.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='BCP' value='26'/&gt;
+&lt;seriesInfo name='RFC' value='8126'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC8126'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC8174' target='https://www.rfc-editor.org/info/rfc8174'&gt;
+&lt;front&gt;
+&lt;title&gt;Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words&lt;/title&gt;
+&lt;author initials='B.' surname='Leiba' fullname='B. Leiba'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2017' month='May' /&gt;
+&lt;abstract&gt;&lt;t&gt;RFC 2119 specifies common key words that may be used in protocol  specifications.  This document aims to reduce the ambiguity by clarifying that only UPPERCASE usage of the key words have the  defined special meanings.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='BCP' value='14'/&gt;
+&lt;seriesInfo name='RFC' value='8174'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC8174'/&gt;
+&lt;/reference&gt;</passthrough>
+</references><references id="_informative_references" normative="false" obligation="informative">
+<title>Bibliography</title>
+<passthrough>&lt;reference anchor='CALCONNECT-CALENDAR' target='https://www.calconnect.org/about/technical-committees/calendar-technical-committee'&gt;
+  &lt;front&gt;
+    &lt;title&gt;CalConnect CALENDAR Technical Committee&lt;/title&gt;
+    &lt;author&gt;
+      &lt;organization&gt;The Calendaring and Scheduling Consortium&lt;/organization&gt;
+      &lt;address&gt;
+        &lt;postal&gt;
+         &lt;street&gt;4390 Chaffin Lane&lt;/street&gt;
+         &lt;city&gt;McKinleyville&lt;/city&gt;
+         &lt;region&gt;CA&lt;/region&gt;
+         &lt;code&gt;95519-8028&lt;/code&gt;
+         &lt;country&gt;United States of America&lt;/country&gt;
+        &lt;/postal&gt;
+        &lt;email&gt;contact@calconnect.org&lt;/email&gt;
+        &lt;uri&gt;https://www.calconnect.org&lt;/uri&gt;
+      &lt;/address&gt;
+    &lt;/author&gt;
+    &lt;date month='April' year='2018'/&gt;
+  &lt;/front&gt;
+&lt;/reference&gt;
+
+
+&lt;reference anchor='CALCONNECT-VCARD' target='http://www.calconnect.org/about/technical-committees/vcard-technical-committee'&gt;
+  &lt;front&gt;
+    &lt;title&gt;CalConnect VCARD Technical Committee&lt;/title&gt;
+    &lt;author&gt;
+      &lt;organization&gt;The Calendaring and Scheduling Consortium&lt;/organization&gt;
+      &lt;address&gt;
+        &lt;postal&gt;
+         &lt;street&gt;4390 Chaffin Lane&lt;/street&gt;
+         &lt;city&gt;McKinleyville&lt;/city&gt;
+         &lt;region&gt;CA&lt;/region&gt;
+         &lt;code&gt;95519-8028&lt;/code&gt;
+         &lt;country&gt;United States of America&lt;/country&gt;
+        &lt;/postal&gt;
+        &lt;email&gt;contact@calconnect.org&lt;/email&gt;
+        &lt;uri&gt;https://www.calconnect.org&lt;/uri&gt;
+      &lt;/address&gt;
+    &lt;/author&gt;
+    &lt;date month='April' year='2018'/&gt;
+  &lt;/front&gt;
+&lt;/reference&gt;
+
+
+&lt;reference anchor='ISO24624' target='https://www.iso.org'&gt;
+  &lt;front&gt;
+    &lt;title&gt;ISO 24624 Language resource management -- Transcription of spoken language&lt;/title&gt;
+    &lt;author&gt;
+      &lt;organization&gt;International Organization for Standardization&lt;/organization&gt;
+      &lt;address&gt;
+        &lt;postal&gt;
+         &lt;street&gt;Chemin de Blandonnet 8&lt;/street&gt;
+				 &lt;street&gt;1214 Vernier&lt;/street&gt;
+         &lt;city&gt;Geneva&lt;/city&gt;
+         &lt;country&gt;Switzerland&lt;/country&gt;
+        &lt;/postal&gt;
+        &lt;uri&gt;https://www.iso.org&lt;/uri&gt;
+      &lt;/address&gt;
+    &lt;/author&gt;
+    &lt;date month='April' year='2016'/&gt;
+  &lt;/front&gt;
+&lt;/reference&gt;
+
+
+&lt;reference anchor='ISO5127' target='https://www.iso.org'&gt;
+  &lt;front&gt;
+    &lt;title&gt;ISO 5127 Information and documentation -- Foundation and vocabulary&lt;/title&gt;
+    &lt;author&gt;
+      &lt;organization&gt;International Organization for Standardization&lt;/organization&gt;
+      &lt;address&gt;
+        &lt;postal&gt;
+         &lt;street&gt;Chemin de Blandonnet 8&lt;/street&gt;
+				 &lt;street&gt;1214 Vernier&lt;/street&gt;
+         &lt;city&gt;Geneva&lt;/city&gt;
+         &lt;country&gt;Switzerland&lt;/country&gt;
+        &lt;/postal&gt;
+        &lt;uri&gt;https://www.iso.org&lt;/uri&gt;
+      &lt;/address&gt;
+    &lt;/author&gt;
+    &lt;date month='April' year='2017'/&gt;
+  &lt;/front&gt;
+&lt;/reference&gt;
+
+&lt;reference anchor='I-D.calconnect-vobject-vformat-03'&gt;
+&lt;front&gt;
+&lt;title&gt;The vObject Model and vFormat Syntax&lt;/title&gt;
+
+&lt;author initials='R' surname='Tse' fullname='Ronald Tse'&gt;
+    &lt;organization /&gt;
+&lt;/author&gt;
+
+&lt;author initials='P' surname='Tam' fullname='Peter Tam'&gt;
+    &lt;organization /&gt;
+&lt;/author&gt;
+
+&lt;author initials='C' surname='Daboo' fullname='Cyrus Daboo'&gt;
+    &lt;organization /&gt;
+&lt;/author&gt;
+
+&lt;author initials='K' surname='Murchison' fullname='Ken Murchison'&gt;
+    &lt;organization /&gt;
+&lt;/author&gt;
+
+&lt;date month='June' day='2' year='2018' /&gt;
+
+&lt;abstract&gt;&lt;t&gt;This document specifies the vObject data model and its corresponding syntax vFormat.  vObject represents the generalized data model, and vFormat the generalized data format, of the following specifications and fully covers them:  o  RFC 6350, vCard version 4.0: the VCARD component;  o  RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar): the VCALENDAR, VEVENT, VJOURNAL, VFREEBUSY, VTIMEZONE, VALARM, VTODO, STANDARD and DAYLIGHT components;  o  RFC 7953, Calendar Availability Extensions: the VAVAILABILITY and AVAILABLE components;  o  I-Ddaboo-icalendar-vpatch, iCalendar Patching: the VPATCH component; and  o  alternative formats for iCalendar and vCard, including RFC 6321, xCal; RFC 7265, jCal; RFC 6351, xCard; and RFC 7095, jCard.  This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.&lt;/t&gt;&lt;/abstract&gt;
+
+&lt;/front&gt;
+
+&lt;seriesInfo name='Internet-Draft' value='draft-calconnect-vobject-vformat-03' /&gt;
+&lt;format type='TXT'
+        target='http://www.ietf.org/internet-drafts/draft-calconnect-vobject-vformat-03.txt' /&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC4791' target='https://www.rfc-editor.org/info/rfc4791'&gt;
+&lt;front&gt;
+&lt;title&gt;Calendaring Extensions to WebDAV (CalDAV)&lt;/title&gt;
+&lt;author initials='C.' surname='Daboo' fullname='C. Daboo'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='B.' surname='Desruisseaux' fullname='B. Desruisseaux'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='L.' surname='Dusseault' fullname='L. Dusseault'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2007' month='March' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document defines extensions to the Web Distributed Authoring and Versioning (WebDAV) protocol to specify a standard way of accessing, managing, and sharing calendaring and scheduling information based on the iCalendar format.  This document defines the &amp;quot;calendar-access&amp;quot; feature of CalDAV.  [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='4791'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC4791'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC5234' target='https://www.rfc-editor.org/info/rfc5234'&gt;
+&lt;front&gt;
+&lt;title&gt;Augmented BNF for Syntax Specifications: ABNF&lt;/title&gt;
+&lt;author initials='D.' surname='Crocker' fullname='D. Crocker' role='editor'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='P.' surname='Overell' fullname='P. Overell'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2008' month='January' /&gt;
+&lt;abstract&gt;&lt;t&gt;Internet technical specifications often need to define a formal syntax.  Over the years, a modified version of Backus-Naur Form (BNF), called Augmented BNF (ABNF), has been popular among many Internet specifications.  The current specification documents ABNF. It balances compactness and simplicity with reasonable representational power.  The differences between standard BNF and ABNF involve naming rules, repetition, alternatives, order-independence, and value ranges.  This specification also supplies additional rule definitions and encoding for a core lexical analyzer of the type common to several Internet specifications.  [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='STD' value='68'/&gt;
+&lt;seriesInfo name='RFC' value='5234'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC5234'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC6321' target='https://www.rfc-editor.org/info/rfc6321'&gt;
+&lt;front&gt;
+&lt;title&gt;xCal: The XML Format for iCalendar&lt;/title&gt;
+&lt;author initials='C.' surname='Daboo' fullname='C. Daboo'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='M.' surname='Douglass' fullname='M. Douglass'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='S.' surname='Lees' fullname='S. Lees'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2011' month='August' /&gt;
+&lt;abstract&gt;&lt;t&gt;This specification defines &amp;quot;xCal&amp;quot;, an XML format for iCalendar data.   [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='6321'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC6321'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC6351' target='https://www.rfc-editor.org/info/rfc6351'&gt;
+&lt;front&gt;
+&lt;title&gt;xCard: vCard XML Representation&lt;/title&gt;
+&lt;author initials='S.' surname='Perreault' fullname='S. Perreault'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2011' month='August' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document defines the XML schema of the vCard data format.   [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='6351'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC6351'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC6352' target='https://www.rfc-editor.org/info/rfc6352'&gt;
+&lt;front&gt;
+&lt;title&gt;CardDAV: vCard Extensions to Web Distributed Authoring and Versioning (WebDAV)&lt;/title&gt;
+&lt;author initials='C.' surname='Daboo' fullname='C. Daboo'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2011' month='August' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document defines extensions to the Web Distributed Authoring and Versioning (WebDAV) protocol to specify a standard way of accessing, managing, and sharing contact information based on the vCard format.  [STANDARDS-TRACK]&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='6352'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC6352'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC7095' target='https://www.rfc-editor.org/info/rfc7095'&gt;
+&lt;front&gt;
+&lt;title&gt;jCard: The JSON Format for vCard&lt;/title&gt;
+&lt;author initials='P.' surname='Kewisch' fullname='P. Kewisch'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2014' month='January' /&gt;
+&lt;abstract&gt;&lt;t&gt;This specification defines &amp;quot;jCard&amp;quot;, a JSON format for vCard data. The vCard data format is a text format for representing and exchanging information about individuals and other entities, for example, telephone numbers, email addresses, structured names, and delivery addresses.  JSON is a lightweight, text-based, language- independent data interchange format commonly used in Internet applications.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='7095'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC7095'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC7265' target='https://www.rfc-editor.org/info/rfc7265'&gt;
+&lt;front&gt;
+&lt;title&gt;jCal: The JSON Format for iCalendar&lt;/title&gt;
+&lt;author initials='P.' surname='Kewisch' fullname='P. Kewisch'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='C.' surname='Daboo' fullname='C. Daboo'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='M.' surname='Douglass' fullname='M. Douglass'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2014' month='May' /&gt;
+&lt;abstract&gt;&lt;t&gt;This specification defines &amp;quot;jCal&amp;quot;, a JSON format for iCalendar data. The iCalendar data format is a text format for capturing and exchanging information normally stored within a calendaring and scheduling application, for example, tasks and events.  JSON is a lightweight, text-based, language-independent data interchange format commonly used in Internet applications.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='7265'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC7265'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC7953' target='https://www.rfc-editor.org/info/rfc7953'&gt;
+&lt;front&gt;
+&lt;title&gt;Calendar Availability&lt;/title&gt;
+&lt;author initials='C.' surname='Daboo' fullname='C. Daboo'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;author initials='M.' surname='Douglass' fullname='M. Douglass'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2016' month='August' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document specifies a new iCalendar (RFC 5545) component that allows the publication of available and unavailable time periods associated with a calendar user.  This component can be used in standard iCalendar free-busy lookups, including the iCalendar Transport-independent Interoperability Protocol (iTIP; RFC 5546) free-busy requests, to generate repeating blocks of available or busy time with exceptions as needed.&lt;/t&gt;&lt;t&gt;This document also defines extensions to the Calendaring Extensions to WebDAV (CalDAV) calendar access protocol (RFC 4791) and the associated scheduling protocol (RFC 6638) to specify how this new calendar component can be used when evaluating free-busy time.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='7953'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC7953'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC7986' target='https://www.rfc-editor.org/info/rfc7986'&gt;
+&lt;front&gt;
+&lt;title&gt;New Properties for iCalendar&lt;/title&gt;
+&lt;author initials='C.' surname='Daboo' fullname='C. Daboo'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2016' month='October' /&gt;
+&lt;abstract&gt;&lt;t&gt;This document defines a set of new properties for iCalendar data and extends the use of some existing properties to the entire iCalendar object.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='RFC' value='7986'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC7986'/&gt;
+&lt;/reference&gt;
+
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+
+&lt;reference  anchor='RFC8259' target='https://www.rfc-editor.org/info/rfc8259'&gt;
+&lt;front&gt;
+&lt;title&gt;The JavaScript Object Notation (JSON) Data Interchange Format&lt;/title&gt;
+&lt;author initials='T.' surname='Bray' fullname='T. Bray' role='editor'&gt;&lt;organization /&gt;&lt;/author&gt;
+&lt;date year='2017' month='December' /&gt;
+&lt;abstract&gt;&lt;t&gt;JavaScript Object Notation (JSON) is a lightweight, text-based, language-independent data interchange format.  It was derived from the ECMAScript Programming Language Standard.  JSON defines a small set of formatting rules for the portable representation of structured data.&lt;/t&gt;&lt;t&gt;This document removes inconsistencies with other specifications of JSON, repairs specification errors, and offers experience-based interoperability guidance.&lt;/t&gt;&lt;/abstract&gt;
+&lt;/front&gt;
+&lt;seriesInfo name='STD' value='90'/&gt;
+&lt;seriesInfo name='RFC' value='8259'/&gt;
+&lt;seriesInfo name='DOI' value='10.17487/RFC8259'/&gt;
+&lt;/reference&gt;</passthrough>
+</references></bibliography>
+</ietf-standard>
