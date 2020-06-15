@@ -1,8 +1,8 @@
 ---
 metanorma:
   deploy:
-    email: "travis-ci@metanorma.org"
+    email: "ci@metanorma.org"
 relaton:
   collection:
-    name: vObject Internationalization
-    organization: CalConnect/IETF
+    name: Calendar abuse
+    organization: CalConnect

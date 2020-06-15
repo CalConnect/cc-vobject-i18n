@@ -18,22 +18,15 @@
 :fullname_3: Mike Douglass
 :surname_3: Douglass
 :givenname_3: Mike
-:draft:
-:toc:
-:stem:
-:xrefstyle: short
 :docfile: cc-56010.adoc
 :mn-document-class: csd
 :mn-output-extensions: xml,html,pdf,rxl
 :local-cache-only:
 :data-uri-image:
 
-:sectnums!:
 
 include::sections/00-abstract.adoc[]
 include::sections/01-intro.adoc[]
-
-:sectnums:
 
 include::sections/01-scope.adoc[]
 include::sections/02-normative-references.adoc[]
