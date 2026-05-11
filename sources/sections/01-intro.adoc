@@ -3,7 +3,7 @@
 == Introduction
 
 vCard <<RFC6350>> and iCalendar <<RFC5545>> are standards compliant to
-the vObject data model <<I-D.calconnect-vobject-vformat-03>>.
+the vObject data model <<I-D.calconnect-vobject-vformat>>.
 
 These standards are used worldwide and require proper certain
 localization elements suitable for multi-cultural use.

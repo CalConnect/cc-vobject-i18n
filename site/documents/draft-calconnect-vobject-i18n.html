@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft ">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Han,Hiragana,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>vObject Internationalization</title>
+<meta content="Ronald Henry Tse" name="author">
+<meta content="Jeffrey Lau" name="author">
+<meta content="Mike Douglass" name="author">
+<meta content="
+       This document updates the following specifications: 
+       
+         
+           I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax 
+         
+         
+           RFC 6350, vCard version 4.0 
+         
+         
+           RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar) 
+         
+         
+           RFC 7953, Calendar Availability Extensions 
+         
+       
+       This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees. 
+    " name="description">
+<meta content="xml2rfc 3.6.0" name="generator">
+<meta name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.6.0
+    Python 3.9.2
+    appdirs 1.4.4
+    ConfigArgParse 1.4
+    google-i18n-address 2.4.0
+    html5lib 1.1
+    intervaltree 3.1.0
+    Jinja2 2.11.3
+    kitchen 1.2.6
+    lxml 4.6.2
+    pycountry 20.7.3
+    pyflakes 2.3.0
+    PyYAML 5.3.1
+    requests 2.25.1
+    setuptools 53.0.0
+    six 1.15.0
+-->
+<link href="/Users/mulgogi/src/calconnect/csd-vobject-i18n/site/documents/draft-calconnect-vobject-i18n.rfc.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">/*
+
+  NOTE: Changes at the bottom of this file overrides some earlier settings.
+
+  Once the style has stabilized and has been adopted as an official RFC style,
+  this can be consolidated so that style settings occur only in one place, but
+  for now the contents of this file consists first of the initial CSS work as
+  provided to the RFC Formatter (xml2rfc) work, followed by itemized and
+  commented changes found necssary during the development of the v3
+  formatters.
+
+*/
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans'); /* Sans-serif */
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif'); /* Serif (print) */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono'); /* Monospace */
+
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+@-ms-viewport {
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
+/* general and mobile first */
+html {
+}
+body {
+  max-width: 90%;
+  margin: 1.5em auto;
+  color: #222;
+  background-color: #fff;
+  font-size: 14px;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+.ears {
+  display: none;
+}
+
+/* headings */
+#title, h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0 0.5em;
+  font-weight: bold;
+  line-height: 1.3;
+}
+#title {
+  clear: both;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 0.5em 0;
+  padding: 1em 0 0.5em;
+}
+.author {
+  padding-bottom: 4px;
+}
+h1 {
+  font-size: 26px;
+  margin: 1em 0;
+}
+h2 {
+  font-size: 22px;
+  margin-top: -20px;  /* provide offset for in-page anchors */
+  padding-top: 33px;
+}
+h3 {
+  font-size: 18px;
+  margin-top: -36px;  /* provide offset for in-page anchors */
+  padding-top: 42px;
+}
+h4 {
+  font-size: 16px;
+  margin-top: -36px;  /* provide offset for in-page anchors */
+  padding-top: 42px;
+}
+h5, h6 {
+  font-size: 14px;
+}
+#n-copyright-notice {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+/* general structure */
+p {
+  padding: 0;
+  margin: 0 0 1em 0;
+  text-align: left;
+}
+div, span {
+  position: relative;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 1em 1em 0;
+  margin-bottom: 1.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+.alignCenter.art-text {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 1em 1em 0;
+  margin-bottom: 1.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 1em 2em;
+}
+ol ol, ul ul, ol ul, ul ol {
+  margin-left: 1em;
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+.ulCompact li {
+  margin: 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+}
+ul.empty li, .ulEmpty li {
+  margin-top: 0.5em;
+}
+ul.compact, .ulCompact,
+ol.compact, .olCompact {
+  line-height: 100%;
+  margin: 0 0 0 2em;
+}
+
+/* definition lists */
+dl {
+}
+dl > dt {
+  float: left;
+  margin-right: 1em;
+}
+/* 
+dl.nohang > dt {
+  float: none;
+}
+*/
+dl > dd {
+  margin-bottom: .8em;
+  min-height: 1.3em;
+}
+dl.compact > dd, .dlCompact > dd {
+  margin-bottom: 0em;
+}
+dl > dd > dl {
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+
+/* links */
+a {
+  text-decoration: none;
+}
+a[href] {
+  color: #22e; /* Arlen: WCAG 2019 */
+}
+a[href]:hover {
+  background-color: #f2f2f2;
+}
+figcaption a[href],
+a[href].selfRef {
+  color: #222;
+}
+/* XXX probably not this:
+a.selfRef:hover {
+  background-color: transparent;
+  cursor: default;
+} */
+
+/* Figures */
+tt, code, pre, code {
+  background-color: #f9f9f9;
+  font-family: 'Roboto Mono', monospace;
+}
+pre {
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 1em;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption {
+  font-style: italic;
+  margin: 0 0 1em 0;
+}
+@media screen {
+  pre {
+    overflow-x: auto;
+    max-width: 100%;
+    max-width: calc(100% - 22px);
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 1.2em 2em;
+}
+blockquote {
+  background-color: #f9f9f9;
+  color: #111; /* Arlen: WCAG 2019 */
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5em 0.75em;
+}
+th {
+  text-align: left;
+  background-color: #e9e9e9;
+}
+tr:nth-child(2n+1) > td {
+  background-color: #f5f5f5;
+}
+table caption {
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+table p {
+  /* XXX to avoid bottom margin on table row signifiers. If paragraphs should
+     be allowed within tables more generally, it would be far better to select on a class. */
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  color: #666; /* Arlen: AHDJ 2019 */
+  text-decoration: none;
+  visibility: hidden;
+  user-select: none;
+  -ms-user-select: none;
+  -o-user-select:none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+@media screen {
+  aside:hover > a.pilcrow,
+  p:hover > a.pilcrow,
+  blockquote:hover > a.pilcrow,
+  div:hover > a.pilcrow,
+  li:hover > a.pilcrow,
+  pre:hover > a.pilcrow {
+    visibility: visible;
+  }
+  a.pilcrow:hover {
+    background-color: transparent;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.bcp14 {
+  font-variant: small-caps;
+}
+
+.role {
+  font-variant: all-small-caps;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: 0.9em;
+}
+#identifiers dt {
+  width: 3em;
+  clear: left;
+}
+#identifiers dd {
+  float: left;
+  margin-bottom: 0;
+}
+#identifiers .authors .author {
+  display: inline-block;
+  margin-right: 1.5em;
+}
+#identifiers .authors .org {
+  font-style: italic;
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #666; /* Arlen: WCAG 2019 */
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: left;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc  {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+}
+nav.toc ul {
+  margin: 0 0.5em 0 0;
+  padding: 0;
+  list-style: none;
+}
+nav.toc li {
+  line-height: 1.3em;
+  margin: 0.75em 0;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+/* references */
+.references dt {
+  text-align: right;
+  font-weight: bold;
+  min-width: 7em;
+}
+.references dd {
+  margin-left: 8em;
+  overflow: auto;
+}
+
+.refInstance {
+  margin-bottom: 1.25em;
+}
+
+.references .ascii {
+  margin-bottom: 0.25em;
+}
+
+/* index */
+.index ul {
+  margin: 0 0 0 1em;
+  padding: 0;
+  list-style: none;
+}
+.index ul ul {
+  margin: 0;
+}
+.index li {
+  margin: 0;
+  text-indent: -2em;
+  padding-left: 2em;
+  padding-bottom: 5px;
+}
+.indexIndex {
+  margin: 0.5em 0 1em;
+}
+.index a {
+  font-weight: 700;
+}
+/* make the index two-column on all but the smallest screens */
+@media (min-width: 600px) {
+  .index ul {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+  }
+  .index ul ul {
+    -moz-column-count: 1;
+    -moz-column-gap: 0;
+  }
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  margin: 1em 0;
+}
+
+address.vcard .nameRole {
+  font-weight: 700;
+  margin-left: 0;
+}
+address.vcard .label {
+  font-family: "Noto Sans",Arial,Helvetica,sans-serif;
+  margin: 0.5em 0;
+}
+address.vcard .type {
+  display: none;
+}
+.alternative-contact {
+  margin: 1.5em 0 1em;
+}
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+
+/* temporary notes */
+.rfcEditorRemove::before {
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+  padding: 0.2em;
+  content: "The RFC Editor will remove this note";
+  color: #9e2a00; /* Arlen: WCAG 2019 */
+  background-color: #ffd; /* Arlen: WCAG 2019 */
+}
+.rfcEditorRemove {
+  position: relative;
+  padding-top: 1.8em;
+  background-color: #ffd; /* Arlen: WCAG 2019 */
+  border-radius: 3px;
+}
+.cref {
+  background-color: #ffd; /* Arlen: WCAG 2019 */
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+/* alternative layout for smaller screens */
+@media screen and (max-width: 1023px) {
+  body {
+    padding-top: 2em;
+  }
+  #title {
+    padding: 1em 0;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: -18px;  /* provide offset for in-page anchors */
+    padding-top: 38px;
+  }
+  #identifiers dd {
+    max-width: 60%;
+  }
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    border-bottom: 1px solid #ccc;
+  }
+  #toc h2 {
+    margin: -1px 0 0 0;
+    padding: 4px 0 4px 6px;
+    padding-right: 1em;
+    min-width: 190px;
+    font-size: 1.1em;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+  }
+  #toc h2::before { /* css hamburger */
+    float: right;
+    position: relative;
+    width: 1em;
+    height: 1px;
+    left: -164px;
+    margin: 6px 0 0 0;
+    background: white none repeat scroll 0 0;
+    box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+    content: "";
+  }
+  #toc nav {
+    display: none;
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+}
+
+/* alternative layout for wide screens */
+@media screen and (min-width: 1024px) {
+  body {
+    max-width: 724px;
+    margin: 42px auto;
+    padding-left: 1.5em;
+    padding-right: 29em;
+  }
+  #toc {
+    position: fixed;
+    top: 42px;
+    right: 42px;
+    width: 25%;
+    margin: 0;
+    padding: 0 1em;
+    z-index: 1;
+  }
+  #toc h2 {
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 0;
+    overflow: auto;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre {
+    page-break-inside: avoid;
+  }
+  figure {
+    overflow: scroll;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  h2+*, h3+*, h4+*, h5+*, h6+* {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+/* This is commented out here, as the string-set: doesn't
+   pass W3C validation currently */
+/*
+.ears thead .left {
+  string-set: ears-top-left content();
+}
+
+.ears thead .center {
+  string-set: ears-top-center content();
+}
+
+.ears thead .right {
+  string-set: ears-top-right content();
+}
+
+.ears tfoot .left {
+  string-set: ears-bottom-left content();
+}
+
+.ears tfoot .center {
+  string-set: ears-bottom-center content();
+}
+
+.ears tfoot .right {
+  string-set: ears-bottom-right content();
+}
+*/
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+  /* The follwing is commented out here, but set appropriately by in code, as
+     the content depends on the document */
+  /*
+  @top-left {
+    content: 'Internet-Draft';
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @top-left {
+    content: string(ears-top-left);
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @top-center {
+    content: string(ears-top-center);
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @top-right {
+    content: string(ears-top-right);
+    vertical-align: bottom;
+    border-bottom: solid 1px #ccc;
+  }
+  @bottom-left {
+    content: string(ears-bottom-left);
+    vertical-align: top;
+    border-top: solid 1px #ccc;
+  }
+  @bottom-center {
+    content: string(ears-bottom-center);
+    vertical-align: top;
+    border-top: solid 1px #ccc;
+  }
+  @bottom-right {
+      content: '[Page ' counter(page) ']';
+      vertical-align: top;
+      border-top: solid 1px #ccc;
+  }
+  */
+
+}
+
+/* Changes introduced to fix issues found during implementation */
+/* Make sure links are clickable even if overlapped by following H* */
+a {
+  z-index: 2;
+}
+/* Separate body from document info even without intervening H1 */
+section {
+  clear: both;
+}
+
+
+/* Top align author divs, to avoid names without organization dropping level with org names */
+.author {
+  vertical-align: top;
+}
+
+/* Leave room in document info to show Internet-Draft on one line */
+#identifiers dt {
+  width: 8em;
+}
+
+/* Don't waste quite as much whitespace between label and value in doc info */
+#identifiers dd {
+  margin-left: 1em;
+}
+
+/* Give floating toc a background color (needed when it's a div inside section */
+#toc {
+  background-color: white;
+}
+
+/* Make the collapsed ToC header render white on gray also when it's a link */
+@media screen and (max-width: 1023px) {
+  #toc h2 a,
+  #toc h2 a:link,
+  #toc h2 a:focus,
+  #toc h2 a:hover,
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+}
+
+/* Give the bottom of the ToC some whitespace */
+@media screen and (min-width: 1024px) {
+  #toc {
+    padding: 0 0 1em 1em;
+  }
+}
+
+/* Style section numbers with more space between number and title */
+.section-number {
+  padding-right: 0.5em;
+}
+
+/* prevent monospace from becoming overly large */
+tt, code, pre, code {
+  font-size: 95%;
+}
+
+/* Fix the height/width aspect for ascii art*/
+pre.sourcecode,
+.art-text pre {
+  line-height: 1.12;
+}
+
+
+/* Add styling for a link in the ToC that points to the top of the document */
+a.toplink {
+  float: right;
+  margin-right: 0.5em;
+}
+
+/* Fix the dl styling to match the RFC 7992 attributes */
+dl > dt,
+dl.dlParallel > dt {
+  float: left;
+  margin-right: 1em;
+}
+dl.dlNewline > dt {
+  float: none;
+}
+
+/* Provide styling for table cell text alignment */
+table td.text-left,
+table th.text-left {
+  text-align: left;
+}
+table td.text-center,
+table th.text-center {
+  text-align: center;
+}
+table td.text-right,
+table th.text-right {
+  text-align: right;
+}
+
+/* Make the alternative author contact informatio look less like just another
+   author, and group it closer with the primary author contact information */
+.alternative-contact {
+  margin: 0.5em 0 0.25em 0;
+}
+address .non-ascii {
+  margin: 0 0 0 2em;
+}
+
+/* With it being possible to set tables with alignment
+  left, center, and right, { width: 100%; } does not make sense */
+table {
+  width: auto;
+}
+
+/* Avoid reference text that sits in a block with very wide left margin,
+   because of a long floating dt label.*/
+.references dd {
+  overflow: visible;
+}
+
+/* Control caption placement */
+caption {
+  caption-side: bottom;
+}
+
+/* Limit the width of the author address vcard, so names in right-to-left
+   script don't end up on the other side of the page. */
+
+address.vcard {
+  max-width: 30em;
+  margin-right: auto;
+}
+
+/* For address alignment dependent on LTR or RTL scripts */
+address div.left {
+  text-align: left;
+}
+address div.right {
+  text-align: right;
+}
+
+/* Provide table alignment support.  We can't use the alignX classes above
+   since they do unwanted things with caption and other styling. */
+table.right {
+ margin-left: auto;
+ margin-right: 0;
+}
+table.center {
+ margin-left: auto;
+ margin-right: auto;
+}
+table.left {
+ margin-left: 0;
+ margin-right: auto;
+}
+
+/* Give the table caption label the same styling as the figcaption */
+caption a[href] {
+  color: #222;
+}
+
+@media print {
+  .toplink {
+    display: none;
+  }
+
+  /* avoid overwriting the top border line with the ToC header */
+  #toc {
+    padding-top: 1px;
+  }
+
+  /* Avoid page breaks inside dl and author address entries */
+  .vcard {
+    page-break-inside: avoid;
+  }
+
+}
+/* Tweak the bcp14 keyword presentation */
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+/* Tweak the invisible space above H* in order not to overlay links in text above */
+ h2 {
+  margin-top: -18px;  /* provide offset for in-page anchors */
+  padding-top: 31px;
+ }
+ h3 {
+  margin-top: -18px;  /* provide offset for in-page anchors */
+  padding-top: 24px;
+ }
+ h4 {
+  margin-top: -18px;  /* provide offset for in-page anchors */
+  padding-top: 24px;
+ }
+/* Float artwork pilcrow to the right */
+@media screen {
+  .artwork a.pilcrow {
+    display: block;
+    line-height: 0.7;
+    margin-top: 0.15em;
+  }
+}
+/* Make pilcrows on dd visible */
+@media screen {
+  dd:hover > a.pilcrow {
+    visibility: visible;
+  }
+}
+/* Make the placement of figcaption match that of a table's caption
+   by removing the figure's added bottom margin */
+.alignLeft.art-text,
+.alignCenter.art-text,
+.alignRight.art-text {
+   margin-bottom: 0;
+}
+.alignLeft,
+.alignCenter,
+.alignRight {
+  margin: 1em 0 0 0;
+}
+/* In print, the pilcrow won't show on hover, so prevent it from taking up space,
+   possibly even requiring a new line */
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+/* Styling for the external metadata */
+div#external-metadata {
+  background-color: #eee;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  display: none;
+}
+div#internal-metadata {
+  padding: 0.5em;                       /* to match the external-metadata padding */
+}
+/* Styling for title RFC Number */
+h1#rfcnum {
+  clear: both;
+  margin: 0 0 -1em;
+  padding: 1em 0 0 0;
+}
+/* Make .olPercent look the same as <ol><li> */
+dl.olPercent > dd {
+  margin-bottom: 0.25em;
+  min-height: initial;
+}
+/* Give aside some styling to set it apart */
+aside {
+  border-left: 1px solid #ddd;
+  margin: 1em 0 1em 2em;
+  padding: 0.2em 2em;
+}
+aside > dl,
+aside > ol,
+aside > ul,
+aside > table,
+aside > p {
+  margin-bottom: 0.5em;
+}
+/* Additional page break settings */
+@media print {
+  figcaption, table caption {
+    page-break-before: avoid;
+  }
+}
+/* Font size adjustments for print */
+@media print {
+  body  { font-size: 10pt;      line-height: normal; max-width: 96%; }
+  h1    { font-size: 1.72em;    padding-top: 1.5em; } /* 1*1.2*1.2*1.2 */
+  h2    { font-size: 1.44em;    padding-top: 1.5em; } /* 1*1.2*1.2 */
+  h3    { font-size: 1.2em;     padding-top: 1.5em; } /* 1*1.2 */
+  h4    { font-size: 1em;       padding-top: 1.5em; }
+  h5, h6 { font-size: 1em;      margin: initial; padding: 0.5em 0 0.3em; }
+}
+/* Sourcecode margin in print, when there's no pilcrow */
+@media print {
+  .artwork,
+  .sourcecode {
+    margin-bottom: 1em;
+  }
+}
+/* Avoid narrow tables forcing too narrow table captions, which may render badly */
+table {
+  min-width: 20em;
+}
+/* ol type a */
+ol.type-a { list-style-type: lower-alpha; }
+ol.type-A { list-style-type: upper-alpha; }
+ol.type-i { list-style-type: lower-roman; }
+ol.type-I { list-style-type: lower-roman; }
+/* Apply the print table and row borders in general, on request from the RPC,
+and increase the contrast between border and odd row background sligthtly */
+table {
+  border: 1px solid #ddd;
+}
+td {
+  border-top: 1px solid #ddd;
+}
+tr:nth-child(2n+1) > td {
+  background-color: #f8f8f8;
+}
+/* Use style rules to govern display of the TOC. */
+@media screen and (max-width: 1023px) {
+  #toc nav { display: none; }
+  #toc.active nav { display: block; }
+}
+/* Add support for keepWithNext */
+.keepWithNext {
+  break-after: avoid-page;
+  break-after: avoid-page;
+}
+/* Add support for keepWithPrevious */
+.keepWithPrevious {
+  break-before: avoid-page;
+}
+/* Change the approach to avoiding breaks inside artwork etc. */
+figure, pre, table, .artwork, .sourcecode  {
+  break-before: avoid-page;
+  break-after: auto;
+}
+/* Avoid breaks between <dt> and <dd> */
+dl {
+  break-before: auto;
+  break-inside: auto;
+}
+dt {
+  break-before: auto;
+  break-after: avoid-page;
+}
+dd {
+  break-before: avoid-page;
+  break-after: auto;
+  orphans: 3;
+  widows: 3
+}
+span.break, dd.break {
+  margin-bottom: 0;
+  min-height: 0;
+  break-before: auto;
+  break-inside: auto;
+  break-after: auto;
+}
+/* Undo break-before ToC */
+@media print {
+  #toc {
+    break-before: auto;
+  }
+}
+/* Text in compact lists should not get extra bottim margin space,
+   since that would makes the list not compact */
+ul.compact p, .ulCompact p,
+ol.compact p, .olCompact p {
+ margin: 0;
+}
+/* But the list as a whole needs the extra space at the end */
+section ul.compact,
+section .ulCompact,
+section ol.compact,
+section .olCompact {
+  margin-bottom: 1em;                    /* same as p not within ul.compact etc. */
+}
+/* The tt and code background above interferes with for instance table cell
+   backgrounds.  Changed to something a bit more selective. */
+tt, code {
+  background-color: transparent;
+}
+p tt, p code, li tt, li code {
+  background-color: #f8f8f8;
+}
+/* Tweak the pre margin -- 0px doesn't come out well */
+pre {
+   margin-top: 0.5px;
+}
+/* Tweak the comact list text */
+ul.compact, .ulCompact,
+ol.compact, .olCompact,
+dl.compact, .dlCompact {
+  line-height: normal;
+}
+/* Don't add top margin for nested lists */
+li > ul, li > ol, li > dl,
+dd > ul, dd > ol, dd > dl,
+dl > dd > dl {
+  margin-top: initial;
+}
+/* Elements that should not be rendered on the same line as a <dt> */
+/* This should match the element list in writer.text.TextWriter.render_dl() */
+dd > div.artwork:first-child,
+dd > aside:first-child,
+dd > figure:first-child,
+dd > ol:first-child,
+dd > div:first-child > pre.sourcecode,
+dd > table:first-child,
+dd > ul:first-child {
+  clear: left;
+}
+/* fix for weird browser behaviour when <dd/> is empty */
+dt+dd:empty::before{
+  content: "\00a0";
+}
+/* Make paragraph spacing inside <li> smaller than in body text, to fit better within the list */
+li > p {
+  margin-bottom: 0.5em
+}
+/* Don't let p margin spill out from inside list items */
+li > p:last-of-type {
+  margin-bottom: 0;
+}
+</style>
+<link href="rfc-local.css" rel="stylesheet" type="text/css">
+<script type="application/javascript">async function addMetadata(){try{const e=document.styleSheets[0].cssRules;for(let t=0;t<e.length;t++)if(/#identifiers/.exec(e[t].selectorText)){const a=e[t].cssText.replace("#identifiers","#external-updates");document.styleSheets[0].insertRule(a,document.styleSheets[0].cssRules.length)}}catch(e){console.log(e)}const e=document.getElementById("external-metadata");if(e)try{var t,a="",o=function(e){const t=document.getElementsByTagName("meta");for(let a=0;a<t.length;a++)if(t[a].getAttribute("name")===e)return t[a].getAttribute("content");return""}("rfc.number");if(o){t="https://www.rfc-editor.org/rfc/rfc"+o+".json";try{const e=await fetch(t);a=await e.json()}catch(e){t=document.URL.indexOf("html")>=0?document.URL.replace(/html$/,"json"):document.URL+".json";const o=await fetch(t);a=await o.json()}}if(!a)return;e.style.display="block";const s="",d="https://datatracker.ietf.org/doc",n="https://datatracker.ietf.org/ipr/search",c="https://www.rfc-editor.org/info",l=a.doc_id.toLowerCase(),i=a.doc_id.slice(0,3).toLowerCase(),f=a.doc_id.slice(3).replace(/^0+/,""),u={status:"Status",obsoletes:"Obsoletes",obsoleted_by:"Obsoleted By",updates:"Updates",updated_by:"Updated By",see_also:"See Also",errata_url:"Errata"};let h="<dl style='overflow:hidden' id='external-updates'>";["status","obsoletes","obsoleted_by","updates","updated_by","see_also","errata_url"].forEach(e=>{if("status"==e){a[e]=a[e].toLowerCase();var t=a[e].split(" "),o=t.length,w="",p=1;for(let e=0;e<o;e++)p<o?w=w+r(t[e])+" ":w+=r(t[e]),p++;a[e]=w}else if("obsoletes"==e||"obsoleted_by"==e||"updates"==e||"updated_by"==e){var g,m="",b=1;g=a[e].length;for(let t=0;t<g;t++)a[e][t]&&(a[e][t]=String(a[e][t]).toLowerCase(),m=b<g?m+"<a href='"+s+"/rfc/".concat(a[e][t])+"'>"+a[e][t].slice(3)+"</a>, ":m+"<a href='"+s+"/rfc/".concat(a[e][t])+"'>"+a[e][t].slice(3)+"</a>",b++);a[e]=m}else if("see_also"==e){var y,L="",C=1;y=a[e].length;for(let t=0;t<y;t++)if(a[e][t]){a[e][t]=String(a[e][t]);var _=a[e][t].slice(0,3),v=a[e][t].slice(3).replace(/^0+/,"");L=C<y?"RFC"!=_?L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+_+" "+v+"</a>, ":L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+v+"</a>, ":"RFC"!=_?L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+_+" "+v+"</a>":L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+v+"</a>",C++}a[e]=L}else if("errata_url"==e){var R="";R=a[e]?R+"<a href='"+a[e]+"'>Errata exist</a> | <a href='"+d+"/"+l+"'>Datatracker</a>| <a href='"+n+"/?"+i+"="+f+"&submit="+i+"'>IPR</a> | <a href='"+c+"/"+l+"'>Info page</a>":"<a href='"+d+"/"+l+"'>Datatracker</a> | <a href='"+n+"/?"+i+"="+f+"&submit="+i+"'>IPR</a> | <a href='"+c+"/"+l+"'>Info page</a>",a[e]=R}""!=a[e]?"Errata"==u[e]?h+=`<dt>More info:</dt><dd>${a[e]}</dd>`:h+=`<dt>${u[e]}:</dt><dd>${a[e]}</dd>`:"Errata"==u[e]&&(h+=`<dt>More info:</dt><dd>${a[e]}</dd>`)}),h+="</dl>",e.innerHTML=h}catch(e){console.log(e)}else console.log("Could not locate metadata <div> element");function r(e){return e.charAt(0).toUpperCase()+e.slice(1)}}window.removeEventListener("load",addMetadata),window.addEventListener("load",addMetadata);</script>
+</head>
+<body>
+<script src="metadata.min.js"></script>
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">vObject and vFormat</td>
+<td class="right">April 2021</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Tse, et al.</td>
+<td class="center">Expires 17 October 2021</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Calendaring Extensions</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft"></dd>
+<dt class="label-">:</dt>
+<dd></dd>
+<dt class="label-updates">Updates:</dt>
+<dd class="updates">
+<a href="https://www.rfc-editor.org/rfc/rfc5545" class="eref">5545</a> (if approved)</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2021-04-15" class="published">15 April 2021</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Standards Track</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2021-10-17">17 October 2021</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">R. H. Tse</div>
+<div class="org">Ribose</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Lau</div>
+<div class="org">Ribose</div>
+</div>
+<div class="author">
+      <div class="author-name">M. Douglass</div>
+<div class="org">Spherical Cow Group</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">vObject Internationalization</h1>
+<div id="_b5076eb5-c06e-442c-b231-7413d40d774c">
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<div id="_f3979900-dd9a-46e1-9b4a-622ff7d270ec">
+<p id="section-abstract-1">This document updates the following specifications:<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</div>
+<ul class="normal">
+<li class="normal" id="section-abstract-2.1">
+          <div id="_fe54cff5-e3c9-44a6-9a2a-f6a94ce2de48">
+<p id="section-abstract-2.1.1">I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax<a href="#section-abstract-2.1.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-abstract-2.2">
+          <div id="_92bd64cd-f6d8-4ca1-8ec3-76ddfb75234a">
+<p id="section-abstract-2.2.1">RFC 6350, vCard version 4.0<a href="#section-abstract-2.2.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-abstract-2.3">
+          <div id="_9e91ca9f-9d06-4815-8fad-f86ac795a946">
+<p id="section-abstract-2.3.1">RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)<a href="#section-abstract-2.3.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-abstract-2.4">
+          <div id="_2751a379-740f-4c2a-9dc7-c9ba40b36232">
+<p id="section-abstract-2.4.1">RFC 7953, Calendar Availability Extensions<a href="#section-abstract-2.4.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+      </ul>
+<div id="_86fad757-89c5-4fee-8ea8-6adc9172c64b">
+<p id="section-abstract-3">This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
+</div>
+</section>
+</div>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 17 October 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2021 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document. Code Components extracted from this
+            document must include Simplified BSD License text as described in
+            Section 4.e of the Trust Legal Provisions and are provided without
+            warranty as described in the Simplified BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and definitions</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-definitions" class="xref">Definitions</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-property-parameter-usage-cl" class="xref">Property Parameter Usage Clarification: LANGUAGE</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-vformat-implementation-of-l" class="xref">vFormat Implementation of LANGUAGE</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-property-parameter-script" class="xref">Property Parameter: SCRIPT</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-vformat-implementation-of-s" class="xref">vFormat Implementation of SCRIPT</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-property-parameter-phonetic" class="xref">Property Parameter: PHONETIC</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-vformat-implementation-of-p" class="xref">vFormat Implementation of PHONETIC</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-icalendar-and-vcard-propert" class="xref">iCalendar and vCard Property Parameter Registration: SCRIPT</a></p>
+</li>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-icalendar-and-vcard-property" class="xref">iCalendar and vCard Property Parameter Registration: PHONETIC</a></p>
+</li>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-icalendar-and-vcard-registr" class="xref">iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE</a></p>
+</li>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.4">
+                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="xref">7.4</a>.  <a href="#name-icalendar-and-vcard-registra" class="xref">iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-references" class="xref">References</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-normative-references" class="xref">Normative references</a></p>
+</li>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-informative-references" class="xref">Informative references</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<div id="_fa19313b-f00d-4d67-b596-b6f86ccc53b8">
+<p id="section-1-1">vCard <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span> and iCalendar <span>[<a href="#RFC5545" class="xref">RFC5545</a>]</span> are standards compliant to
+the vObject data model <span>[<a href="#I-D.calconnect-vobject-vformat" class="xref">I-D.calconnect-vobject-vformat</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+</div>
+<div id="_87f69412-2448-42f0-bb5d-02f0ca6c043e">
+<p id="section-1-2">These standards are used worldwide and require proper certain
+localization elements suitable for multi-cultural use.<a href="#section-1-2" class="pilcrow">¶</a></p>
+</div>
+<div id="_4a00d482-598b-4c55-93d6-f1ceca944d83">
+<p id="section-1-3">Previously, the only internationalization method for
+vCard <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span> and iCalendar <span>[<a href="#RFC5545" class="xref">RFC5545</a>]</span> standards was
+the <code>language</code> property parameter (<span><a href="#RFC5545" class="xref">3.2.10</a> [<a href="#RFC5545" class="xref">RFC5545</a>]</span>).<a href="#section-1-3" class="pilcrow">¶</a></p>
+</div>
+<div id="_01453dff-72fe-4b00-95c0-f188573d7821">
+<p id="section-1-4">This document:<a href="#section-1-4" class="pilcrow">¶</a></p>
+</div>
+<ul class="normal">
+<li class="normal" id="section-1-5.1">
+          <div id="_bef57de6-1c06-49e1-978d-8edb2f354d96">
+<p id="section-1-5.1.1">defines additional internationalization features for the vObject data model,
+including a separate property parameter that denotes the script used in a
+property value, and a method to specify pronunciation of a property value<a href="#section-1-5.1.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-1-5.2">
+          <div id="_e3ede24a-1e22-495a-8ec5-fc87df66728d">
+<p id="section-1-5.2.1">defines realization methods of vObject internationalization in vFormat<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+      </ul>
+<div id="_e77063a2-e0c9-4c54-bcd0-fbd937e38b6c">
+<p id="section-1-6">The methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span> and
+iCalendar <span>[<a href="#RFC5545" class="xref">RFC5545</a>]</span>.<a href="#section-1-6" class="pilcrow">¶</a></p>
+</div>
+<div id="_faefaa3e-f067-4d46-9cf9-98edc3fd6ba2">
+<p id="section-1-7">This is a work product of the CalConnect TC-VCARD <span>[<a href="#CALCONNECT-VCARD" class="xref">CALCONNECT-VCARD</a>]</span>
+and TC-CALENDAR <span>[<a href="#CALCONNECT-CALENDAR" class="xref">CALCONNECT-CALENDAR</a>]</span> committees.<a href="#section-1-7" class="pilcrow">¶</a></p>
+</div>
+</section>
+</div>
+<div id="conventions">
+<section id="section-2">
+      <h2 id="name-terms-and-definitions">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terms-and-definitions" class="section-name selfRef">Terms and definitions</a>
+      </h2>
+<div id="_ab3832ab-2568-4433-a406-7e2710c41854">
+<p id="section-2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>",
+"<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<strong>NOT RECOMMENDED</strong>", "<span class="bcp14">MAY</span>",
+and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
+described in BCP 14 <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="xref">RFC8174</a>]</span> when, and only when, they
+appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+</div>
+<div id="_83f5e046-07dc-4e47-8133-01778223697b">
+<p id="section-2-2">The key words "<strong>Private Use</strong>", "<strong>Experimental Use</strong>",
+"<strong>Hierarchical Allocation</strong>", "<strong>First Come First Served</strong>",
+"<strong>Expert Review</strong>", "<strong>Specification Required</strong>", "<strong>RFC Required</strong>",
+"<strong>IETF Review</strong>", "<strong>Standards Action</strong>" and "<strong>IESG Approval</strong>" in
+this document are to be interpreted as described in <span><a href="#RFC8126" class="xref">4</a> [<a href="#RFC8126" class="xref">RFC8126</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
+</div>
+<div id="_4bf214fe-63d3-4906-8655-5bce20545fe2">
+<p id="section-2-3">Notation in this document is described in ABNF <span>[<a href="#RFC5234" class="xref">RFC5234</a>]</span> as used by
+<span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span>.<a href="#section-2-3" class="pilcrow">¶</a></p>
+</div>
+<div id="_ea42ec34-039b-4820-a81a-6ba92dbf8e3e">
+<p id="section-2-4">Definitions from <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span> apply to this specification except when
+explicitly overridden.<a href="#section-2-4" class="pilcrow">¶</a></p>
+</div>
+<div id="_13a6ab6f-da2e-47c9-b4b3-16d12ab999f9">
+<p id="section-2-5">All names of properties, property parameters, enumerated property
+values, and property parameter values are case-insensitive. However,
+all property values are case-sensitive, unless otherwise stated.<a href="#section-2-5" class="pilcrow">¶</a></p>
+</div>
+<div id="term-definitions">
+<section id="section-2.1">
+        <h3 id="name-definitions">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-definitions" class="section-name selfRef">Definitions</a>
+        </h3>
+<span class="break"></span><div id="_6970ac28-c132-4802-813c-b8ecd841a076">
+<dl class="dlParallel" id="section-2.1-1">
+          <dt id="section-2.1-1.1">phonetic system</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.2">
+            <div id="_11ac25d1-556e-4c3f-9333-932f1e7c79da">
+<p id="section-2.1-1.2.1">method of transcription of language in a script that allows
+phonetic reproduction<a href="#section-2.1-1.2.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-2.1-1.3">transliteration</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.4">
+            <div id="_df4f1739-5740-462b-b046-5cace86141e1">
+<p id="section-2.1-1.4.1">operation which consists of representing the characters  of an entirely alphabetical character or alphanumeric character writing system  by the characters of the conversion alphabet<a href="#section-2.1-1.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<span class="break"></span><div id="_8ebe1692-f538-4ad4-abb3-3fb3f670a63b">
+<dl class="dlParallel" id="section-2.1-2">
+          <dt id="section-2.1-2.1">script</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-2.2">
+            <div id="_23c568fd-9360-49ab-bddf-eede2920c74a">
+<p id="section-2.1-2.2.1">particular graphic representation or class of representations of a set of characters used to write one or more languages<a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<span class="break"></span><div id="_9874813a-3ecc-47b5-b3da-c09f3ac9ec9d">
+<dl class="dlParallel" id="section-2.1-3">
+          <dt id="section-2.1-3.1">phonetic transcription</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-3.2">
+            <div id="_09fa4dc7-d415-4e0f-9cb0-67135d77a76e">
+<p id="section-2.1-3.2.1">representation or modelling of spoken language based on the sound system of the respective language
+<span><a href="#ISO24624" class="xref">3.5</a> [<a href="#ISO24624" class="xref">ISO24624</a>]</span><a href="#section-2.1-3.2.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<p id="section-2.1-4">SOURCE:
+<span><a href="#ISO5127" class="xref">3.1.6.11</a> [<a href="#ISO5127" class="xref">ISO5127</a>]</span><a href="#section-2.1-4" class="pilcrow">¶</a></p>
+<p id="section-2.1-5">SOURCE:
+<span><a href="#ISO5127" class="xref">3.1.6.02</a> [<a href="#ISO5127" class="xref">ISO5127</a>]</span><a href="#section-2.1-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="pp-language">
+<section id="section-3">
+      <h2 id="name-property-parameter-usage-cl">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-property-parameter-usage-cl" class="section-name selfRef">Property Parameter Usage Clarification: LANGUAGE</a>
+      </h2>
+<div id="_29f4de56-78a2-4382-a4f0-b09302d17cc9">
+<p id="section-3-1">This section clarifies the intent of the <code>LANGUAGE</code> property
+parameter in <span>[<a href="#RFC5545" class="xref">RFC5545</a>]</span> and <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span> to be for the
+identification of the language used in the property value
+where the parameter is specified.<a href="#section-3-1" class="pilcrow">¶</a></p>
+</div>
+<div id="_16672e89-bc5f-4df4-86ec-0a6cfb783ca0">
+<p id="section-3-2">The <span>[<a href="#RFC5646" class="xref">RFC5646</a>]</span> defined <code>language-tag</code> allows specification
+of multiple attributes (called "subtags") in addition
+to just language. Its basic form includes:<a href="#section-3-2" class="pilcrow">¶</a></p>
+</div>
+<ul class="normal">
+<li class="normal" id="section-3-3.1">
+          <div id="_ac0ca422-f0a2-4b8f-a190-5d87bc10d806">
+<p id="section-3-3.1.1">a mandatory language subtag, using a language identifier
+from ISO 639 (-2, -3) (called a "primary" or "extended" language subtag)<a href="#section-3-3.1.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-3-3.2">
+          <div id="_1aee4d79-0dab-425d-bf8a-6135c4d42357">
+<p id="section-3-3.2.1">an optional script subtag, using a script identifier
+from ISO 15924<a href="#section-3-3.2.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-3-3.3">
+          <div id="_276dd292-d747-4b54-9cf1-775b03f01396">
+<p id="section-3-3.3.1">an optional region subtag, using country codes listed in ISO 3166
+or a UN numeric code<a href="#section-3-3.3.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-3-3.4">
+          <div id="_49dfc74a-813e-4c3f-8100-83a35c427836">
+<p id="section-3-3.4.1">one or more, optional, variant and extension subtags
+defined in the IANA language subtag registry.<a href="#section-3-3.4.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+      </ul>
+<div id="_d9b034f1-837b-4d25-9aa7-713d4a9bb1f4">
+<p id="section-3-4">In practical usage of vObject standards, including
+<span>[<a href="#RFC5545" class="xref">RFC5545</a>]</span> and <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span>, it is determined that
+the combinatorial enumeration of non-language subtags often cause
+unnecessary confusion in interpretation and parsing, especially
+when the registry contain variant and extension subtags that either
+conflict in semantics or have overly restrictive in their
+supported prefixes.<a href="#section-3-4" class="pilcrow">¶</a></p>
+</div>
+<div id="_0b547aa7-f368-422c-8730-8181a41b70e2">
+<p id="section-3-5">This document therefore clarifies the intent of
+<span><a href="#RFC5545" class="xref">3.2.10</a> [<a href="#RFC5545" class="xref">RFC5545</a>]</span> and <span><a href="#RFC6350" class="xref">5.1</a> [<a href="#RFC6350" class="xref">RFC6350</a>]</span>, such that
+the <code>LANGUAGE</code> property parameter <span class="bcp14">SHOULD</span> only support
+the mandatory language subtag.<a href="#section-3-5" class="pilcrow">¶</a></p>
+</div>
+<div id="_969adf9c-a33f-456b-bf69-f9da41125e4e">
+<p id="section-3-6">Other subtags <span class="bcp14">MAY</span> be supplied as specified in <span>[<a href="#RFC5646" class="xref">RFC5646</a>]</span>,
+but they are purely for informational purposes not used
+in the vObject specification.<a href="#section-3-6" class="pilcrow">¶</a></p>
+</div>
+<span class="break"></span><div id="_775fb20b-89bd-4bc4-9134-54d9969f18a0">
+<dl class="dlParallel" id="section-3-7">
+        <dt id="section-3-7.1">Namespace</dt>
+        <dd style="margin-left: 1.5em" id="section-3-7.2"></dd>
+        <dd class="break"></dd>
+<dt id="section-3-7.3">Property parameter name</dt>
+        <dd style="margin-left: 1.5em" id="section-3-7.4">
+          <div id="_cd997836-ea03-47f7-9b73-1d2387ffd641">
+<p id="section-3-7.4.1">
+<code>LANGUAGE</code><a href="#section-3-7.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-3-7.5">Purpose</dt>
+        <dd style="margin-left: 1.5em" id="section-3-7.6">
+          <div id="_9c08c62b-e924-47af-8e69-30d68019333b">
+<p id="section-3-7.6.1">To specify the language used in the property value.<a href="#section-3-7.6.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-3-7.7">Value type</dt>
+        <dd style="margin-left: 1.5em" id="section-3-7.8">
+          <div id="_72ec579c-9b03-4df0-b87f-0a92028f744f">
+<p id="section-3-7.8.1"><code>LANGUAGE-TAG</code> <span><a href="#RFC6350" class="xref">4.8</a> [<a href="#RFC6350" class="xref">RFC6350</a>]</span><a href="#section-3-7.8.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-3-7.9">Description</dt>
+        <dd style="margin-left: 1.5em" id="section-3-7.10">
+          <div id="_ea48facf-5349-45ed-8698-75457a154126">
+<p id="section-3-7.10.1">As provided above.<a href="#section-3-7.10.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+      <dd class="break"></dd>
+</dl>
+</div>
+<div id="_vformat_implementation_of_language">
+<section id="section-3.1">
+        <h3 id="name-vformat-implementation-of-l">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-vformat-implementation-of-l" class="section-name selfRef">vFormat Implementation of LANGUAGE</a>
+        </h3>
+<div id="_5887c213-f49e-4bd3-8d0d-4bf7453ea66a">
+<p id="section-3.1-1">The value of the <code>LANGUAGE</code> property parameter is
+re-defined as shown below.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+</div>
+<span class="break"></span><div id="_90033eaf-2632-46a8-aa1a-4bf588d335c5">
+<dl class="dlParallel" id="section-3.1-2">
+          <dt id="section-3.1-2.1">Format definition</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.2"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_63fee941-569b-4162-99df-9bfd8c0ff746">
+<div id="section-3.1-3">
+<pre class="sourcecode lang-abnf">languageparam = "LANGUAGE" "=" language *(subpart)
+
+language = iso-639-3-code / iso-639-2-code
+          ; a 2-alpha or 3-alpha language code
+          ; defined in ISO 639
+
+subpart  = "-" *alphanum
+           ; all other subparts unsupported</pre><a href="#section-3.1-3" class="pilcrow">¶</a>
+</div>
+</div>
+<span class="break"></span><div id="_80749d16-160c-4fec-9cbe-3d61e69bd7dc">
+<dl class="dlParallel" id="section-3.1-4">
+          <dt id="section-3.1-4.1">Examples</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-4.2"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_1b0e5c84-73bd-4740-8dc0-ed3363f265f9">
+<div id="section-3.1-5">
+<pre class="sourcecode">N;LANGUAGE=en:Miyazaki;Hayao;;;
+N;LANGUAGE=jp:宮崎;駿;;;</pre><a href="#section-3.1-5" class="pilcrow">¶</a>
+</div>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="pp-script">
+<section id="section-4">
+      <h2 id="name-property-parameter-script">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-property-parameter-script" class="section-name selfRef">Property Parameter: SCRIPT</a>
+      </h2>
+<div id="_7dc54378-627e-4b6f-8886-dd8048adea85">
+<p id="section-4-1">The <code>SCRIPT</code> property parameter specifies the written script
+used in the property value which contains the parameter,
+which is amongst the valid codes in the ISO 15924 registry.<a href="#section-4-1" class="pilcrow">¶</a></p>
+</div>
+<div id="_11488812-9628-4421-a024-f1b385c2e705">
+<p id="section-4-2">It is separated from the <code>LANGUAGE</code> property parameter
+defined in <span>[<a href="#RFC5545" class="xref">RFC5545</a>]</span> and <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span> for reasons
+stated in <a href="#pp-language" class="xref">Section 3</a>.<a href="#section-4-2" class="pilcrow">¶</a></p>
+</div>
+<span class="break"></span><div id="_ad348dc3-141d-4f4c-b667-27cb266403b6">
+<dl class="dlParallel" id="section-4-3">
+        <dt id="section-4-3.1">Namespace</dt>
+        <dd style="margin-left: 1.5em" id="section-4-3.2"></dd>
+        <dd class="break"></dd>
+<dt id="section-4-3.3">Property parameter name</dt>
+        <dd style="margin-left: 1.5em" id="section-4-3.4">
+          <div id="_3f8020b8-19f4-4152-9e57-1fc896e3ebd5">
+<p id="section-4-3.4.1">SCRIPT<a href="#section-4-3.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-3.5">Purpose</dt>
+        <dd style="margin-left: 1.5em" id="section-4-3.6">
+          <div id="_7a5bcfb8-390c-48b6-ac1b-40c6017f89b6">
+<p id="section-4-3.6.1">To specify the script used in the property
+value, which is amongst the valid codes in the ISO 15924 registry.<a href="#section-4-3.6.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-3.7">Value type</dt>
+        <dd style="margin-left: 1.5em" id="section-4-3.8">
+          <div id="_0cd12273-6c06-49cb-a531-a97aacb15602">
+<p id="section-4-3.8.1">TEXT, a single value valid in the ISO 15924 script registry.<a href="#section-4-3.8.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-3.9">Description</dt>
+        <dd style="margin-left: 1.5em" id="section-4-3.10">
+          <div id="_4f42ee92-bab2-420f-8f4c-05e8cdc1bfef">
+<p id="section-4-3.10.1">The property value of which this property parameter
+applies to must have identical structure to<a href="#section-4-3.10.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+      <dd class="break"></dd>
+</dl>
+</div>
+<div id="_vformat_implementation_of_script">
+<section id="section-4.1">
+        <h3 id="name-vformat-implementation-of-s">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-vformat-implementation-of-s" class="section-name selfRef">vFormat Implementation of SCRIPT</a>
+        </h3>
+<span class="break"></span><div id="_827b1a1f-55ab-4d7f-93ad-f6f18c47072b">
+<dl class="dlParallel" id="section-4.1-1">
+          <dt id="section-4.1-1.1">Format definition</dt>
+          <dd style="margin-left: 1.5em" id="section-4.1-1.2"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_cd4be824-21b2-4196-b97c-cc46a53d451a">
+<div id="section-4.1-2">
+<pre class="sourcecode lang-abnf">scriptparam = "SCRIPT" "=" script-code
+            ; script-code defined in the value type SCRIPT-CODE</pre><a href="#section-4.1-2" class="pilcrow">¶</a>
+</div>
+</div>
+<span class="break"></span><div id="_4f0229c8-cd0c-4fd5-ae54-8e8a6b496633">
+<dl class="dlParallel" id="section-4.1-3">
+          <dt id="section-4.1-3.1">Examples</dt>
+          <dd style="margin-left: 1.5em" id="section-4.1-3.2"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_d54f9e12-f3cb-4873-94d7-0b3f9926abad">
+<div id="section-4.1-4">
+<pre class="sourcecode">N;SCRIPT=Hira;LANGUAGE=jp:みやざき;はやお;;;
+N;SCRIPT=Hani;LANGUAGE=jp:宮崎;駿;;;</pre><a href="#section-4.1-4" class="pilcrow">¶</a>
+</div>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="pp-phonetic">
+<section id="section-5">
+      <h2 id="name-property-parameter-phonetic">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-property-parameter-phonetic" class="section-name selfRef">Property Parameter: PHONETIC</a>
+      </h2>
+<div id="_aeb9d1f5-abdd-4e20-849c-f198afe345ca">
+<p id="section-5-1">A number of contact managers have long used "X-properties"
+to to store phonetic information of a vCard's subject, such as
+<code>X-PHONETIC-NAME</code>, <code>X-PHONETIC-FIRST-NAME</code> and <code>X-PHONETIC-LAST-NAME</code>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+</div>
+<div id="_4cf6406f-fcde-4d15-8222-2e9329d280bb">
+<p id="section-5-2">However, this is an issue for multiple reasons:<a href="#section-5-2" class="pilcrow">¶</a></p>
+</div>
+<ul class="normal">
+<li class="normal" id="section-5-3.1">
+          <div id="_3907350a-d060-4de1-b093-7929105adcf6">
+<p id="section-5-3.1.1">The value of the X-property does not define the phonetic system
+used for its transcription;<a href="#section-5-3.1.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-5-3.2">
+          <div id="_0bb72c7a-a2d8-438e-b811-da7008ab1377">
+<p id="section-5-3.2.1">This X-property usage does not enable interoperability since
+it does not require specification of the language transcribed,
+as well as the script of the resulting transcription;<a href="#section-5-3.2.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-5-3.3">
+          <div id="_574550cd-9f70-4225-bbe2-117453039cc4">
+<p id="section-5-3.3.1">The scheme of using X-properties does not allow representation
+of phonetics on other vCard values.<a href="#section-5-3.3.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+      </ul>
+<div id="_53ec2043-ccb2-47d3-86bd-b7732e56c6e0">
+<p id="section-5-4">This section defines three property parameters used to
+store pronunciation information of a property value:<a href="#section-5-4" class="pilcrow">¶</a></p>
+</div>
+<div id="_fac65437-215e-46fb-a83d-9f784d4e5521">
+<ol start="1" type="1" class="normal type-1" id="section-5-5">
+<li id="section-5-5.1">
+          <div id="_7ebecd2c-52c0-4a4c-a5eb-7dc143068fa9">
+<p id="section-5-5.1.1">The script used in the pronunciation system;<a href="#section-5-5.1.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li id="section-5-5.2">
+          <div id="_d1d94ae9-b982-44bd-ad06-6e2f0b04d486">
+<p id="section-5-5.2.1">An identifier of the pronunciation system used;<a href="#section-5-5.2.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li id="section-5-5.3">
+          <div id="_00faad9a-7973-41f2-b66d-914d6aaa54dd">
+<p id="section-5-5.3.1">The source language that was transcribed by the pronunciation system.<a href="#section-5-5.3.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+      </ol>
+</div>
+<div id="_94817ec2-1408-4a4b-841d-9feaccccf23c">
+<p id="section-5-6">The <code>PHONETIC</code> property parameter specifies the phonetic
+system used in the transcription of the property value,
+identified by the phonetic system code from the ISO XXXXX
+phonetic system registry.<a href="#section-5-6" class="pilcrow">¶</a></p>
+</div>
+<div id="_47f48e0f-88e0-4b50-be0d-f5de2e889a9e">
+<p id="section-5-7">This property parameter is often applied together with
+the <code>LANGUAGE</code> (<a href="#pp-language" class="xref">Section 3</a>)
+and <code>SCRIPT</code> (<a href="#pp-script" class="xref">Section 4</a>) property parameters.<a href="#section-5-7" class="pilcrow">¶</a></p>
+</div>
+<span class="break"></span><div id="_82504ba4-ee44-48af-b25e-30af361e2dac">
+<dl class="dlParallel" id="section-5-8">
+        <dt id="section-5-8.1">Namespace</dt>
+        <dd style="margin-left: 1.5em" id="section-5-8.2"></dd>
+        <dd class="break"></dd>
+<dt id="section-5-8.3">Property parameter name</dt>
+        <dd style="margin-left: 1.5em" id="section-5-8.4">
+          <div id="_af6f6b61-c154-4260-8d76-3c13c7085204">
+<p id="section-5-8.4.1">PHONETIC<a href="#section-5-8.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-5-8.5">Purpose</dt>
+        <dd style="margin-left: 1.5em" id="section-5-8.6">
+          <div id="_2b70b1d1-0b60-4403-b084-0d5d3f2723aa">
+<p id="section-5-8.6.1">To specify the phonetic system used in the property
+value, which is amongst the valid codes in the ISO XXXXX registry.<a href="#section-5-8.6.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-5-8.7">Value type</dt>
+        <dd style="margin-left: 1.5em" id="section-5-8.8">
+          <div id="_9ff20083-284d-4d39-a8b7-314138bee295">
+<p id="section-5-8.8.1">TEXT, a single value valid in the ISO XXXXX phonetic system registry.<a href="#section-5-8.8.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-5-8.9">Description</dt>
+        <dd style="margin-left: 1.5em" id="section-5-8.10">
+          <div id="_17902633-be79-4007-b3ff-1a8f88a06756">
+<p id="section-5-8.10.1">The property value of which this property parameter
+applies to must take an identical structure to the property
+value without application of this property parameter.<a href="#section-5-8.10.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+      <dd class="break"></dd>
+</dl>
+</div>
+<div id="_vformat_implementation_of_phonetic">
+<section id="section-5.1">
+        <h3 id="name-vformat-implementation-of-p">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-vformat-implementation-of-p" class="section-name selfRef">vFormat Implementation of PHONETIC</a>
+        </h3>
+<span class="break"></span><div id="_090fb5ae-f26e-4ef2-bd8d-9592613d7b21">
+<dl class="dlParallel" id="section-5.1-1">
+          <dt id="section-5.1-1.1">Format definition</dt>
+          <dd style="margin-left: 1.5em" id="section-5.1-1.2"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_1269efca-76e8-4966-8e3c-1f85810e5dd4">
+<div id="section-5.1-2">
+<pre class="sourcecode lang-abnf">phoneticparam = "PHONETIC" "=" phonetic
+phonetic      = 4ALPHA  ; ISO XXXXX 4-digit phonetic system code</pre><a href="#section-5.1-2" class="pilcrow">¶</a>
+</div>
+</div>
+<span class="break"></span><div id="_a4720adf-59cd-42bb-b091-16a23110ea9d">
+<dl class="dlParallel" id="section-5.1-3">
+          <dt id="section-5.1-3.1">Examples</dt>
+          <dd style="margin-left: 1.5em" id="section-5.1-3.2"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_30737536-f7d7-4cc2-8ec9-414f6ac12e94">
+<div id="section-5.1-4">
+<pre class="sourcecode">N;SCRIPT=Hant;LANGUAGE=zho:孫;中山;文,逸仙;;
+N;SCRIPT=Hans;LANGUAGE=zho:孙;中山;文,逸仙;;
+N;PHONETIC=jyut;SCRIPT=Latn;LANGUAGE=yue:syun1;zung1saan1;man4,jat6sin1;;
+N;PHONETIC=ping;SCRIPT=Latn;LANGUAGE=cmn:sun;zhongshan;rixian;;</pre><a href="#section-5.1-4" class="pilcrow">¶</a>
+</div>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="security">
+<section id="section-6">
+      <h2 id="name-security-considerations">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<div id="_b1c22e10-74da-49c9-87ed-8be14831cd75">
+<p id="section-6-1">Security considerations of the vObject formats
+themselves <span class="bcp14">MUST</span> be adhered to, including:<a href="#section-6-1" class="pilcrow">¶</a></p>
+</div>
+<ul class="normal">
+<li class="normal" id="section-6-2.1">
+          <div id="_0d1d30c2-8c02-4024-a7aa-fd701e3a4b52">
+<p id="section-6-2.1.1">vCard: <span>[<a href="#RFC6350" class="xref">RFC6350</a>]</span><a href="#section-6-2.1.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-6-2.2">
+          <div id="_95bf08e1-92f3-4761-9ef4-af5e3d11237a">
+<p id="section-6-2.2.1">iCalendar: <span>[<a href="#RFC5545" class="xref">RFC5545</a>]</span>, <span>[<a href="#RFC4791" class="xref">RFC4791</a>]</span><a href="#section-6-2.2.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+        <li class="normal" id="section-6-2.3">
+          <div id="_a688b1ee-fd6f-4047-b448-838c6aad9362">
+<p id="section-6-2.3.1">vObject: <span>[<a href="#I-D.calconnect-vobject-vformat" class="xref">I-D.calconnect-vobject-vformat</a>]</span><a href="#section-6-2.3.1" class="pilcrow">¶</a></p>
+</div>
+</li>
+      </ul>
+<div id="_602b8ad4-e02a-4b0a-af9d-1d667b354fdb">
+<p id="section-6-3">vObject formats, especially for calendaring, scheduling
+and contact exchange, often involve privacy-sensitive information.
+Internationalization features defined in this document
+<span class="bcp14">MAY</span> pose risk of exposing private information if
+interchanged through unprotected communication channels.<a href="#section-6-3" class="pilcrow">¶</a></p>
+</div>
+<div id="_5c6ffdd3-e1e5-4aaf-abdf-8904a7e5fb0c">
+<p id="section-6-4">Mechanisms used for the transmission of such information
+should implement security measures to protect against possible threats,
+such as eavesdropping, replay, message insertion, deletion,
+modification, and man-in-the-middle attacks.<a href="#section-6-4" class="pilcrow">¶</a></p>
+</div>
+</section>
+</div>
+<div id="iana">
+<section id="section-7">
+      <h2 id="name-iana-considerations">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<div id="_79a68c6d-42c3-469f-a862-7ac3ae11a2ee">
+<p id="section-7-1">IANA is requested to register the following property parameters
+and value types in the corresponding iCalendar and vCard registries.<a href="#section-7-1" class="pilcrow">¶</a></p>
+</div>
+<div id="_icalendar_and_vcard_property_parameter_registration_script">
+<section id="section-7.1">
+        <h3 id="name-icalendar-and-vcard-propert">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-icalendar-and-vcard-propert" class="section-name selfRef">iCalendar and vCard Property Parameter Registration: SCRIPT</a>
+        </h3>
+<span class="break"></span><div id="_948e6559-cedf-476c-89d0-c49801868c82">
+<dl class="dlParallel" id="section-7.1-1">
+          <dt id="section-7.1-1.1">Namespace</dt>
+          <dd style="margin-left: 1.5em" id="section-7.1-1.2"></dd>
+          <dd class="break"></dd>
+<dt id="section-7.1-1.3">Parameter name</dt>
+          <dd style="margin-left: 1.5em" id="section-7.1-1.4">
+            <div id="_ccd4b070-2319-4423-b80b-314d536bf189">
+<p id="section-7.1-1.4.1">SCRIPT<a href="#section-7.1-1.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.1-1.5">Purpose</dt>
+          <dd style="margin-left: 1.5em" id="section-7.1-1.6">
+            <div id="_5af8b1a9-9cad-43ab-bd70-9883b2802f7a">
+<p id="section-7.1-1.6.1">Given in <a href="#pp-script" class="xref">Section 4</a>.<a href="#section-7.1-1.6.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.1-1.7">Description</dt>
+          <dd style="margin-left: 1.5em" id="section-7.1-1.8">
+            <div id="_50eb1593-a46b-4417-b64d-0844f0f291fb">
+<p id="section-7.1-1.8.1">Given in <a href="#pp-script" class="xref">Section 4</a>.<a href="#section-7.1-1.8.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.1-1.9">Format definition</dt>
+          <dd style="margin-left: 1.5em" id="section-7.1-1.10">
+            <div id="_1176a8e6-979d-43a3-8cb3-1b9579bff2a6">
+<p id="section-7.1-1.10.1">Given in <a href="#pp-script" class="xref">Section 4</a>.<a href="#section-7.1-1.10.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.1-1.11">Examples</dt>
+          <dd style="margin-left: 1.5em" id="section-7.1-1.12">
+            <div id="_2741e1ea-bcbe-4764-8419-2cd21f873618">
+<p id="section-7.1-1.12.1">Given in <a href="#pp-script" class="xref">Section 4</a>.<a href="#section-7.1-1.12.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+</section>
+</div>
+<div id="_icalendar_and_vcard_property_parameter_registration_phonetic">
+<section id="section-7.2">
+        <h3 id="name-icalendar-and-vcard-property">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-icalendar-and-vcard-property" class="section-name selfRef">iCalendar and vCard Property Parameter Registration: PHONETIC</a>
+        </h3>
+<span class="break"></span><div id="_edde1c28-4f9f-4342-b497-fd8e51a1f860">
+<dl class="dlParallel" id="section-7.2-1">
+          <dt id="section-7.2-1.1">Namespace</dt>
+          <dd style="margin-left: 1.5em" id="section-7.2-1.2"></dd>
+          <dd class="break"></dd>
+<dt id="section-7.2-1.3">Parameter name</dt>
+          <dd style="margin-left: 1.5em" id="section-7.2-1.4">
+            <div id="_51bb1372-0b59-4981-830e-ffc8e2059316">
+<p id="section-7.2-1.4.1">PHONETIC<a href="#section-7.2-1.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.2-1.5">Purpose</dt>
+          <dd style="margin-left: 1.5em" id="section-7.2-1.6">
+            <div id="_510d691c-5a16-43cc-a890-a1bb09c59128">
+<p id="section-7.2-1.6.1">Given in <a href="#pp-phonetic" class="xref">Section 5</a>.<a href="#section-7.2-1.6.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.2-1.7">Description</dt>
+          <dd style="margin-left: 1.5em" id="section-7.2-1.8">
+            <div id="_9ca02120-60d5-4ce9-ba55-941e2e72ae51">
+<p id="section-7.2-1.8.1">Given in <a href="#pp-phonetic" class="xref">Section 5</a>.<a href="#section-7.2-1.8.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.2-1.9">Format definition</dt>
+          <dd style="margin-left: 1.5em" id="section-7.2-1.10">
+            <div id="_48183f2f-4f76-471f-b18b-18f142454918">
+<p id="section-7.2-1.10.1">Given in <a href="#pp-phonetic" class="xref">Section 5</a>.<a href="#section-7.2-1.10.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.2-1.11">Examples</dt>
+          <dd style="margin-left: 1.5em" id="section-7.2-1.12">
+            <div id="_21ca2335-c9dc-42b8-b3b9-540e1ea738ff">
+<p id="section-7.2-1.12.1">Given in <a href="#pp-phonetic" class="xref">Section 5</a>.<a href="#section-7.2-1.12.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+</section>
+</div>
+<div id="_icalendar_and_vcard_registration_for_value_data_type_script_code">
+<section id="section-7.3">
+        <h3 id="name-icalendar-and-vcard-registr">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-icalendar-and-vcard-registr" class="section-name selfRef">iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE</a>
+        </h3>
+<span class="break"></span><div id="_4c1cf8d2-6d06-44d3-9d74-521b597d495a">
+<dl class="dlParallel" id="section-7.3-1">
+          <dt id="section-7.3-1.1">Value name</dt>
+          <dd style="margin-left: 1.5em" id="section-7.3-1.2">
+            <div id="_f47bd78d-04f0-4aba-8ed1-f8a600f71541">
+<p id="section-7.3-1.2.1">SCRIPT-CODE<a href="#section-7.3-1.2.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.3-1.3">Purpose</dt>
+          <dd style="margin-left: 1.5em" id="section-7.3-1.4">
+            <div id="_2bc19390-4ec7-42bf-8e46-1edf9ca1d417">
+<p id="section-7.3-1.4.1">Indicate script used in property value
+using a valid value from the ISO 15924 registry.<a href="#section-7.3-1.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.3-1.5">Description</dt>
+          <dd style="margin-left: 1.5em" id="section-7.3-1.6">
+            <div id="_c4aceae4-195f-472d-bb0d-831feb536345">
+<p id="section-7.3-1.6.1">Used by the SCRIPT property parameter.<a href="#section-7.3-1.6.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.3-1.7">Format definition</dt>
+          <dd style="margin-left: 1.5em" id="section-7.3-1.8"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_fccaf26a-929e-4c2e-89bb-0e8ae2527aa4">
+<div id="section-7.3-2">
+<pre class="sourcecode lang-abnf">script-code = 4ALPHA
+            ; ISO 15924 4-digit script code</pre><a href="#section-7.3-2" class="pilcrow">¶</a>
+</div>
+</div>
+<span class="break"></span><div id="_0dacdd2a-57cd-4552-bd58-a8517ecf303e">
+<dl class="dlParallel" id="section-7.3-3">
+          <dt id="section-7.3-3.1">Examples</dt>
+          <dd style="margin-left: 1.5em" id="section-7.3-3.2">
+            <div id="_84ce44a6-bbd1-4df2-8315-0f81cc651297">
+<p id="section-7.3-3.2.1"><code>Latn</code>, <code>Cyrl</code>, <code>Hani</code><a href="#section-7.3-3.2.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+</section>
+</div>
+<div id="_icalendar_and_vcard_registration_for_value_data_type_phonetic_code">
+<section id="section-7.4">
+        <h3 id="name-icalendar-and-vcard-registra">
+<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-icalendar-and-vcard-registra" class="section-name selfRef">iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE</a>
+        </h3>
+<span class="break"></span><div id="_07ffe038-e980-49fa-9958-b69296f397e8">
+<dl class="dlParallel" id="section-7.4-1">
+          <dt id="section-7.4-1.1">Value name</dt>
+          <dd style="margin-left: 1.5em" id="section-7.4-1.2">
+            <div id="_3e616937-ec3f-4092-8519-cf2fb4bb6b0b">
+<p id="section-7.4-1.2.1">PHONETIC-CODE<a href="#section-7.4-1.2.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.4-1.3">Purpose</dt>
+          <dd style="margin-left: 1.5em" id="section-7.4-1.4">
+            <div id="_d3d0562b-58ce-45e8-a6d1-63e273d8eb52">
+<p id="section-7.4-1.4.1">Indicate phonetic system used in the transcription
+of property value,
+using a valid value from the ISO XXXXX registry.<a href="#section-7.4-1.4.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.4-1.5">Description</dt>
+          <dd style="margin-left: 1.5em" id="section-7.4-1.6">
+            <div id="_58501359-b283-49e1-83b3-649c1da67aab">
+<p id="section-7.4-1.6.1">Used by the SCRIPT property parameter.<a href="#section-7.4-1.6.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-7.4-1.7">Format definition</dt>
+          <dd style="margin-left: 1.5em" id="section-7.4-1.8"></dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+<div id="_d6872c3b-f58e-41c5-a57f-b132f4b0fbe9">
+<div id="section-7.4-2">
+<pre class="sourcecode lang-abnf">phonetic-code = 4ALPHA
+              ; ISO XXXXX 4-digit script code</pre><a href="#section-7.4-2" class="pilcrow">¶</a>
+</div>
+</div>
+<span class="break"></span><div id="_64c3a811-8f95-46fa-8241-c75f1914f848">
+<dl class="dlParallel" id="section-7.4-3">
+          <dt id="section-7.4-3.1">Examples</dt>
+          <dd style="margin-left: 1.5em" id="section-7.4-3.2">
+            <div id="_76458156-1d91-4222-a606-baa6a6770fcd">
+<p id="section-7.4-3.2.1"><code>ipa</code>, <code>jyut</code>, <code>ping</code><a href="#section-7.4-3.2.1" class="pilcrow">¶</a></p>
+</div>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="_references">
+<section id="section-8">
+      <h2 id="name-references">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<div id="_normative_references">
+<section id="section-8.1">
+        <h3 id="name-normative-references">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative references</a>
+        </h3>
+<dl class="references">
+<dt id="RFC5545">[RFC5545]</dt>
+        <dd>
+<span class="refAuthor">Desruisseaux, B., Ed.</span>, <span class="refTitle">"Internet Calendaring and Scheduling Core Object Specification (iCalendar)"</span>, <span class="refContent">RFC 5545</span>, <span class="seriesInfo">IETF RFC 5545</span>, <span class="seriesInfo">DOI 10.17487/RFC5545</span>, <time datetime="2009-09" class="refDate">September 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5545">https://www.rfc-editor.org/info/rfc5545</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6350">[RFC6350]</dt>
+        <dd>
+<span class="refAuthor">Perreault, S.</span>, <span class="refTitle">"vCard Format Specification"</span>, <span class="refContent">RFC 6350</span>, <span class="seriesInfo">IETF RFC 6350</span>, <span class="seriesInfo">DOI 10.17487/RFC6350</span>, <time datetime="2011-08" class="refDate">August 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6350">https://www.rfc-editor.org/info/rfc6350</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.calconnect-vobject-vformat">[I-D.calconnect-vobject-vformat]</dt>
+      <dd>
+<span class="refAuthor">Tse, R.</span>, <span class="refAuthor">Tam, P.</span>, <span class="refAuthor">Murchison, K.</span>, and <span class="refAuthor">M. Douglass</span>, <span class="refTitle">"The vObject Model and vFormat Syntax"</span>, <span class="refContent">I-D.calconnect-vobject-vformat</span>, <span class="seriesInfo">IETF I-D.calconnect-vobject-vformat</span>, <time datetime="2018-06" class="refDate">June 2018</time>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="_informative_references">
+<section id="section-8.2">
+        <h3 id="name-informative-references">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative references</a>
+        </h3>
+<dl class="references">
+<dt id="CALCONNECT-VCARD">[CALCONNECT-VCARD]</dt>
+        <dd>
+<span class="refTitle">"CalConnect VCARD Technical Committee"</span>, <span class="refContent">CalConnect TC VCARD</span>. </dd>
+<dd class="break"></dd>
+<dt id="CALCONNECT-CALENDAR">[CALCONNECT-CALENDAR]</dt>
+        <dd>
+<span class="refTitle">"CalConnect CALENDAR Technical Committee"</span>, <span class="refContent">CalConnect TC CALENDAR</span>. </dd>
+<dd class="break"></dd>
+<dt id="ISO5127">[ISO5127]</dt>
+        <dd>
+<span class="refAuthor">ISO</span>, <span class="refTitle">"Information and documentation"</span>, <span class="refContent">ISO 5127 (all parts)</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.iso.org/standard/59743.html">https://www.iso.org/standard/59743.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ISO24624">[ISO24624]</dt>
+        <dd>
+<span class="refAuthor">ISO</span>, <span class="refTitle">"Language resource management"</span>, <span class="refContent">ISO 24624:2016</span>, <time datetime="2016-08" class="refDate">August 2016</time>, <span>&lt;<a href="https://www.iso.org/standard/37338.html">https://www.iso.org/standard/37338.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2119">[RFC2119]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="refContent">RFC 2119</span>, <span class="seriesInfo">IETF RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3986">[RFC3986]</dt>
+        <dd>
+<span class="refAuthor">Berners-Lee, T.</span>, <span class="refAuthor">Fielding, R.</span>, and <span class="refAuthor">L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="refContent">RFC 3986</span>, <span class="seriesInfo">IETF RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3986">https://www.rfc-editor.org/info/rfc3986</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5646">[RFC5646]</dt>
+        <dd>
+<span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Tags for Identifying Languages"</span>, <span class="refContent">RFC 5646</span>, <span class="seriesInfo">IETF RFC 5646</span>, <span class="seriesInfo">DOI 10.17487/RFC5646</span>, <time datetime="2009-09" class="refDate">September 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5646">https://www.rfc-editor.org/info/rfc5646</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8174">[RFC8174]</dt>
+        <dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="refContent">RFC 8174</span>, <span class="seriesInfo">IETF RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6321">[RFC6321]</dt>
+        <dd>
+<span class="refAuthor">Daboo, C.</span>, <span class="refAuthor">Douglass, M.</span>, and <span class="refAuthor">S. Lees</span>, <span class="refTitle">"xCal: The XML Format for iCalendar"</span>, <span class="refContent">RFC 6321</span>, <span class="seriesInfo">IETF RFC 6321</span>, <span class="seriesInfo">DOI 10.17487/RFC6321</span>, <time datetime="2011-08" class="refDate">August 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6321">https://www.rfc-editor.org/info/rfc6321</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7265">[RFC7265]</dt>
+        <dd>
+<span class="refAuthor">Kewisch, P.</span>, <span class="refAuthor">Daboo, C.</span>, and <span class="refAuthor">M. Douglass</span>, <span class="refTitle">"jCal: The JSON Format for iCalendar"</span>, <span class="refContent">RFC 7265</span>, <span class="seriesInfo">IETF RFC 7265</span>, <span class="seriesInfo">DOI 10.17487/RFC7265</span>, <time datetime="2014-05" class="refDate">May 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7265">https://www.rfc-editor.org/info/rfc7265</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7095">[RFC7095]</dt>
+        <dd>
+<span class="refAuthor">Kewisch, P.</span>, <span class="refTitle">"jCard: The JSON Format for vCard"</span>, <span class="refContent">RFC 7095</span>, <span class="seriesInfo">IETF RFC 7095</span>, <span class="seriesInfo">DOI 10.17487/RFC7095</span>, <time datetime="2014-01" class="refDate">January 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7095">https://www.rfc-editor.org/info/rfc7095</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6352">[RFC6352]</dt>
+        <dd>
+<span class="refAuthor">Daboo, C.</span>, <span class="refTitle">"CardDAV: vCard Extensions to Web Distributed Authoring and Versioning (WebDAV)"</span>, <span class="refContent">RFC 6352</span>, <span class="seriesInfo">IETF RFC 6352</span>, <span class="seriesInfo">DOI 10.17487/RFC6352</span>, <time datetime="2011-08" class="refDate">August 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6352">https://www.rfc-editor.org/info/rfc6352</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6351">[RFC6351]</dt>
+        <dd>
+<span class="refAuthor">Perreault, S.</span>, <span class="refTitle">"xCard: vCard XML Representation"</span>, <span class="refContent">RFC 6351</span>, <span class="seriesInfo">IETF RFC 6351</span>, <span class="seriesInfo">DOI 10.17487/RFC6351</span>, <time datetime="2011-08" class="refDate">August 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6351">https://www.rfc-editor.org/info/rfc6351</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4791">[RFC4791]</dt>
+        <dd>
+<span class="refAuthor">Daboo, C.</span>, <span class="refAuthor">Desruisseaux, B.</span>, and <span class="refAuthor">L. Dusseault</span>, <span class="refTitle">"Calendaring Extensions to WebDAV (CalDAV)"</span>, <span class="refContent">RFC 4791</span>, <span class="seriesInfo">IETF RFC 4791</span>, <span class="seriesInfo">DOI 10.17487/RFC4791</span>, <time datetime="2007-03" class="refDate">March 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4791">https://www.rfc-editor.org/info/rfc4791</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5234">[RFC5234]</dt>
+        <dd>
+<span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="refContent">RFC 5234</span>, <span class="seriesInfo">IETF RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5234">https://www.rfc-editor.org/info/rfc5234</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8126">[RFC8126]</dt>
+      <dd>
+<span class="refAuthor">Cotton, M.</span>, <span class="refAuthor">Leiba, B.</span>, and <span class="refAuthor">T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="refContent">RFC 8126</span>, <span class="seriesInfo">IETF RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8126">https://www.rfc-editor.org/info/rfc8126</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="section-appendix.a">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Ronald Henry Tse</span></div>
+<div dir="auto" class="left"><span class="org">Ribose</span></div>
+<div dir="auto" class="left"><span class="street-address">Suite 1109, 1 Pedder Street<br>Central</span></div>
+<div dir="auto" class="left"><span class="country-name">Hong Kong</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ronald.tse@ribose.com" class="email">ronald.tse@ribose.com</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://www.ribose.com" class="url">https://www.ribose.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jeffrey Lau</span></div>
+<div dir="auto" class="left"><span class="org">Ribose</span></div>
+<div dir="auto" class="left"><span class="street-address">Suite 1109, 1 Pedder Street<br>Central</span></div>
+<div dir="auto" class="left"><span class="country-name">Hong Kong</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jeffrey.lau@ribose.com" class="email">jeffrey.lau@ribose.com</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://www.ribose.com" class="url">https://www.ribose.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Mike Douglass</span></div>
+<div dir="auto" class="left"><span class="org">Spherical Cow Group</span></div>
+<div dir="auto" class="left"><span class="street-address">226 3rd Street<br>Troy<br>NY 12180</span></div>
+<div dir="auto" class="left"><span class="country-name">United States of America</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mdouglass@sphericalcowgroup.com" class="email">mdouglass@sphericalcowgroup.com</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="http://sphericalcowgroup.com" class="url">http://sphericalcowgroup.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>

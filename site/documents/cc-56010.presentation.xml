@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<csd-standard xmlns="https://www.metanorma.org/ns/csd" type="presentation" version="1.7.0">
+<bibdata type="standard">
+<title language="en" format="text/plain">vObject&#8201;&#8212;&#8201;Internationalization</title>
+<docidentifier type="CalConnect">CC/WD 56010:2019</docidentifier>
+<docnumber>56010</docnumber>
+<date type="published">
+<on>2021-06-05</on>
+</date>
+<contributor>
+<role type="author"/>
+<organization>
+<name>CalConnect</name>
+</organization>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Ronald Tse</completename>
+</name>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Jeffrey Lau</completename>
+</name>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Mike Douglass</completename>
+</name>
+</person>
+</contributor>
+<contributor>
+<role type="publisher"/>
+<organization>
+<name>CalConnect</name>
+</organization>
+</contributor>
+<edition>1</edition>
+<version>
+<revision-date>2021-04-15</revision-date>
+</version>
+<language current="true">en</language>
+<script current="true">Latn</script>
+<status>
+<stage language="">working-draft</stage>
+</status>
+<copyright>
+<from>2019</from>
+<owner>
+<organization>
+<name>CalConnect</name>
+</organization>
+</owner>
+</copyright>
+<ext>
+<doctype language="">standard</doctype>
+<editorialgroup>
+<committee>VCARD</committee>
+</editorialgroup>
+</ext>
+</bibdata><localized-strings><localized-string key="scope" language="en">Scope</localized-string><localized-string key="symbolsabbrev" language="en">Symbols and abbreviated terms</localized-string><localized-string key="abbrev" language="en">Abbreviated terms</localized-string><localized-string key="symbols" language="en">Symbols</localized-string><localized-string key="table_of_contents" language="en">Table of contents</localized-string><localized-string key="introduction" language="en">Introduction</localized-string><localized-string key="foreword" language="en">Foreword</localized-string><localized-string key="abstract" language="en">Abstract</localized-string><localized-string key="acknowledgements" language="en">Acknowledgements</localized-string><localized-string key="termsdef" language="en">Terms and definitions</localized-string><localized-string key="termsdefsymbolsabbrev" language="en">Terms, definitions, symbols and abbreviated terms</localized-string><localized-string key="termsdefsymbols" language="en">Terms, definitions and symbols</localized-string><localized-string key="termsdefabbrev" language="en">Terms, definitions and abbreviated terms</localized-string><localized-string key="normref" language="en">Normative references</localized-string><localized-string key="bibliography" language="en">Bibliography</localized-string><localized-string key="clause" language="en">Clause</localized-string><localized-string key="annex" language="en">Appendix</localized-string><localized-string key="appendix" language="en">Appendix</localized-string><localized-string key="no_terms_boilerplate" language="en"><p>No terms and definitions are listed in this document.</p>
+</localized-string><localized-string key="internal_terms_boilerplate" language="en"><p>For the purposes of this document, 
+    the following terms and definitions apply.</p>
+</localized-string><localized-string key="norm_with_refs_pref" language="en">The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</localized-string><localized-string key="norm_empty_pref" language="en">There are no normative references in this document.</localized-string><localized-string key="external_terms_boilerplate" language="en"><p>For the purposes of this document, 
+  the terms and definitions given in % apply.</p>
+</localized-string><localized-string key="internal_external_terms_boilerplate" language="en"><p>For the purposes of this document, the terms and definitions 
+  given in % and the following apply.</p>
+</localized-string><localized-string key="term_defined_in" language="en">[term defined in %]</localized-string><localized-string key="note" language="en">NOTE</localized-string><localized-string key="note_xref" language="en">Note</localized-string><localized-string key="termnote" language="en">Note % to entry</localized-string><localized-string key="list" language="en">List</localized-string><localized-string key="figure" language="en">Figure</localized-string><localized-string key="formula" language="en">Formula</localized-string><localized-string key="inequality" language="en">Formula</localized-string><localized-string key="table" language="en">Table</localized-string><localized-string key="requirement" language="en">Requirement</localized-string><localized-string key="recommendation" language="en">Recommendation</localized-string><localized-string key="permission" language="en">Permission</localized-string><localized-string key="key" language="en">Key</localized-string><localized-string key="example" language="en">EXAMPLE</localized-string><localized-string key="example_xref" language="en">Example</localized-string><localized-string key="where" language="en">where</localized-string><localized-string key="wholeoftext" language="en">Whole of text</localized-string><localized-string key="draft_label" language="en">draft</localized-string><localized-string key="inform_annex" language="en">informative</localized-string><localized-string key="norm_annex" language="en">normative</localized-string><localized-string key="modified" language="en">modified</localized-string><localized-string key="deprecated" language="en">DEPRECATED</localized-string><localized-string key="source" language="en">SOURCE</localized-string><localized-string key="and" language="en">and</localized-string><localized-string key="all_parts" language="en">All Parts</localized-string><localized-string key="month_january" language="en">January</localized-string><localized-string key="month_february" language="en">February</localized-string><localized-string key="month_march" language="en">March</localized-string><localized-string key="month_april" language="en">April</localized-string><localized-string key="month_may" language="en">May</localized-string><localized-string key="month_june" language="en">June</localized-string><localized-string key="month_july" language="en">July</localized-string><localized-string key="month_august" language="en">August</localized-string><localized-string key="month_september" language="en">September</localized-string><localized-string key="month_october" language="en">October</localized-string><localized-string key="month_november" language="en">November</localized-string><localized-string key="month_december" language="en">December</localized-string><localized-string key="obligation" language="en">Obligation</localized-string><localized-string key="subject" language="en">Subject</localized-string><localized-string key="inherits" language="en">Inherits</localized-string><localized-string key="admonition.danger" language="en">Danger</localized-string><localized-string key="admonition.warning" language="en">Warning</localized-string><localized-string key="admonition.caution" language="en">Caution</localized-string><localized-string key="admonition.important" language="en">Important</localized-string><localized-string key="admonition.safety_precautions" language="en">Safety Precautions</localized-string><localized-string key="locality.section" language="en">Section</localized-string><localized-string key="locality.clause" language="en">Clause</localized-string><localized-string key="locality.part" language="en">Part</localized-string><localized-string key="locality.paragraph" language="en">Paragraph</localized-string><localized-string key="locality.chapter" language="en">Chapter</localized-string><localized-string key="locality.page" language="en">Page</localized-string><localized-string key="locality.table" language="en">Table</localized-string><localized-string key="locality.annex" language="en">Annex</localized-string><localized-string key="locality.figure" language="en">Figure</localized-string><localized-string key="locality.example" language="en">Example</localized-string><localized-string key="locality.note" language="en">Note</localized-string><localized-string key="locality.formula" language="en">Formula</localized-string><localized-string key="Clause.sg" language="en">Clause</localized-string><localized-string key="Clause.pl" language="en">Clauses</localized-string><localized-string key="Annex.sg" language="en">Annex</localized-string><localized-string key="Annex.pl" language="en">Annexes</localized-string><localized-string key="Appendix.sg" language="en">Appendix</localized-string><localized-string key="Appendix.pl" language="en">Appendixes</localized-string><localized-string key="Note.sg" language="en">Note</localized-string><localized-string key="Note.pl" language="en">Notes</localized-string><localized-string key="Note_%_to_entry.sg" language="en">Note % to entry</localized-string><localized-string key="Note_%_to_entry.pl" language="en">Notes % to entry</localized-string><localized-string key="List.sg" language="en">List</localized-string><localized-string key="List.pl" language="en">Lists</localized-string><localized-string key="Figure.sg" language="en">Figure</localized-string><localized-string key="Figure.pl" language="en">Figures</localized-string><localized-string key="Formula.sg" language="en">Formula</localized-string><localized-string key="Formula.pl" language="en">Formulas</localized-string><localized-string key="Table.sg" language="en">Table</localized-string><localized-string key="Table.pl" language="en">Tables</localized-string><localized-string key="Requirement.sg" language="en">Requirement</localized-string><localized-string key="Requirement.pl" language="en">Requirements</localized-string><localized-string key="Recommendation.sg" language="en">Recommendation</localized-string><localized-string key="Recommendation.pl" language="en">Recommendations</localized-string><localized-string key="Permission.sg" language="en">Permission</localized-string><localized-string key="Permission.pl" language="en">Permissions</localized-string><localized-string key="Example.sg" language="en">Example</localized-string><localized-string key="Example.pl" language="en">Examples</localized-string><localized-string key="Part.sg" language="en">Part</localized-string><localized-string key="Part.pl" language="en">Parts</localized-string><localized-string key="Section.sg" language="en">Section</localized-string><localized-string key="Section.pl" language="en">Sections</localized-string><localized-string key="Paragraph.sg" language="en">Paragraph</localized-string><localized-string key="Paragraph.pl" language="en">Paragraphs</localized-string><localized-string key="Chapter.sg" language="en">Chapter</localized-string><localized-string key="Chapter.pl" language="en">Chapters</localized-string><localized-string key="Page.sg" language="en">Page</localized-string><localized-string key="Page.pl" language="en">Pages</localized-string><localized-string key="language" language="en">en</localized-string><localized-string key="script" language="en">Latn</localized-string></localized-strings>
+<boilerplate>
+  <copyright-statement>
+    <clause>
+      <p id="_47845a92-acbb-4038-8b8d-e7454ec89886">&#169; 2019 The Calendaring and Scheduling Consortium, Inc. </p>
+    </clause>
+  </copyright-statement>
+
+  
+  <license-statement>
+    <clause>
+    <title depth="1">Warning for Drafts</title>
+      <p id="_3b2aad48-f558-4d9a-9960-d2168614aec7">This document is not a CalConnect Standard. It is distributed for review and
+        comment, and is subject to change without notice and may not be referred to as
+        a Standard. Recipients of this draft are invited to submit, with their
+        comments, notification of any relevant patent rights of which they are aware
+        and to provide supporting documentation.
+      </p>
+    </clause>
+  </license-statement>
+  
+
+  <legal-statement>
+    <clause>
+      <p id="_cabb88e5-ef5c-4709-89e2-b20b1e3b0bfa">All rights reserved. Unless otherwise specified, no part of this
+        publication may be reproduced or utilized otherwise in any form or by any
+        means, electronic or mechanical, including photocopying, or posting on the
+        internet or an intranet, without prior written permission. Permission can
+        be requested from the address below.  </p>
+    </clause>
+  </legal-statement>
+
+  <feedback-statement>
+    <clause>
+      <p id="boilerplate-name">The Calendaring and Scheduling Consortium, Inc.</p>
+      <p id="boilerplate-address">4390 Chaffin Lane<br/>
+        McKinleyville<br/>
+        California 95519<br/>
+        United States of America<br/>
+        <br/>
+        <link target="mailto:copyright@calconnect.org">copyright@calconnect.org</link><br/>
+        <link target="www.calconnect.org">www.calconnect.org</link>
+      </p>
+    </clause>
+  </feedback-statement>
+</boilerplate>
+
+<preface><foreword id="_dea85bfd-6afe-4675-b585-5719d1a04f78" obligation="informative"><title>Foreword</title>
+<p id="_7ad58d05-58c1-412b-af07-c6bef3e3817f">This document updates the following specifications:</p>
+<ul id="_11d188ec-237c-48c3-8737-f8b2b99488c1">
+<li>
+<p id="_5b04ddc2-e7cf-45b6-95e7-e3da31798a09">I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax</p>
+</li>
+<li>
+<p id="_36f99531-be54-4b4a-8411-c76eee7a03fb">RFC 6350, vCard version 4.0</p>
+</li>
+<li>
+<p id="_416f92bf-ed27-4ccf-832c-c564f7cb2a70">RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)</p>
+</li>
+<li>
+<p id="_ff954dea-8141-49ec-8aa0-3c51ad0f8238">RFC 7953, Calendar Availability Extensions</p>
+</li>
+</ul>
+<p id="_1b23437d-63f5-49d4-908c-6eac51f2ce6f">This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</p></foreword><introduction id="introduction" obligation="informative"><title>Introduction</title><p id="_b0226238-47ba-4acc-8760-8b4d6e12bd91">vCard <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref> and iCalendar <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref> are standards compliant to
+the vObject data model <eref type="inline" bibitemid="I-D.calconnect-vobject-vformat" citeas="IETF I-D.calconnect-vobject-vformat">IETF I-D.calconnect-vobject-vformat</eref>.</p>
+<p id="_eef336d2-5498-40fd-9b14-154291c54ba1">These standards are used worldwide and require proper certain
+localization elements suitable for multi-cultural use.</p>
+<p id="_981e4832-18b5-4422-a9c2-f344d9a82902">Previously, the only internationalization method for
+vCard <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref> and iCalendar <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref> standards was
+the <tt>language</tt> property parameter (<eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">3.2.10</eref>).</p>
+<p id="_94273fb2-d645-4446-939a-09cc5af623aa">This document:</p>
+<ul id="_1567c50a-a017-48c3-b9c2-4d9a74640b20">
+<li>
+<p id="_f6f9ad01-6f29-4adf-998d-d5eb1aa76e4e">defines additional internationalization features for the vObject data model,
+including a separate property parameter that denotes the script used in a
+property value, and a method to specify pronunciation of a property value</p>
+</li>
+<li>
+<p id="_87f3d82b-8143-4c65-9c34-123d0da1527c">defines realization methods of vObject internationalization in vFormat</p>
+</li>
+</ul>
+<p id="_3f02282c-fc49-486f-bfd1-2736f53a825e">The methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref> and
+iCalendar <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref>.</p>
+<p id="_69d22d29-c074-4961-b7be-1c10a46c0470">This is a work product of the CalConnect TC-VCARD <eref type="inline" bibitemid="CALCONNECT-VCARD" citeas="CalConnect TC VCARD">CalConnect TC VCARD</eref>
+and TC-CALENDAR <eref type="inline" bibitemid="CALCONNECT-CALENDAR" citeas="CalConnect TC CALENDAR">CalConnect TC CALENDAR</eref> committees.</p></introduction></preface><sections>
+
+<clause id="scope" type="scope" obligation="normative">
+<title depth="1">1.<tab/>Scope</title>
+<p id="_3e0915ac-7562-4183-8a7a-3a29861a9e00">Methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref> and
+iCalendar <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref>.</p>
+</clause>
+
+<clause id="terms" obligation="normative"><title depth="1">3.<tab/>Terms and definitions</title><p id="_bd7ca83d-9080-4a97-962c-b28e3b9baaa0">For the purposes of this document, 
+    the following terms and definitions apply.</p>
+<term id="term-general"><name>3.1.</name><preferred>General</preferred><definition><p id="_c20d3e78-ef99-47a3-8866-cd627470d9d2">The key words &#8220;<strong>MUST</strong>&#8220;, &#8220;<strong>MUST NOT</strong>&#8220;, &#8220;<strong>REQUIRED</strong>&#8220;, &#8220;<strong>SHALL</strong>&#8220;, &#8220;<strong>SHALL NOT</strong>&#8220;,
+&#8220;<strong>SHOULD</strong>&#8220;, &#8220;<strong>SHOULD NOT</strong>&#8220;, &#8220;<strong>RECOMMENDED</strong>&#8220;, &#8220;<strong>NOT RECOMMENDED</strong>&#8220;, &#8220;<strong>MAY</strong>&#8220;,
+and &#8220;<strong>OPTIONAL</strong>&#8221; in this document are to be interpreted as
+described in BCP 14 <eref type="inline" bibitemid="RFC2119" citeas="IETF RFC 2119">IETF RFC 2119</eref> <eref type="inline" bibitemid="RFC8174" citeas="IETF RFC 8174">IETF RFC 8174</eref> when, and only when, they
+appear in all capitals, as shown here.</p><p id="_03160a10-4e1a-4603-b8ef-6b3dd462664f">The key words &#8220;<strong>Private Use</strong>&#8220;, &#8220;<strong>Experimental Use</strong>&#8220;,
+&#8220;<strong>Hierarchical Allocation</strong>&#8220;, &#8220;<strong>First Come First Served</strong>&#8220;,
+&#8220;<strong>Expert Review</strong>&#8220;, &#8220;<strong>Specification Required</strong>&#8220;, &#8220;<strong>RFC Required</strong>&#8220;,
+&#8220;<strong>IETF Review</strong>&#8220;, &#8220;<strong>Standards Action</strong>&#8221; and &#8220;<strong>IESG Approval</strong>&#8221; in
+this document are to be interpreted as described in <eref type="inline" bibitemid="RFC8126" citeas="IETF RFC 8126">4</eref>.</p><p id="_0794c6a0-07d1-46c7-a0cd-644c1620e0b3">Notation in this document is described in ABNF <eref type="inline" bibitemid="RFC5234" citeas="IETF RFC 5234">IETF RFC 5234</eref> as used by
+<eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref>.</p><p id="_72e1fcc1-d7bb-4dcc-8162-ad14569f1d5e">Definitions from <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref> apply to this specification except when
+explicitly overridden.</p><p id="_817bce42-9a2b-4c3d-91d5-133af53086e8">All names of properties, property parameters, enumerated property
+values, and property parameter values are case-insensitive. However,
+all property values are case-sensitive, unless otherwise stated.</p></definition>
+
+
+
+</term>
+<terms id="_definitions" obligation="normative"><title depth="2">3.2.<tab/>Definitions</title><term id="term-transliteration"><name>3.2.1.</name><preferred>transliteration</preferred><definition><p id="_3bb6bcba-3015-498e-bf92-54eae99e80ba">operation which consists of representing the characters (3.1.4.02) of an entirely alphabetical (3.1.5.16) character or alphanumeric character writing system (3.1.6.01) by the characters of the conversion alphabet</p></definition>
+<termsource status="identical">
+<origin bibitemid="ISO5127" type="inline" citeas="ISO 5127 (all parts)">3.1.6.11</origin>
+</termsource></term>
+<term id="term-script"><name>3.2.2.</name><preferred>script</preferred><definition><p id="_bd557c7c-b3f1-4da5-83a2-2bc350575933">particular graphic representation or class of representations of a set of characters used to write one or more languages</p></definition>
+<termsource status="identical">
+<origin bibitemid="ISO5127" type="inline" citeas="ISO 5127 (all parts)">3.1.6.02</origin>
+</termsource></term>
+<term id="term-phonetic-transcription"><name>3.2.3.</name>
+<preferred>phonetic transcription</preferred>
+<definition><p id="_37aa42da-8453-4d7e-9abc-e29a32857b05">representation or modelling of spoken language based on the sound system of the respective language
+<eref type="inline" bibitemid="ISO24624" citeas="ISO 24624:2016">3.5</eref></p></definition>
+</term></terms></clause>
+<clause id="pp-language" obligation="normative"><title depth="1">4.<tab/>Property Parameter Usage Clarification: LANGUAGE</title><p id="_8212d0bc-024d-4096-a6e0-16f496c4f100">This section clarifies the intent of the <tt>LANGUAGE</tt> property
+parameter in <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref> and <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref> to be for the
+identification of the language used in the property value
+where the parameter is specified.</p>
+<p id="_4be35a22-2540-4402-8c50-83821a6d036e">The <eref type="inline" bibitemid="RFC5646" citeas="IETF RFC 5646">IETF RFC 5646</eref> defined <tt>language-tag</tt> allows specification
+of multiple attributes (called &#8220;subtags&#8221;) in addition
+to just language. Its basic form includes:</p>
+<ul id="_d8628ff3-b2f1-4db5-9471-a1e5b20811c4">
+<li>
+<p id="_f0e4fd8f-17e7-41ef-b61f-f3b72ce986af">a mandatory language subtag, using a language identifier
+from ISO 639 (-2, -3) (called a &#8220;primary&#8221; or &#8220;extended&#8221; language subtag)</p>
+</li>
+<li>
+<p id="_9385f011-5b74-4f16-819f-a680be26af7c">an optional script subtag, using a script identifier
+from ISO 15924</p>
+</li>
+<li>
+<p id="_f6a8fb4f-857c-4810-9248-aed8be4d0dd9">an optional region subtag, using country codes listed in ISO 3166
+or a UN numeric code</p>
+</li>
+<li>
+<p id="_de434130-90c6-4618-b395-96b01265801f">one or more, optional, variant and extension subtags
+defined in the IANA language subtag registry.</p>
+</li>
+</ul>
+<p id="_d770dc08-49f0-4ef4-ba02-492d175bea36">In practical usage of vObject standards, including
+<eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref> and <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref>, it is determined that
+the combinatorial enumeration of non-language subtags often cause
+unnecessary confusion in interpretation and parsing, especially
+when the registry contain variant and extension subtags that either
+conflict in semantics or have overly restrictive in their
+supported prefixes.</p>
+<p id="_74ae4257-1d19-4cc4-8325-5d39c61aee55">This document therefore clarifies the intent of
+<eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">3.2.10</eref> and <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">5.1</eref>, such that
+the <tt>LANGUAGE</tt> property parameter <strong>SHOULD</strong> only support
+the mandatory language subtag.</p>
+<p id="_ea9cb627-8358-478b-9cc2-cc74b2abbec9">Other subtags <strong>MAY</strong> be supplied as specified in <eref type="inline" bibitemid="RFC5646" citeas="IETF RFC 5646">IETF RFC 5646</eref>,
+but they are purely for informational purposes not used
+in the vObject specification.</p>
+<dl id="_1564f2d5-f5fd-4371-985c-d577b1fcc6f4">
+<dt>Namespace</dt>
+<dd/>
+<dt>Property parameter name</dt>
+<dd>
+<p id="_c25efb4e-876a-4eb3-af6c-812128400322">
+<tt>LANGUAGE</tt>
+</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_fdc06d7a-212c-42d0-b8f3-c7314961938c">To specify the language used in the property value.</p>
+</dd>
+<dt>Value type</dt>
+<dd>
+<p id="_1f0a1189-e12f-4481-95d7-a1387deaacc7"><tt>LANGUAGE-TAG</tt> <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">4.8</eref></p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_451731bc-32a1-4944-b68b-51dc8276f06b">As provided above.</p>
+</dd>
+</dl>
+<clause id="_vformat_implementation_of_language" obligation="normative"><title depth="2">4.1.<tab/>vFormat Implementation of LANGUAGE</title><p id="_8d57de98-c35f-40fd-abeb-c65d150ebf2f">The value of the <tt>LANGUAGE</tt> property parameter is
+re-defined as shown below.</p>
+<dl id="_a10cf45f-8474-4ef4-a7bc-45d268ac1cc7">
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_0f208284-54ae-4889-a90b-227229f44af4"><name>Figure 1</name>languageparam = "LANGUAGE" "=" language *(subpart)
+
+language = iso-639-3-code / iso-639-2-code
+          ; a 2-alpha or 3-alpha language code
+          ; defined in ISO 639
+
+subpart  = "-" *alphanum
+           ; all other subparts unsupported</sourcecode>
+
+<dl id="_0521d47d-39b3-480e-9f52-173507bb9591">
+<dt>Examples</dt>
+<dd/>
+</dl>
+<sourcecode id="_99042bea-ee90-4429-8536-069cb436d703"><name>Figure 2</name>N;LANGUAGE=en:Miyazaki;Hayao;;;
+N;LANGUAGE=jp:&#23470;&#23822;;&#39423;;;;</sourcecode>
+</clause></clause>
+<clause id="pp-script" obligation="normative"><title depth="1">5.<tab/>Property Parameter: SCRIPT</title><p id="_42a255d6-dbbc-49e1-aff0-a223fee96145">The <tt>SCRIPT</tt> property parameter specifies the written script
+used in the property value which contains the parameter,
+which is amongst the valid codes in the ISO 15924 registry.</p>
+<p id="_bae47aa5-f1bd-49f0-be80-5b47a6aa1f01">It is separated from the <tt>LANGUAGE</tt> property parameter
+defined in <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref> and <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref> for reasons
+stated in <xref target="pp-language">Clause 4</xref>.</p>
+<dl id="_3f17048b-df3d-4c23-a767-50b36d5907f1">
+<dt>Namespace</dt>
+<dd/>
+<dt>Property parameter name</dt>
+<dd>
+<p id="_533dc979-3be2-4fa8-912e-806861da01aa">SCRIPT</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_422d049f-f9f8-44b6-9bf2-cdc7525bd165">To specify the script used in the property
+value, which is amongst the valid codes in the ISO 15924 registry.</p>
+</dd>
+<dt>Value type</dt>
+<dd>
+<p id="_0b654f4d-112a-4a84-a49e-64c6b98ef7dc">TEXT, a single value valid in the ISO 15924 script registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_a1d86652-a554-464d-93d4-ba631adad958">The property value of which this property parameter
+applies to must have identical structure to</p>
+</dd>
+</dl>
+<clause id="_vformat_implementation_of_script" obligation="normative"><title depth="2">5.1.<tab/>vFormat Implementation of SCRIPT</title><dl id="_c88ab111-7709-460e-b45b-8addef548087">
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_4e09f743-c6f0-4495-9f7e-ed52aeedfe9f"><name>Figure 3</name>scriptparam = "SCRIPT" "=" script-code
+            ; script-code defined in the value type SCRIPT-CODE</sourcecode>
+
+<dl id="_4959065d-9ed5-4cb6-be4e-20836b8ac3de">
+<dt>Examples</dt>
+<dd/>
+</dl>
+<sourcecode id="_0be7228b-a755-47d1-83c8-bd96ed9fe920"><name>Figure 4</name>N;SCRIPT=Hira;LANGUAGE=jp:&#12415;&#12420;&#12374;&#12365;;&#12399;&#12420;&#12362;;;;
+N;SCRIPT=Hani;LANGUAGE=jp:&#23470;&#23822;;&#39423;;;;</sourcecode>
+</clause></clause>
+<clause id="pp-phonetic" obligation="normative"><title depth="1">6.<tab/>Property Parameter: PHONETIC</title><p id="_891b0663-7d58-48d7-b641-6c8920ab5b33">A number of contact managers have long used &#8220;X-properties&#8221;
+to to store phonetic information of a vCard&#8217;s subject, such as
+<tt>X-PHONETIC-NAME</tt>, <tt>X-PHONETIC-FIRST-NAME</tt> and <tt>X-PHONETIC-LAST-NAME</tt>.</p>
+<p id="_0df23a09-48bd-44b1-ba3d-bf8182a54c7e">However, this is an issue for multiple reasons:</p>
+<ul id="_b3b8e306-6211-4435-9730-bf28e0b722be">
+<li>
+<p id="_9e07202e-7a46-40f2-88cf-bc1a4476b7eb">The value of the X-property does not define the phonetic system
+used for its transcription;</p>
+</li>
+<li>
+<p id="_cf50bd5e-0346-40ff-946a-58c2a73cbd30">This X-property usage does not enable interoperability since
+it does not require specification of the language transcribed,
+as well as the script of the resulting transcription;</p>
+</li>
+<li>
+<p id="_414589ca-7717-4fa2-8a60-0ad5660ee005">The scheme of using X-properties does not allow representation
+of phonetics on other vCard values.</p>
+</li>
+</ul>
+<p id="_34814d20-bde8-4140-ad7e-309e5f57023e">This section defines three property parameters used to
+store pronunciation information of a property value:</p>
+<ol id="_d6592296-3f45-441e-a398-065e90bd1ba9" type="arabic">
+<li>
+<p id="_e2a3e3de-cd42-4a54-87c6-124ce79777d9">The script used in the pronunciation system;</p>
+</li>
+<li>
+<p id="_2791b157-fb1b-42ed-b5b0-cb88b376cf3d">An identifier of the pronunciation system used;</p>
+</li>
+<li>
+<p id="_5da3442f-3c91-4353-9477-5ea8caf4eae4">The source language that was transcribed by the pronunciation system.</p>
+</li>
+</ol>
+<p id="_0e5c5822-6c68-4ec1-ac92-46ea7ca23fc7">The <tt>PHONETIC</tt> property parameter specifies the phonetic
+system used in the transcription of the property value,
+identified by the phonetic system code from the ISO XXXXX
+phonetic system registry.</p>
+<p id="_c722a94f-d263-4460-82c0-e62bb7468dd3">This property parameter is often applied together with
+the <tt>LANGUAGE</tt> (<xref target="pp-language">Clause 4</xref>)
+and <tt>SCRIPT</tt> (<xref target="pp-script">Clause 5</xref>) property parameters.</p>
+<dl id="_0cb5115a-652e-42db-806c-59c14cd858e7">
+<dt>Namespace</dt>
+<dd/>
+<dt>Property parameter name</dt>
+<dd>
+<p id="_55af7b5f-dcd3-4121-8c74-9d71a5e23505">PHONETIC</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_3c20943e-2d99-414f-8543-3fa081b5b9aa">To specify the phonetic system used in the property
+value, which is amongst the valid codes in the ISO XXXXX registry.</p>
+</dd>
+<dt>Value type</dt>
+<dd>
+<p id="_92e223d8-7f89-4771-aad7-54ce5d13e806">TEXT, a single value valid in the ISO XXXXX phonetic system registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_c3a4ffd3-9f99-4894-aa7a-8fbf3833ac02">The property value of which this property parameter
+applies to must take an identical structure to the property
+value without application of this property parameter.</p>
+</dd>
+</dl>
+<clause id="_vformat_implementation_of_phonetic" obligation="normative"><title depth="2">6.1.<tab/>vFormat Implementation of PHONETIC</title><dl id="_18dbcfe5-c828-4e4e-8585-2637e4447686">
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_ba33b7b1-7bd4-440f-896a-d7e3872e1332"><name>Figure 5</name>phoneticparam = "PHONETIC" "=" phonetic
+phonetic      = 4ALPHA  ; ISO XXXXX 4-digit phonetic system code</sourcecode>
+
+<dl id="_2a9ed197-3729-4340-bf0a-674d11a57cf1">
+<dt>Examples</dt>
+<dd/>
+</dl>
+<sourcecode id="_3f036271-9965-47e0-9de6-06a377ca63e5"><name>Figure 6</name>N;SCRIPT=Hant;LANGUAGE=zho:&#23403;;&#20013;&#23665;;&#25991;,&#36920;&#20185;;;
+N;SCRIPT=Hans;LANGUAGE=zho:&#23385;;&#20013;&#23665;;&#25991;,&#36920;&#20185;;;
+N;PHONETIC=jyut;SCRIPT=Latn;LANGUAGE=yue:syun1;zung1saan1;man4,jat6sin1;;
+N;PHONETIC=ping;SCRIPT=Latn;LANGUAGE=cmn:sun;zhongshan;rixian;;</sourcecode>
+</clause></clause>
+<clause id="security" obligation="normative"><title depth="1">7.<tab/>Security Considerations</title><p id="_81528c9b-969e-433d-a3e9-df5cc8d2ddd3">Security considerations of the vObject formats
+themselves <strong>MUST</strong> be adhered to, including:</p>
+<ul id="_43bdcbfe-fd59-4cf4-a7b9-4a46382414ef">
+<li>
+<p id="_b39bc983-9832-4fe3-a53b-4e43389c49c5">vCard: <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350">IETF RFC 6350</eref></p>
+</li>
+<li>
+<p id="_7f236f6c-5f9b-43bb-b522-18ed05f581b4">iCalendar: <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545">IETF RFC 5545</eref>, <eref type="inline" bibitemid="RFC4791" citeas="IETF RFC 4791">IETF RFC 4791</eref></p>
+</li>
+<li>
+<p id="_53aeafa7-77ca-4d5a-acbc-a1cca96c159c">vObject: <eref type="inline" bibitemid="I-D.calconnect-vobject-vformat" citeas="IETF I-D.calconnect-vobject-vformat">IETF I-D.calconnect-vobject-vformat</eref></p>
+</li>
+</ul>
+<p id="_d5a723da-32ec-4570-bfeb-e6f46232af10">vObject formats, especially for calendaring, scheduling
+and contact exchange, often involve privacy-sensitive information.
+Internationalization features defined in this document
+<strong>MAY</strong> pose risk of exposing private information if
+interchanged through unprotected communication channels.</p>
+<p id="_e74c6781-344e-4935-b30c-7626c60f4e62">Mechanisms used for the transmission of such information
+should implement security measures to protect against possible threats,
+such as eavesdropping, replay, message insertion, deletion,
+modification, and man-in-the-middle attacks.</p></clause>
+<clause id="iana" obligation="normative"><title depth="1">8.<tab/>IANA Considerations</title><p id="_b68077db-c97c-453d-8fbd-60ca2a2684dc">IANA is requested to register the following property parameters
+and value types in the corresponding iCalendar and vCard registries.</p>
+<clause id="_icalendar_and_vcard_property_parameter_registration_script" obligation="normative">
+<title depth="2">8.1.<tab/>iCalendar and vCard Property Parameter Registration: SCRIPT</title>
+<dl id="_19807263-e98f-45d9-9f77-8f2297d6ab56">
+<dt>Namespace</dt>
+<dd/>
+<dt>Parameter name</dt>
+<dd>
+<p id="_2a1b7300-4427-46c6-97c3-f0d1d8987a72">SCRIPT</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_77fa606f-f445-42d0-b6e3-43c655e5934f">Given in <xref target="pp-script">Clause 5</xref>.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_8eb221fa-7f51-4863-9fa3-d1aaa2ae13b9">Given in <xref target="pp-script">Clause 5</xref>.</p>
+</dd>
+<dt>Format definition</dt>
+<dd>
+<p id="_765afa37-c938-476e-866c-de355776fba3">Given in <xref target="pp-script">Clause 5</xref>.</p>
+</dd>
+<dt>Examples</dt>
+<dd>
+<p id="_30d23fec-812b-4965-8b51-0191234a0589">Given in <xref target="pp-script">Clause 5</xref>.</p>
+</dd>
+</dl>
+</clause>
+<clause id="_icalendar_and_vcard_property_parameter_registration_phonetic" obligation="normative">
+<title depth="2">8.2.<tab/>iCalendar and vCard Property Parameter Registration: PHONETIC</title>
+<dl id="_4eef23e6-40dc-42e5-8c9c-4280032f5c16">
+<dt>Namespace</dt>
+<dd/>
+<dt>Parameter name</dt>
+<dd>
+<p id="_c455a151-9c9c-4ce5-9d8b-a81106c13af4">PHONETIC</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_f4e393bd-3c0f-41fa-ae73-fc8b03ef5d13">Given in <xref target="pp-phonetic">Clause 6</xref>.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_310d1844-0bc5-4bba-983c-6b2280dc35f8">Given in <xref target="pp-phonetic">Clause 6</xref>.</p>
+</dd>
+<dt>Format definition</dt>
+<dd>
+<p id="_28ed4e55-553e-4df2-b3a0-0a95ec389f25">Given in <xref target="pp-phonetic">Clause 6</xref>.</p>
+</dd>
+<dt>Examples</dt>
+<dd>
+<p id="_7469391e-d016-419c-88a4-b0c4cab6e78b">Given in <xref target="pp-phonetic">Clause 6</xref>.</p>
+</dd>
+</dl>
+</clause>
+<clause id="_icalendar_and_vcard_registration_for_value_data_type_script_code" obligation="normative"><title depth="2">8.3.<tab/>iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE</title><dl id="_cbf005dd-bd21-421f-a235-95b17ec0ec88">
+<dt>Value name</dt>
+<dd>
+<p id="_a6c90c40-55f9-40eb-b1e7-b8f2b79e8340">SCRIPT-CODE</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_21a3cf05-cbef-433b-8b5a-2ed9cd17bcb4">Indicate script used in property value
+using a valid value from the ISO 15924 registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_fd3f8ae0-baf5-4712-ba7d-684de02656e8">Used by the SCRIPT property parameter.</p>
+</dd>
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_8dba920d-2b00-4d3b-aed4-8a591486be9f"><name>Figure 7</name>script-code = 4ALPHA
+            ; ISO 15924 4-digit script code</sourcecode>
+
+<dl id="_109ba76c-1fc2-495e-b8d5-6de4089a8066">
+<dt>Examples</dt>
+<dd>
+<p id="_864343ea-a6ae-419f-a572-7e84c70cd976"><tt>Latn</tt>, <tt>Cyrl</tt>, <tt>Hani</tt></p>
+</dd>
+</dl></clause>
+<clause id="_icalendar_and_vcard_registration_for_value_data_type_phonetic_code" obligation="normative"><title depth="2">8.4.<tab/>iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE</title><dl id="_c870e4de-d7a2-4245-8ea1-992ad452d07b">
+<dt>Value name</dt>
+<dd>
+<p id="_6d48c4eb-e45c-4b5f-a10b-aed450cfb547">PHONETIC-CODE</p>
+</dd>
+<dt>Purpose</dt>
+<dd>
+<p id="_73c7b1ff-b87f-425f-9f92-758d2a5762c1">Indicate phonetic system used in the transcription
+of property value,
+using a valid value from the ISO XXXXX registry.</p>
+</dd>
+<dt>Description</dt>
+<dd>
+<p id="_f7d6d5e2-2d1d-4cc5-9c1b-7b4c7afafc14">Used by the SCRIPT property parameter.</p>
+</dd>
+<dt>Format definition</dt>
+<dd/>
+</dl>
+<sourcecode lang="abnf" id="_6e939cbf-ca03-48bb-8862-95619e570c02"><name>Figure 8</name>phonetic-code = 4ALPHA
+              ; ISO XXXXX 4-digit script code</sourcecode>
+
+<dl id="_fdb78d01-263a-4324-8f05-44bf871b40bb">
+<dt>Examples</dt>
+<dd>
+<p id="_7deec1bb-231e-4d77-8a48-65d9c515d5da"><tt>ipa</tt>, <tt>jyut</tt>, <tt>ping</tt></p>
+</dd>
+</dl></clause></clause>
+</sections><bibliography><references id="_normative_references" normative="true" obligation="informative"><title depth="1">2.<tab/>Normative references</title><p id="_773aeaac-4752-4fef-95f4-5cf2db511abb">The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p> <bibitem id="RFC5545" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Internet Calendaring and Scheduling Core Object Specification (iCalendar)</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.5545.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc5545</uri>  <docidentifier type="IETF">RFC 5545</docidentifier>  <docidentifier type="rfc-anchor">RFC5545</docidentifier>  <docidentifier type="DOI">10.17487/RFC5545</docidentifier>  <date type="published">    <on>2009-09</on>  </date>  <contributor>    <role type="editor"/>    <person>      <name>        <completename language="en">B. Desruisseaux</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This document defines the iCalendar data format for representing and exchanging calendaring and scheduling information such as events, to-dos, journal entries, and free/busy information, independent of any particular calendar service or protocol. [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>5545</number>  </series>  <place>Fremont, CA</place></bibitem> <bibitem id="RFC6350" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">vCard Format Specification</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.6350.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc6350</uri>  <docidentifier type="IETF">RFC 6350</docidentifier>  <docidentifier type="rfc-anchor">RFC6350</docidentifier>  <docidentifier type="DOI">10.17487/RFC6350</docidentifier>  <date type="published">    <on>2011-08</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">S. Perreault</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This document defines the vCard data format for representing and exchanging a variety of information about individuals and other entities (e.g., formatted and structured name and delivery addresses, email address, multiple telephone numbers, photograph, logo, audio clips, etc.).  This document obsoletes RFCs 2425, 2426, and 4770, and updates RFC 2739.  [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>6350</number>  </series>  <place>Fremont, CA</place></bibitem> <bibitem id="I-D.calconnect-vobject-vformat" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">The vObject Model and vFormat Syntax</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.I-D.calconnect-vobject-vformat.xml</uri>  <uri type="TXT">http://www.ietf.org/internet-drafts/draft-calconnect-vobject-vformat-04.txt</uri>  <docidentifier type="IETF">I-D.calconnect-vobject-vformat</docidentifier>  <docidentifier type="rfc-anchor">I-D.calconnect-vobject-vformat</docidentifier>  <docidentifier type="Internet-Draft">draft-calconnect-vobject-vformat-04</docidentifier>  <date type="published">    <on>2018-06</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">Ronald Tse</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">Peter Tam</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">Ken Murchison</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">Michael Douglass</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This document specifies the vObject data model and its corresponding syntax vFormat.  vObject represents the generalized data model, and vFormat the generalized data format, of the following specifications and fully covers them:  o  RFC 6350, vCard version 4.0: the VCARD component;  o  RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar): the VCALENDAR, VEVENT, VJOURNAL, VFREEBUSY, VTIMEZONE, VALARM, VTODO, STANDARD and DAYLIGHT components;  o  RFC 7953, Calendar Availability Extensions: the VAVAILABILITY and AVAILABLE components;  o  I-Ddaboo-icalendar-vpatch, iCalendar Patching: the VPATCH component; and  o  alternative formats for iCalendar and vCard, including RFC 6321, xCal; RFC 7265, jCal; RFC 6351, xCard; and RFC 7095, jCard.  This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">Internet-Draft</title>    <number>draft-calconnect-vobject-vformat-04</number>  </series>  <place>Fremont, CA</place></bibitem></references><references id="_bibliography" normative="false" obligation="informative"><title depth="1">Bibliography</title><bibitem id="CALCONNECT-VCARD">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect VCARD Technical Committee</em>
+  </formattedref>
+  <docidentifier>CalConnect TC VCARD</docidentifier>
+  
+</bibitem><bibitem id="CALCONNECT-CALENDAR">
+  <formattedref format="application/x-isodoc+xml">
+    <em>CalConnect CALENDAR Technical Committee</em>
+  </formattedref>
+  <docidentifier>CalConnect TC CALENDAR</docidentifier>
+  
+</bibitem><bibitem id="ISO5127" type="standard">  <fetched>2021-04-15</fetched>  <title type="title-intro" format="text/plain" language="en" script="Latn">Information and documentation</title>  <title type="title-main" format="text/plain" language="en" script="Latn">Foundation and vocabulary</title>  <title type="main" format="text/plain" language="en" script="Latn">Information and documentation &#8211; Foundation and vocabulary</title>  <uri type="src">https://www.iso.org/standard/59743.html</uri>  <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:59743:en</uri>  <uri type="rss">https://www.iso.org/contents/data/standard/05/97/59743.detail.rss</uri>  <docidentifier type="ISO">ISO 5127 (all parts)</docidentifier>  <docidentifier type="URN">urn:iso:std:iso:5127</docidentifier>  <docnumber>5127</docnumber>  <date type="published">    <on>2017-05</on>  </date>  <contributor>    <role type="publisher"/>    <organization>      <name>International Organization for Standardization</name>      <abbreviation>ISO</abbreviation>      <uri>www.iso.org</uri>    </organization>  </contributor>  <edition>2</edition>  <language>en</language>  <script>Latn</script>  <status>    <stage>60</stage>    <substage>60</substage>  </status>  <copyright>    <from>2017</from>    <owner>      <organization>        <name>ISO</name>      </organization>    </owner>  </copyright>  <relation type="obsoletes">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127:2001</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <fetched>2021-04-15</fetched>      <title type="title-intro" format="text/plain" language="en" script="Latn">Information and documentation</title>      <title type="title-main" format="text/plain" language="en" script="Latn">Foundation and vocabulary</title>      <title type="main" format="text/plain" language="en" script="Latn">Information and documentation&#8201;&#8212;&#8201;Foundation and vocabulary</title>      <uri type="src">https://www.iso.org/standard/59743.html</uri>      <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:59743:en</uri>      <uri type="rss">https://www.iso.org/contents/data/standard/05/97/59743.detail.rss</uri>      <docidentifier type="ISO">ISO 5127:2017</docidentifier>      <docidentifier type="URN">urn:iso:std:iso:5127:stage-60.60:ed-2:en</docidentifier>      <docnumber>5127</docnumber>      <date type="published">        <on>2017-05</on>      </date>      <contributor>        <role type="publisher"/>        <organization>          <name>International Organization for Standardization</name>          <abbreviation>ISO</abbreviation>          <uri>www.iso.org</uri>        </organization>      </contributor>      <edition>2</edition>      <language>en</language>      <script>Latn</script>      <abstract format="text/plain" language="en" script="Latn">ISO 5127:2017 provides a concept system and general vocabulary for the field of documentation within the whole information field. It has been created with a balanced representation of major work areas in mind: documentation, libraries, archives, media, museums, records management, conservation as well as legal aspects of documentation. The scope of the vocabulary provided in this document corresponds to that of ISO/TC 46: standardization of practices relating to libraries, documentation and information centres, publishing, archives, records management, museum documentation, indexing and abstracting services, and information science.</abstract>      <status>        <stage>60</stage>        <substage>60</substage>      </status>      <copyright>        <from>2017</from>        <owner>          <organization>            <name>ISO</name>          </organization>        </owner>      </copyright>      <relation type="obsoletes">        <bibitem type="standard">          <formattedref format="text/plain">ISO 5127:2001</formattedref>        </bibitem>      </relation>      <place>Geneva</place>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127:2001</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127-3:1988</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127-11:1987</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127-11:1983</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127-2:1983</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127-1:1983</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127-6:1983</formattedref>    </bibitem>  </relation>  <relation type="instance">    <bibitem type="standard">      <formattedref format="text/plain">ISO 5127-3A:1981</formattedref>    </bibitem>  </relation>  <place>Geneva</place></bibitem><bibitem id="ISO24624" type="standard">  <fetched>2021-04-15</fetched>  <title type="title-intro" format="text/plain" language="en" script="Latn">Language resource management</title>  <title type="title-main" format="text/plain" language="en" script="Latn">Transcription of spoken language</title>  <title type="main" format="text/plain" language="en" script="Latn">Language resource management&#8201;&#8212;&#8201;Transcription of spoken language</title>  <uri type="src">https://www.iso.org/standard/37338.html</uri>  <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:37338:en</uri>  <uri type="rss">https://www.iso.org/contents/data/standard/03/73/37338.detail.rss</uri>  <docidentifier type="ISO">ISO 24624:2016</docidentifier>  <docidentifier type="URN">urn:iso:std:iso:24624:stage-60.60:ed-1:en</docidentifier>  <docnumber>24624</docnumber>  <date type="published">    <on>2016-08</on>  </date>  <contributor>    <role type="publisher"/>    <organization>      <name>International Organization for Standardization</name>      <abbreviation>ISO</abbreviation>      <uri>www.iso.org</uri>    </organization>  </contributor>  <edition>1</edition>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">ISO 24624:2016 specifies rules for representing transcriptions of audio- and video-recorded spoken interactions in XML documents based on the guidelines of the TEI. As a secondary objective, the document aims to relate transcribed data with standards for annotated corpora. It is applicable to transcription data for studies in sociolinguistics, conversation analysis, dialectology, corpus linguistics, corpus lexicography, language technology, qualitative social studies and other transcription data of recorded spoken language. It is not applicable to other forms of transcription, most importantly transcriptions of hand-written manuscripts.Annex A gives a fully encoded example and Annex B provides an element index and an attribute index.</abstract>  <status>    <stage>60</stage>    <substage>60</substage>  </status>  <copyright>    <from>2016</from>    <owner>      <organization>        <name>ISO</name>      </organization>    </owner>  </copyright>  <place>Geneva</place></bibitem><bibitem id="RFC2119" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Key words for use in RFCs to Indicate Requirement Levels</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.2119.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc2119</uri>  <docidentifier type="IETF">RFC 2119</docidentifier>  <docidentifier type="rfc-anchor">RFC2119</docidentifier>  <docidentifier type="DOI">10.17487/RFC2119</docidentifier>  <date type="published">    <on>1997-03</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">S. Bradner</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">In many standards track documents several words are used to signify the requirements in the specification.  These words are often capitalized. This document defines these words as they should be interpreted in IETF documents.  This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">BCP</title>    <number>14</number>  </series>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>2119</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC3986" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Uniform Resource Identifier (URI): Generic Syntax</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.3986.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc3986</uri>  <docidentifier type="IETF">RFC 3986</docidentifier>  <docidentifier type="rfc-anchor">RFC3986</docidentifier>  <docidentifier type="DOI">10.17487/RFC3986</docidentifier>  <date type="published">    <on>2005-01</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">T. Berners-Lee</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">R. Fielding</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">L. Masinter</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">A Uniform Resource Identifier (URI) is a compact sequence of characters that identifies an abstract or physical resource.  This specification defines the generic URI syntax and a process for resolving URI references that might be in relative form, along with guidelines and security considerations for the use of URIs on the Internet.  The URI syntax defines a grammar that is a superset of all valid URIs, allowing an implementation to parse the common components of a URI reference without knowing the scheme-specific requirements of every possible identifier.  This specification does not define a generative grammar for URIs; that task is performed by the individual specifications of each URI scheme.  [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">STD</title>    <number>66</number>  </series>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>3986</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC5646" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Tags for Identifying Languages</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.5646.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc5646</uri>  <docidentifier type="IETF">RFC 5646</docidentifier>  <docidentifier type="rfc-anchor">RFC5646</docidentifier>  <docidentifier type="DOI">10.17487/RFC5646</docidentifier>  <date type="published">    <on>2009-09</on>  </date>  <contributor>    <role type="editor"/>    <person>      <name>        <completename language="en">A. Phillips</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="editor"/>    <person>      <name>        <completename language="en">M. Davis</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This document describes the structure, content, construction, and semantics of language tags for use in cases where it is desirable to indicate the language used in an information object.  It also describes how to register values for use in language tags and the creation of user-defined extensions for private interchange.  This document  specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">BCP</title>    <number>47</number>  </series>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>5646</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC8174" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.8174.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc8174</uri>  <docidentifier type="IETF">RFC 8174</docidentifier>  <docidentifier type="rfc-anchor">RFC8174</docidentifier>  <docidentifier type="DOI">10.17487/RFC8174</docidentifier>  <date type="published">    <on>2017-05</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">B. Leiba</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">RFC 2119 specifies common key words that may be used in protocol  specifications.  This document aims to reduce the ambiguity by clarifying that only UPPERCASE usage of the key words have the  defined special meanings.</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">BCP</title>    <number>14</number>  </series>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>8174</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC6321" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">xCal: The XML Format for iCalendar</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.6321.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc6321</uri>  <docidentifier type="IETF">RFC 6321</docidentifier>  <docidentifier type="rfc-anchor">RFC6321</docidentifier>  <docidentifier type="DOI">10.17487/RFC6321</docidentifier>  <date type="published">    <on>2011-08</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">C. Daboo</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">M. Douglass</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">S. Lees</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This specification defines &#8220;xCal&#8221;, an XML format for iCalendar data.   [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>6321</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC7265" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">jCal: The JSON Format for iCalendar</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.7265.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc7265</uri>  <docidentifier type="IETF">RFC 7265</docidentifier>  <docidentifier type="rfc-anchor">RFC7265</docidentifier>  <docidentifier type="DOI">10.17487/RFC7265</docidentifier>  <date type="published">    <on>2014-05</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">P. Kewisch</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">C. Daboo</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">M. Douglass</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This specification defines &#8220;jCal&#8221;, a JSON format for iCalendar data. The iCalendar data format is a text format for capturing and exchanging information normally stored within a calendaring and scheduling application, for example, tasks and events.  JSON is a lightweight, text-based, language-independent data interchange format commonly used in Internet applications.</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>7265</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC7095" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">jCard: The JSON Format for vCard</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.7095.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc7095</uri>  <docidentifier type="IETF">RFC 7095</docidentifier>  <docidentifier type="rfc-anchor">RFC7095</docidentifier>  <docidentifier type="DOI">10.17487/RFC7095</docidentifier>  <date type="published">    <on>2014-01</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">P. Kewisch</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This specification defines &#8220;jCard&#8221;, a JSON format for vCard data. The vCard data format is a text format for representing and exchanging information about individuals and other entities, for example, telephone numbers, email addresses, structured names, and delivery addresses.  JSON is a lightweight, text-based, language- independent data interchange format commonly used in Internet applications.</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>7095</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC6352" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">CardDAV: vCard Extensions to Web Distributed Authoring and Versioning (WebDAV)</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.6352.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc6352</uri>  <docidentifier type="IETF">RFC 6352</docidentifier>  <docidentifier type="rfc-anchor">RFC6352</docidentifier>  <docidentifier type="DOI">10.17487/RFC6352</docidentifier>  <date type="published">    <on>2011-08</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">C. Daboo</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This document defines extensions to the Web Distributed Authoring and Versioning (WebDAV) protocol to specify a standard way of accessing, managing, and sharing contact information based on the vCard format.  [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>6352</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC6351" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">xCard: vCard XML Representation</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.6351.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc6351</uri>  <docidentifier type="IETF">RFC 6351</docidentifier>  <docidentifier type="rfc-anchor">RFC6351</docidentifier>  <docidentifier type="DOI">10.17487/RFC6351</docidentifier>  <date type="published">    <on>2011-08</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">S. Perreault</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This document defines the XML schema of the vCard data format.   [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>6351</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC4791" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Calendaring Extensions to WebDAV (CalDAV)</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.4791.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc4791</uri>  <docidentifier type="IETF">RFC 4791</docidentifier>  <docidentifier type="rfc-anchor">RFC4791</docidentifier>  <docidentifier type="DOI">10.17487/RFC4791</docidentifier>  <date type="published">    <on>2007-03</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">C. Daboo</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">B. Desruisseaux</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">L. Dusseault</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">This document defines extensions to the Web Distributed Authoring and Versioning (WebDAV) protocol to specify a standard way of accessing, managing, and sharing calendaring and scheduling information based on the iCalendar format.  This document defines the &#8220;calendar-access&#8221; feature of CalDAV.  [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>4791</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC5234" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Augmented BNF for Syntax Specifications: ABNF</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.5234.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc5234</uri>  <docidentifier type="IETF">RFC 5234</docidentifier>  <docidentifier type="rfc-anchor">RFC5234</docidentifier>  <docidentifier type="DOI">10.17487/RFC5234</docidentifier>  <date type="published">    <on>2008-01</on>  </date>  <contributor>    <role type="editor"/>    <person>      <name>        <completename language="en">D. Crocker</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">P. Overell</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">Internet technical specifications often need to define a formal syntax.  Over the years, a modified version of Backus-Naur Form (BNF), called Augmented BNF (ABNF), has been popular among many Internet specifications.  The current specification documents ABNF. It balances compactness and simplicity with reasonable representational power.  The differences between standard BNF and ABNF involve naming rules, repetition, alternatives, order-independence, and value ranges.  This specification also supplies additional rule definitions and encoding for a core lexical analyzer of the type common to several Internet specifications.  [STANDARDS-TRACK]</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">STD</title>    <number>68</number>  </series>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>5234</number>  </series>  <place>Fremont, CA</place></bibitem><bibitem id="RFC8126" type="standard">  <fetched>2021-04-15</fetched>  <title format="text/plain" language="en" script="Latn">Guidelines for Writing an IANA Considerations Section in RFCs</title>  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.8126.xml</uri>  <uri type="src">https://www.rfc-editor.org/info/rfc8126</uri>  <docidentifier type="IETF">RFC 8126</docidentifier>  <docidentifier type="rfc-anchor">RFC8126</docidentifier>  <docidentifier type="DOI">10.17487/RFC8126</docidentifier>  <date type="published">    <on>2017-06</on>  </date>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">M. Cotton</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">B. Leiba</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="author"/>    <person>      <name>        <completename language="en">T. Narten</completename>      </name>      <affiliation>        <organization>          <name>Internet Engineering Task Force</name>          <abbreviation>IETF</abbreviation>        </organization>      </affiliation>    </person>  </contributor>  <contributor>    <role type="publisher"/>    <organization>      <name>Internet Engineering Task Force</name>      <abbreviation>IETF</abbreviation>    </organization>  </contributor>  <language>en</language>  <script>Latn</script>  <abstract format="text/plain" language="en" script="Latn">Many protocols make use of points of extensibility that use constants to identify various protocol parameters.  To ensure that the values in these fields do not have conflicting uses and to promote interoperability, their allocations are often coordinated by a central record keeper.  For IETF protocols, that role is filled by the Internet Assigned Numbers Authority (IANA).To make assignments in a given registry prudently, guidance describing the conditions under which new values should be assigned, as well as when and how modifications to existing values can be made, is needed.  This document defines a framework for the documentation of these guidelines by specification authors, in order to assure that the provided guidance for the IANA Considerations is clear and addresses the various issues that are likely in the operation of a registry.This is the third edition of this document; it obsoletes RFC 5226.</abstract>  <series type="main">    <title format="text/plain" language="en" script="Latn">BCP</title>    <number>26</number>  </series>  <series type="main">    <title format="text/plain" language="en" script="Latn">RFC</title>    <number>8126</number>  </series>  <place>Fremont, CA</place></bibitem>             </references></bibliography>
+</csd-standard>

@@ -1,0 +1,86 @@
+<bibdata type="standard">
+  <fetched>2021-04-15</fetched>
+  <title format="text/plain" language="en" script="Latn">The vObject Model and vFormat Syntax</title>
+  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.I-D.calconnect-vobject-vformat.xml</uri>
+  <uri type="TXT">http://www.ietf.org/internet-drafts/draft-calconnect-vobject-vformat-04.txt</uri>
+  <docidentifier type="IETF">I-D.calconnect-vobject-vformat</docidentifier>
+  <docidentifier type="rfc-anchor">I-D.calconnect-vobject-vformat</docidentifier>
+  <docidentifier type="Internet-Draft">draft-calconnect-vobject-vformat-04</docidentifier>
+  <date type="published">
+    <on>2018-06</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">Ronald Tse</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Internet Engineering Task Force</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">Peter Tam</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Internet Engineering Task Force</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">Ken Murchison</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Internet Engineering Task Force</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">Michael Douglass</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Internet Engineering Task Force</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Internet Engineering Task Force</name>
+      <abbreviation>IETF</abbreviation>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">This document specifies the vObject data model and its corresponding syntax vFormat.  vObject represents the generalized data model, and vFormat the generalized data format, of the following specifications and fully covers them:  o  RFC 6350, vCard version 4.0: the VCARD component;  o  RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar): the VCALENDAR, VEVENT, VJOURNAL, VFREEBUSY, VTIMEZONE, VALARM, VTODO, STANDARD and DAYLIGHT components;  o  RFC 7953, Calendar Availability Extensions: the VAVAILABILITY and AVAILABLE components;  o  I-Ddaboo-icalendar-vpatch, iCalendar Patching: the VPATCH component; and  o  alternative formats for iCalendar and vCard, including RFC 6321, xCal; RFC 7265, jCal; RFC 6351, xCard; and RFC 7095, jCard.  This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</abstract>
+  <series type="main">
+    <title format="text/plain" language="en" script="Latn">Internet-Draft</title>
+    <number>draft-calconnect-vobject-vformat-04</number>
+  </series>
+  <place>Fremont, CA</place>
+  <ext>
+    <doctype>internet-draft</doctype>
+  </ext>
+</bibdata>

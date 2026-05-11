@@ -1,0 +1,44 @@
+<bibdata type="standard">
+  <fetched>2021-04-15</fetched>
+  <title format="text/plain" language="en" script="Latn">jCard: The JSON Format for vCard</title>
+  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.7095.xml</uri>
+  <uri type="src">https://www.rfc-editor.org/info/rfc7095</uri>
+  <docidentifier type="IETF">RFC 7095</docidentifier>
+  <docidentifier type="rfc-anchor">RFC7095</docidentifier>
+  <docidentifier type="DOI">10.17487/RFC7095</docidentifier>
+  <date type="published">
+    <on>2014-01</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">P. Kewisch</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Internet Engineering Task Force</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Internet Engineering Task Force</name>
+      <abbreviation>IETF</abbreviation>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">This specification defines "jCard", a JSON format for vCard data. The vCard data format is a text format for representing and exchanging information about individuals and other entities, for example, telephone numbers, email addresses, structured names, and delivery addresses.  JSON is a lightweight, text-based, language- independent data interchange format commonly used in Internet applications.</abstract>
+  <series type="main">
+    <title format="text/plain" language="en" script="Latn">RFC</title>
+    <number>7095</number>
+  </series>
+  <place>Fremont, CA</place>
+  <ext>
+    <doctype>rfc</doctype>
+  </ext>
+</bibdata>

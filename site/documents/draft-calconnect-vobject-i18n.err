@@ -1,0 +1,51 @@
+/Users/mulgogi/src/calconnect/csd-vobject-i18n/site/documents/draft-calconnect-vobject-i18n.err errors
+
+
+== Metanorma XML Style Warning
+
+(XML Line 000197): Hanging paragraph in clause
+	<clause id="pp-language" inline-header="false" obligation="normative"><title>Property Parameter Usage Clarification: LANGUAGE</title><p id="_29f4de56-78a2-4382-a4f0-b09302d17cc9">This section clarifies the intent of the <tt>LANGUAGE</tt> property
+	parameter in <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> and <eref type="inline" bibitemid="RFC6350" citeas="RFC 6350"/> to be for the
+	identification of the language used in the property value
+	where the parameter is specified.</p>
+	<p id="_16672e89-bc5f-4df4-86ec-0a6cfb783ca0">The <eref type="inline" bibitemid="RFC5646" citeas="RFC 5646"/> defined <tt>language-tag</tt> allows specification
+(XML Line 000280): Hanging paragraph in clause
+	<clause id="pp-script" inline-header="false" obligation="normative"><title>Property Parameter: SCRIPT</title><p id="_7dc54378-627e-4b6f-8886-dd8048adea85">The <tt>SCRIPT</tt> property parameter specifies the written script
+	used in the property value which contains the parameter,
+	which is amongst the valid codes in the ISO 15924 registry.</p>
+	<p id="_11488812-9628-4421-a024-f1b385c2e705">It is separated from the <tt>LANGUAGE</tt> property parameter
+	defined in <eref type="inline" bibitemid="RFC5545" citeas="RFC 5545"/> and <eref type="inline" bibitemid="RFC6350" citeas="RFC 6350"/> for reasons
+(XML Line 000322): Hanging paragraph in clause
+	<clause id="pp-phonetic" inline-header="false" obligation="normative"><title>Property Parameter: PHONETIC</title><p id="_aeb9d1f5-abdd-4e20-849c-f198afe345ca">A number of contact managers have long used "X-properties"
+	to to store phonetic information of a vCard's subject, such as
+	<tt>X-PHONETIC-NAME</tt>, <tt>X-PHONETIC-FIRST-NAME</tt> and <tt>X-PHONETIC-LAST-NAME</tt>.</p>
+	<p id="_4cf6406f-fcde-4d15-8222-2e9329d280bb">However, this is an issue for multiple reasons:</p>
+	<ul id="_2634b213-5a0d-4a47-afc5-cd730e872c06">
+(XML Line 000422): Hanging paragraph in clause
+	<clause id="iana" inline-header="false" obligation="normative"><title>IANA Considerations</title><p id="_79a68c6d-42c3-469f-a862-7ac3ae11a2ee">IANA is requested to register the following property parameters
+	and value types in the corresponding iCalendar and vCard registries.</p>
+	<clause id="_icalendar_and_vcard_property_parameter_registration_script" inline-header="false" obligation="normative">
+	<title>iCalendar and vCard Property Parameter Registration: SCRIPT</title>
+	<dl id="_948e6559-cedf-476c-89d0-c49801868c82">
+
+
+== Metanorma XML Syntax
+
+(XML Line 000018:51): element "br" not allowed here; expected the element end-tag or text
+(XML Line 000018:63): element "br" not allowed here; expected the element end-tag or text
+(XML Line 000036:51): element "br" not allowed here; expected the element end-tag or text
+(XML Line 000036:63): element "br" not allowed here; expected the element end-tag or text
+(XML Line 000054:38): element "br" not allowed here; expected the element end-tag or text
+(XML Line 000054:47): element "br" not allowed here; expected the element end-tag or text
+(XML Line 000054:60): element "br" not allowed here; expected the element end-tag or text
+(XML Line 000070:52): character content of element "revision-date" invalid; must be a string matching the regular expression "([\+\-]?\d{4})((-?)((0[1-9]|1[0-2])((-?)([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6]))))?"
+(XML Line 000101:12): element "workgroup" not allowed here; expected the element end-tag or element "committee"
+(XML Line 000103:22): character content of element "area" invalid; must be equal to "Applications and Real-Time", "General", "Internet", "Operations and Management", "Routing", "Security", "Transport", "art", "gen", "int", "ops", "rtg", "sec" or "tsv"
+(XML Line 000110:88): attribute "obligation" not allowed here; expected attribute "language", "numbered", "removeInRFC", "script" or "toc"
+(XML Line 000167:110): element "dl" not allowed here; expected element "admitted", "definition", "deprecates", "domain", "grammar", "preferred" or "related"
+(XML Line 000179:48): element "dl" not allowed here; expected element "admitted", "definition", "deprecates", "domain", "grammar", "preferred" or "related"
+(XML Line 000186:48): element "dl" not allowed here; expected element "admitted", "definition", "deprecates", "domain", "grammar", "preferred" or "related"
+(XML Line 000192:37): element "termsource" not allowed yet; missing required element "definition"
+(XML Line 000531:177): element "references" not allowed here; expected the element end-tag or element "admonition", "bookmark", "clause", "definitions", "dl", "example", "figure", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "terms" or "ul"
+(XML Line 000532:85): element "references" not allowed here; expected the element end-tag or element "admonition", "bookmark", "clause", "definitions", "dl", "example", "figure", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "terms" or "ul"
+(XML Line 000545:17): element "ietf-standard" incomplete; missing required element "bibliography"

@@ -1,0 +1,672 @@
+
+
+
+
+Calendaring Extensions                                         R. H. Tse
+Internet-Draft                                                    J. Lau
+Updates: 5545 (if approved)                                       Ribose
+Intended status: Standards Track                             M. Douglass
+Expires: 17 October 2021                             Spherical Cow Group
+                                                           15 April 2021
+
+
+                      vObject Internationalization
+
+Abstract
+
+   This document updates the following specifications:
+
+   *  I-D.calconnect-vobject-vformat, The vObject Model and vFormat
+      Syntax
+
+   *  RFC 6350, vCard version 4.0
+
+   *  RFC 5545, Internet Calendaring and Scheduling Core Object
+      Specification (iCalendar)
+
+   *  RFC 7953, Calendar Availability Extensions
+
+   This work is produced by the CalConnect TC-VCARD and TC-CALENDAR
+   committees.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 17 October 2021.
+
+Copyright Notice
+
+   Copyright (c) 2021 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 1]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Simplified BSD License text
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Terms and definitions . . . . . . . . . . . . . . . . . . . .   3
+     2.1.  Definitions . . . . . . . . . . . . . . . . . . . . . . .   3
+   3.  Property Parameter Usage Clarification: LANGUAGE  . . . . . .   4
+     3.1.  vFormat Implementation of LANGUAGE  . . . . . . . . . . .   5
+   4.  Property Parameter: SCRIPT  . . . . . . . . . . . . . . . . .   5
+     4.1.  vFormat Implementation of SCRIPT  . . . . . . . . . . . .   6
+   5.  Property Parameter: PHONETIC  . . . . . . . . . . . . . . . .   6
+     5.1.  vFormat Implementation of PHONETIC  . . . . . . . . . . .   7
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+     7.1.  iCalendar and vCard Property Parameter Registration:
+           SCRIPT  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     7.2.  iCalendar and vCard Property Parameter Registration:
+           PHONETIC  . . . . . . . . . . . . . . . . . . . . . . . .   8
+     7.3.  iCalendar and vCard Registration for Value Data Type:
+           SCRIPT-CODE . . . . . . . . . . . . . . . . . . . . . . .   8
+     7.4.  iCalendar and vCard Registration for Value Data Type:
+           PHONETIC-CODE . . . . . . . . . . . . . . . . . . . . . .   9
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
+     8.1.  Normative references  . . . . . . . . . . . . . . . . . .   9
+     8.2.  Informative references  . . . . . . . . . . . . . . . . .   9
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
+
+1.  Introduction
+
+   vCard [RFC6350] and iCalendar [RFC5545] are standards compliant to
+   the vObject data model [I-D.calconnect-vobject-vformat].
+
+   These standards are used worldwide and require proper certain
+   localization elements suitable for multi-cultural use.
+
+   Previously, the only internationalization method for vCard [RFC6350]
+   and iCalendar [RFC5545] standards was the "language" property
+   parameter (3.2.10 [RFC5545]).
+
+   This document:
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 2]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   *  defines additional internationalization features for the vObject
+      data model, including a separate property parameter that denotes
+      the script used in a property value, and a method to specify
+      pronunciation of a property value
+
+   *  defines realization methods of vObject internationalization in
+      vFormat
+
+   The methods described in this document are intended to be used by
+   vObject-compliant standards, such as vCard 4.0 [RFC6350] and
+   iCalendar [RFC5545].
+
+   This is a work product of the CalConnect TC-VCARD [CALCONNECT-VCARD]
+   and TC-CALENDAR [CALCONNECT-CALENDAR] committees.
+
+2.  Terms and definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "*NOT RECOMMENDED*", "MAY",
+   and "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   The key words "*Private Use*", "*Experimental Use*", "*Hierarchical
+   Allocation*", "*First Come First Served*", "*Expert Review*",
+   "*Specification Required*", "*RFC Required*", "*IETF Review*",
+   "*Standards Action*" and "*IESG Approval*" in this document are to be
+   interpreted as described in 4 [RFC8126].
+
+   Notation in this document is described in ABNF [RFC5234] as used by
+   [RFC6350].
+
+   Definitions from [RFC6350] apply to this specification except when
+   explicitly overridden.
+
+   All names of properties, property parameters, enumerated property
+   values, and property parameter values are case-insensitive.  However,
+   all property values are case-sensitive, unless otherwise stated.
+
+2.1.  Definitions
+
+   phonetic system  method of transcription of language in a script that
+      allows phonetic reproduction
+
+   transliteration  operation which consists of representing the
+      characters of an entirely alphabetical character or alphanumeric
+      character writing system by the characters of the conversion
+      alphabet
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 3]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   script  particular graphic representation or class of representations
+      of a set of characters used to write one or more languages
+
+   phonetic transcription  representation or modelling of spoken
+      language based on the sound system of the respective language 3.5
+      [ISO24624]
+
+   SOURCE: 3.1.6.11 [ISO5127]
+
+   SOURCE: 3.1.6.02 [ISO5127]
+
+3.  Property Parameter Usage Clarification: LANGUAGE
+
+   This section clarifies the intent of the "LANGUAGE" property
+   parameter in [RFC5545] and [RFC6350] to be for the identification of
+   the language used in the property value where the parameter is
+   specified.
+
+   The [RFC5646] defined "language-tag" allows specification of multiple
+   attributes (called "subtags") in addition to just language.  Its
+   basic form includes:
+
+   *  a mandatory language subtag, using a language identifier from ISO
+      639 (-2, -3) (called a "primary" or "extended" language subtag)
+
+   *  an optional script subtag, using a script identifier from ISO
+      15924
+
+   *  an optional region subtag, using country codes listed in ISO 3166
+      or a UN numeric code
+
+   *  one or more, optional, variant and extension subtags defined in
+      the IANA language subtag registry.
+
+   In practical usage of vObject standards, including [RFC5545] and
+   [RFC6350], it is determined that the combinatorial enumeration of
+   non-language subtags often cause unnecessary confusion in
+   interpretation and parsing, especially when the registry contain
+   variant and extension subtags that either conflict in semantics or
+   have overly restrictive in their supported prefixes.
+
+   This document therefore clarifies the intent of 3.2.10 [RFC5545] and
+   5.1 [RFC6350], such that the "LANGUAGE" property parameter SHOULD
+   only support the mandatory language subtag.
+
+   Other subtags MAY be supplied as specified in [RFC5646], but they are
+   purely for informational purposes not used in the vObject
+   specification.
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 4]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   Namespace
+
+   Property parameter name  "LANGUAGE"
+
+   Purpose  To specify the language used in the property value.
+
+   Value type  "LANGUAGE-TAG" 4.8 [RFC6350]
+
+   Description  As provided above.
+
+3.1.  vFormat Implementation of LANGUAGE
+
+   The value of the "LANGUAGE" property parameter is re-defined as shown
+   below.
+
+   Format definition
+
+   languageparam = "LANGUAGE" "=" language *(subpart)
+
+   language = iso-639-3-code / iso-639-2-code
+             ; a 2-alpha or 3-alpha language code
+             ; defined in ISO 639
+
+   subpart  = "-" *alphanum
+              ; all other subparts unsupported
+
+   Examples
+
+   N;LANGUAGE=en:Miyazaki;Hayao;;;
+   N;LANGUAGE=jp:宮崎;駿;;;
+
+4.  Property Parameter: SCRIPT
+
+   The "SCRIPT" property parameter specifies the written script used in
+   the property value which contains the parameter, which is amongst the
+   valid codes in the ISO 15924 registry.
+
+   It is separated from the "LANGUAGE" property parameter defined in
+   [RFC5545] and [RFC6350] for reasons stated in Section 3.
+
+   Namespace
+
+   Property parameter name  SCRIPT
+
+   Purpose  To specify the script used in the property value, which is
+      amongst the valid codes in the ISO 15924 registry.
+
+   Value type  TEXT, a single value valid in the ISO 15924 script
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 5]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+      registry.
+
+   Description  The property value of which this property parameter
+      applies to must have identical structure to
+
+4.1.  vFormat Implementation of SCRIPT
+
+   Format definition
+
+   scriptparam = "SCRIPT" "=" script-code
+               ; script-code defined in the value type SCRIPT-CODE
+
+   Examples
+
+   N;SCRIPT=Hira;LANGUAGE=jp:みやざき;はやお;;;
+   N;SCRIPT=Hani;LANGUAGE=jp:宮崎;駿;;;
+
+5.  Property Parameter: PHONETIC
+
+   A number of contact managers have long used "X-properties" to to
+   store phonetic information of a vCard's subject, such as "X-PHONETIC-
+   NAME", "X-PHONETIC-FIRST-NAME" and "X-PHONETIC-LAST-NAME".
+
+   However, this is an issue for multiple reasons:
+
+   *  The value of the X-property does not define the phonetic system
+      used for its transcription;
+
+   *  This X-property usage does not enable interoperability since it
+      does not require specification of the language transcribed, as
+      well as the script of the resulting transcription;
+
+   *  The scheme of using X-properties does not allow representation of
+      phonetics on other vCard values.
+
+   This section defines three property parameters used to store
+   pronunciation information of a property value:
+
+   1.  The script used in the pronunciation system;
+
+   2.  An identifier of the pronunciation system used;
+
+   3.  The source language that was transcribed by the pronunciation
+       system.
+
+   The "PHONETIC" property parameter specifies the phonetic system used
+   in the transcription of the property value, identified by the
+   phonetic system code from the ISO XXXXX phonetic system registry.
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 6]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   This property parameter is often applied together with the "LANGUAGE"
+   (Section 3) and "SCRIPT" (Section 4) property parameters.
+
+   Namespace
+
+   Property parameter name  PHONETIC
+
+   Purpose  To specify the phonetic system used in the property value,
+      which is amongst the valid codes in the ISO XXXXX registry.
+
+   Value type  TEXT, a single value valid in the ISO XXXXX phonetic
+      system registry.
+
+   Description  The property value of which this property parameter
+      applies to must take an identical structure to the property value
+      without application of this property parameter.
+
+5.1.  vFormat Implementation of PHONETIC
+
+   Format definition
+
+   phoneticparam = "PHONETIC" "=" phonetic
+   phonetic      = 4ALPHA  ; ISO XXXXX 4-digit phonetic system code
+
+   Examples
+
+   N;SCRIPT=Hant;LANGUAGE=zho:孫;中山;文,逸仙;;
+   N;SCRIPT=Hans;LANGUAGE=zho:孙;中山;文,逸仙;;
+   N;PHONETIC=jyut;SCRIPT=Latn;LANGUAGE=yue:syun1;zung1saan1;man4,jat6sin1;;
+   N;PHONETIC=ping;SCRIPT=Latn;LANGUAGE=cmn:sun;zhongshan;rixian;;
+
+6.  Security Considerations
+
+   Security considerations of the vObject formats themselves MUST be
+   adhered to, including:
+
+   *  vCard: [RFC6350]
+
+   *  iCalendar: [RFC5545], [RFC4791]
+
+   *  vObject: [I-D.calconnect-vobject-vformat]
+
+   vObject formats, especially for calendaring, scheduling and contact
+   exchange, often involve privacy-sensitive information.
+   Internationalization features defined in this document MAY pose risk
+   of exposing private information if interchanged through unprotected
+   communication channels.
+
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 7]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   Mechanisms used for the transmission of such information should
+   implement security measures to protect against possible threats, such
+   as eavesdropping, replay, message insertion, deletion, modification,
+   and man-in-the-middle attacks.
+
+7.  IANA Considerations
+
+   IANA is requested to register the following property parameters and
+   value types in the corresponding iCalendar and vCard registries.
+
+7.1.  iCalendar and vCard Property Parameter Registration: SCRIPT
+
+   Namespace
+
+   Parameter name  SCRIPT
+
+   Purpose  Given in Section 4.
+
+   Description  Given in Section 4.
+
+   Format definition  Given in Section 4.
+
+   Examples  Given in Section 4.
+
+7.2.  iCalendar and vCard Property Parameter Registration: PHONETIC
+
+   Namespace
+
+   Parameter name  PHONETIC
+
+   Purpose  Given in Section 5.
+
+   Description  Given in Section 5.
+
+   Format definition  Given in Section 5.
+
+   Examples  Given in Section 5.
+
+7.3.  iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE
+
+   Value name  SCRIPT-CODE
+
+   Purpose  Indicate script used in property value using a valid value
+      from the ISO 15924 registry.
+
+   Description  Used by the SCRIPT property parameter.
+
+   Format definition
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 8]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   script-code = 4ALPHA
+               ; ISO 15924 4-digit script code
+
+   Examples  "Latn", "Cyrl", "Hani"
+
+7.4.  iCalendar and vCard Registration for Value Data Type: PHONETIC-
+      CODE
+
+   Value name  PHONETIC-CODE
+
+   Purpose  Indicate phonetic system used in the transcription of
+      property value, using a valid value from the ISO XXXXX registry.
+
+   Description  Used by the SCRIPT property parameter.
+
+   Format definition
+
+   phonetic-code = 4ALPHA
+                 ; ISO XXXXX 4-digit script code
+
+   Examples  "ipa", "jyut", "ping"
+
+8.  References
+
+8.1.  Normative references
+
+   [RFC5545]  Desruisseaux, B., Ed., "Internet Calendaring and
+              Scheduling Core Object Specification (iCalendar)", RFC
+              5545, IETF RFC 5545, DOI 10.17487/RFC5545, September 2009,
+              <https://www.rfc-editor.org/info/rfc5545>.
+
+   [RFC6350]  Perreault, S., "vCard Format Specification", RFC 6350,
+              IETF RFC 6350, DOI 10.17487/RFC6350, August 2011,
+              <https://www.rfc-editor.org/info/rfc6350>.
+
+   [I-D.calconnect-vobject-vformat]
+              Tse, R., Tam, P., Murchison, K., and M. Douglass, "The
+              vObject Model and vFormat Syntax", I-D.calconnect-vobject-
+              vformat, IETF I-D.calconnect-vobject-vformat, June 2018.
+
+8.2.  Informative references
+
+   [CALCONNECT-VCARD]
+              "CalConnect VCARD Technical Committee", CalConnect TC
+              VCARD.
+
+
+
+
+
+
+Tse, et al.              Expires 17 October 2021                [Page 9]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   [CALCONNECT-CALENDAR]
+              "CalConnect CALENDAR Technical Committee", CalConnect TC
+              CALENDAR.
+
+   [ISO5127]  International Organization for Standardization,
+              "Information and documentation", ISO 5127 (all parts), May
+              2017, <https://www.iso.org/standard/59743.html>.
+
+   [ISO24624] International Organization for Standardization, "Language
+              resource management", ISO 24624:2016, August 2016,
+              <https://www.iso.org/standard/37338.html>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", RFC 2119, IETF RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
+              Resource Identifier (URI): Generic Syntax", RFC 3986,
+              IETF RFC 3986, DOI 10.17487/RFC3986, January 2005,
+              <https://www.rfc-editor.org/info/rfc3986>.
+
+   [RFC5646]  Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
+              Languages", RFC 5646, IETF RFC 5646, DOI 10.17487/RFC5646,
+              September 2009, <https://www.rfc-editor.org/info/rfc5646>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", RFC 8174, IETF RFC 8174,
+              DOI 10.17487/RFC8174, May 2017,
+              <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC6321]  Daboo, C., Douglass, M., and S. Lees, "xCal: The XML
+              Format for iCalendar", RFC 6321, IETF RFC 6321,
+              DOI 10.17487/RFC6321, August 2011,
+              <https://www.rfc-editor.org/info/rfc6321>.
+
+   [RFC7265]  Kewisch, P., Daboo, C., and M. Douglass, "jCal: The JSON
+              Format for iCalendar", RFC 7265, IETF RFC 7265,
+              DOI 10.17487/RFC7265, May 2014,
+              <https://www.rfc-editor.org/info/rfc7265>.
+
+   [RFC7095]  Kewisch, P., "jCard: The JSON Format for vCard", RFC 7095,
+              IETF RFC 7095, DOI 10.17487/RFC7095, January 2014,
+              <https://www.rfc-editor.org/info/rfc7095>.
+
+
+
+
+
+
+
+Tse, et al.              Expires 17 October 2021               [Page 10]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   [RFC6352]  Daboo, C., "CardDAV: vCard Extensions to Web Distributed
+              Authoring and Versioning (WebDAV)", RFC 6352, IETF RFC
+              6352, DOI 10.17487/RFC6352, August 2011,
+              <https://www.rfc-editor.org/info/rfc6352>.
+
+   [RFC6351]  Perreault, S., "xCard: vCard XML Representation", RFC
+              6351, IETF RFC 6351, DOI 10.17487/RFC6351, August 2011,
+              <https://www.rfc-editor.org/info/rfc6351>.
+
+   [RFC4791]  Daboo, C., Desruisseaux, B., and L. Dusseault,
+              "Calendaring Extensions to WebDAV (CalDAV)", RFC 4791,
+              IETF RFC 4791, DOI 10.17487/RFC4791, March 2007,
+              <https://www.rfc-editor.org/info/rfc4791>.
+
+   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
+              Specifications: ABNF", RFC 5234, IETF RFC 5234,
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/info/rfc5234>.
+
+   [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
+              Writing an IANA Considerations Section in RFCs", RFC 8126,
+              IETF RFC 8126, DOI 10.17487/RFC8126, June 2017,
+              <https://www.rfc-editor.org/info/rfc8126>.
+
+Authors' Addresses
+
+   Ronald Henry Tse
+   Ribose
+   Suite 1109, 1 Pedder Street
+   Central
+   Hong Kong
+
+   Email: ronald.tse@ribose.com
+   URI:   https://www.ribose.com
+
+
+   Jeffrey Lau
+   Ribose
+   Suite 1109, 1 Pedder Street
+   Central
+   Hong Kong
+
+   Email: jeffrey.lau@ribose.com
+   URI:   https://www.ribose.com
+
+
+
+
+
+
+
+Tse, et al.              Expires 17 October 2021               [Page 11]
+
+Internet-Draft             vObject and vFormat                April 2021
+
+
+   Mike Douglass
+   Spherical Cow Group
+   226 3rd Street
+   Troy
+   NY 12180
+   United States of America
+
+   Email: mdouglass@sphericalcowgroup.com
+   URI:   http://sphericalcowgroup.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tse, et al.              Expires 17 October 2021               [Page 12]

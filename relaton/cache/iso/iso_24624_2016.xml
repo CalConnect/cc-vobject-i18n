@@ -1,0 +1,53 @@
+<bibdata type="standard">
+  <fetched>2021-04-15</fetched>
+  <title type="title-intro" format="text/plain" language="en" script="Latn">Language resource management</title>
+  <title type="title-main" format="text/plain" language="en" script="Latn">Transcription of spoken language</title>
+  <title type="main" format="text/plain" language="en" script="Latn">Language resource management - Transcription of spoken language</title>
+  <uri type="src">https://www.iso.org/standard/37338.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/#!iso:std:37338:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/03/73/37338.detail.rss</uri>
+  <docidentifier type="ISO">ISO 24624:2016</docidentifier>
+  <docidentifier type="URN">urn:iso:std:iso:24624:stage-60.60:ed-1:en</docidentifier>
+  <docnumber>24624</docnumber>
+  <date type="published">
+    <on>2016-08</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <edition>1</edition>
+  <language>en</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">ISO 24624:2016 specifies rules for representing transcriptions of audio- and video-recorded spoken interactions in XML documents based on the guidelines of the TEI. As a secondary objective, the document aims to relate transcribed data with standards for annotated corpora. It is applicable to transcription data for studies in sociolinguistics, conversation analysis, dialectology, corpus linguistics, corpus lexicography, language technology, qualitative social studies and other transcription data of recorded spoken language. It is not applicable to other forms of transcription, most importantly transcriptions of hand-written manuscripts.Annex A gives a fully encoded example and Annex B provides an element index and an attribute index.</abstract>
+  <status>
+    <stage>60</stage>
+    <substage>60</substage>
+  </status>
+  <copyright>
+    <from>2016</from>
+    <owner>
+      <organization>
+        <name>ISO</name>
+      </organization>
+    </owner>
+  </copyright>
+  <place>Geneva</place>
+  <ext>
+    <doctype>international-standard</doctype>
+    <editorialgroup>
+      <technical-committee number="37" type="TC">ISO/TC 37/SC 4Language resource management</technical-committee>
+    </editorialgroup>
+    <ics>
+      <code>01.140.10</code>
+      <text>Writing and transliteration</text>
+    </ics>
+    <structuredidentifier type="ISO">
+      <project-number>ISO 24624</project-number>
+    </structuredidentifier>
+  </ext>
+</bibdata>
