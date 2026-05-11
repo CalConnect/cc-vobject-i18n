@@ -631,7 +631,7 @@ Authors' Addresses
 
    Ronald Henry Tse
    Ribose
-   Suite 1111, 1 Pedder Street
+   Suite 1109, 1 Pedder Street
    Central
    Hong Kong
 
@@ -641,7 +641,7 @@ Authors' Addresses
 
    Peter Kwan Yu Tam
    Ribose
-   Suite 1111, 1 Pedder Street
+   Suite 1109, 1 Pedder Street
    Central
    Hong Kong
 

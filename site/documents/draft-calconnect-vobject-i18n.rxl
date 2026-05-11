@@ -1,0 +1,107 @@
+<bibdata type="standard">
+<title language="en" format="text/plain" type="main">vObject Internationalization</title>
+<title language="en" format="text/plain" type="abbrev">vObject and vFormat</title>
+
+
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Ronald Henry Tse</completename>
+</name>
+<affiliation>
+<organization>
+<name>Ribose</name>
+<address>
+<formattedAddress>Suite 1109, 1 Pedder Street<br/>Central<br/>Hong Kong</formattedAddress>
+</address>
+</organization>
+</affiliation>
+<email>ronald.tse@ribose.com</email>
+<uri>https://www.ribose.com</uri>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Jeffrey Lau</completename>
+</name>
+<affiliation>
+<organization>
+<name>Ribose</name>
+<address>
+<formattedAddress>Suite 1109, 1 Pedder Street<br/>Central<br/>Hong Kong</formattedAddress>
+</address>
+</organization>
+</affiliation>
+<email>jeffrey.lau@ribose.com</email>
+<uri>https://www.ribose.com</uri>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Mike Douglass</completename>
+</name>
+<affiliation>
+<organization>
+<name>Spherical Cow Group</name>
+<address>
+<formattedAddress>226 3rd Street<br/>Troy<br/>NY 12180<br/>United States of America</formattedAddress>
+</address>
+</organization>
+</affiliation>
+<email>mdouglass@sphericalcowgroup.com</email>
+<uri>http://sphericalcowgroup.com</uri>
+</person>
+</contributor>
+<contributor>
+<role type="publisher"/>
+<organization>
+<name>Internet Engineering Task Force</name>
+<abbreviation>IETF</abbreviation>
+</organization>
+</contributor>
+<version>
+<revision-date>2018-06-08T00:00:00Z</revision-date>
+</version>
+<language>en</language>
+<script>Latn</script>
+<status>
+<stage>standard</stage>
+</status>
+<copyright>
+<from>2021</from>
+<owner>
+<organization>
+<name>Internet Engineering Task Force</name>
+<abbreviation>IETF</abbreviation>
+</organization>
+</owner>
+</copyright>
+<relation type="updates">
+<bibitem>
+<title>6321</title>
+<docidentifier>5545</docidentifier>
+</bibitem>
+</relation>
+<series type="stream">
+<title>IETF</title>
+</series>
+<series type="intended">
+<title>full-standard</title>
+</series>
+<ext>
+<doctype>internet-draft</doctype>
+<editorialgroup>
+<workgroup>Calendaring Extensions</workgroup>
+</editorialgroup>
+<area>internet</area>
+<ipr>trust200902</ipr>
+<pi>
+<toc>yes</toc>
+</pi>
+</ext>
+</bibdata>

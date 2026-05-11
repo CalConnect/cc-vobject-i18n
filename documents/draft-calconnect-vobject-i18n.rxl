@@ -1,0 +1,81 @@
+<bibdata type="standard">
+<title language="en" format="text/plain" type="main">vObject Internationalization</title>
+<title language="en" format="text/plain" type="abbrev">vObject and vFormat</title>
+<uri>https://www.ribose.com</uri>
+
+
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Ronald Henry Tse</completename>
+</name>
+<email>ronald.tse@ribose.com</email>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Peter Kwan Yu Tam</completename>
+</name>
+<email>peter.tam@ribose.com</email>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Mike Douglass</completename>
+</name>
+<email>mdouglass@sphericalcowgroup.com</email>
+</person>
+</contributor>
+<contributor>
+<role type="publisher"/>
+<organization>
+<name>Internet Engineering Task Force</name>
+<abbreviation>IETF</abbreviation>
+</organization>
+</contributor>
+<version>
+<revision-date>2018-06-08T00:00:00Z</revision-date>
+</version>
+<language>en</language>
+<script>Latn</script>
+<status>
+<stage>standard</stage>
+</status>
+<copyright>
+<from>2020</from>
+<owner>
+<organization>
+<name>Internet Engineering Task Force</name>
+<abbreviation>IETF</abbreviation>
+</organization>
+</owner>
+</copyright>
+<relation type="updates">
+<bibitem>
+<title>6321</title>
+<docidentifier>5545</docidentifier>
+</bibitem>
+</relation>
+<series type="stream">
+<title>IETF</title>
+</series>
+<series type="intended">
+<title>full-standard</title>
+</series>
+<ext>
+<doctype>internet-draft</doctype>
+<editorialgroup>
+<workgroup>Calendaring Extensions</workgroup>
+</editorialgroup>
+<area>internet</area>
+<ipr>trust200902</ipr>
+<pi>
+<toc>yes</toc>
+</pi>
+</ext>
+</bibdata>

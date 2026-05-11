@@ -12,45 +12,50 @@
 :fullname: Ronald Henry Tse
 :lastname: Tse
 :forename_initials: R. H.
-:organization: Ribose
-:street: Suite 1111, 1 Pedder Street
-:city: Central
-:country: Hong Kong
-:uri: https://www.ribose.com
+:affiliation: Ribose
+:address: Suite 1109, 1 Pedder Street + \
+Central + \
+Hong Kong
+:contributor-uri: https://www.ribose.com
 :email: ronald.tse@ribose.com
-:fullname_2: Peter Kwan Yu Tam
-:lastname_2: Tam
-:forename_initials_2: P.
-:organization_2: Ribose
-:street_2: Suite 1111, 1 Pedder Street
-:city_2: Central
-:country_2: Hong Kong
-:uri_2: https://www.ribose.com
-:email_2: peter.tam@ribose.com
+:fullname_2: Jeffrey Lau
+:lastname_2: Lau
+:forename_initials_2: J.
+:affiliation_2: Ribose
+:address_2: Suite 1109, 1 Pedder Street + \
+Central + \
+Hong Kong
+:contributor-uri_2: https://www.ribose.com
+:email_2: jeffrey.lau@ribose.com
 :fullname_3: Mike Douglass
 :lastname_3: Douglass
 :forename_initials_3: M.
-:organization_3: Spherical Cow Group
-:street_3: 226 3rd Street
-:city_3: Troy
-:code_3: 12180
-:region_3: NY
-:country_3: United States of America
-:uri_3: http://sphericalcowgroup.com
+:affiliation_3: Spherical Cow Group
+:address_3: 226 3rd Street + \
+Troy + \
+NY 12180 + \
+United States of America
+:contributor-uri_3: http://sphericalcowgroup.com
 :email_3: mdouglass@sphericalcowgroup.com
-:docfile: draft-calconnect-vobject-i18n.adoc
 :mn-document-class: ietf
-:mn-output-extensions: xmlrfc2,txt,html
+:mn-output-extensions: xml,rfc,txt,html,rxl
+:local-cache-only:
+:data-uri-image:
 
 include::sections/00-abstract.adoc[]
 
 include::sections/01-intro.adoc[]
 
 include::sections-ietf/02-conventions.adoc[]
+
 include::sections/04-update-language.adoc[]
+
 include::sections/05-script.adoc[]
+
 include::sections/06-pronunciation.adoc[]
+
 include::sections/10-security.adoc[]
+
 include::sections/11-iana.adoc[]
 
 
@@ -59,5 +64,5 @@ include::sections/11-iana.adoc[]
 include::sections-ietf/97-references.adoc[]
 
 // include::sections/98-examples.adoc[]
-include::sections/99-acknowledgements.adoc[]
+// include::sections/99-acknowledgements.adoc[]
 

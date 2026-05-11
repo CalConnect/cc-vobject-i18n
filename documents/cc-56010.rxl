@@ -1,0 +1,67 @@
+<bibdata type="standard">
+<title language="en" format="text/plain">vObject — Internationalization</title>
+<docidentifier type="csd">CC/WD 56010:2019</docidentifier>
+<docnumber>56010</docnumber>
+<date type="published">
+<on>2019-06-05</on>
+</date>
+<contributor>
+<role type="author"/>
+<organization>
+<name>CalConnect</name>
+</organization>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Ronald Tse</completename>
+</name>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Peter Kwan Yu</completename>
+</name>
+</person>
+</contributor>
+<contributor>
+<role type="author"/>
+<person>
+<name>
+<completename>Mike Douglass</completename>
+</name>
+</person>
+</contributor>
+<contributor>
+<role type="publisher"/>
+<organization>
+<name>CalConnect</name>
+</organization>
+</contributor>
+<edition>1</edition>
+<version>
+<revision-date>2018-06-08</revision-date>
+</version>
+<language>en</language>
+<script>Latn</script>
+<status>
+<stage>working-draft</stage>
+</status>
+<copyright>
+<from>2019</from>
+<owner>
+<organization>
+<name>CalConnect</name>
+</organization>
+</owner>
+</copyright>
+<ext>
+<doctype>standard</doctype>
+<editorialgroup>
+<technical-committee>VCARD</technical-committee>
+</editorialgroup>
+</ext>
+</bibdata>

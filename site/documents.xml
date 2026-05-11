@@ -1,0 +1,258 @@
+<relaton-collection xmlns="https://open.ribose.com/relaton-xml"><title>vObject i18n</title><contributor><role type='author'/><organization><name>CalConnect</name></organization></contributor><relation type='partOf'><bibdata type="standard">
+  <title format="text/plain" language="en">vObject — Internationalization</title>
+  <uri type="xml">documents/cc-56010.xml</uri>
+  <uri type="pdf">documents/cc-56010.pdf</uri>
+  <uri type="html">documents/cc-56010.html</uri>
+  <uri type="rxl">documents/cc-56010.rxl</uri>
+  <docidentifier type="CalConnect">CC/WD 56010:2019</docidentifier>
+  <docnumber>56010</docnumber>
+  <date type="published">
+    <on>2021-06-05</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Ronald Tse</completename>
+      </name>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Jeffrey Lau</completename>
+      </name>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Mike Douglass</completename>
+      </name>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>CalConnect</name>
+    </organization>
+  </contributor>
+  <edition>1</edition>
+  <version>
+    <revision-date>2021-04-15</revision-date>
+  </version>
+  <language>en</language>
+  <script>Latn</script>
+  <status>
+    <stage>working-draft</stage>
+  </status>
+  <copyright>
+    <from>2019</from>
+    <owner>
+      <organization>
+        <name>CalConnect</name>
+      </organization>
+    </owner>
+  </copyright>
+  <ext>
+    <doctype>standard</doctype>
+    <editorialgroup>
+      <committee>VCARD</committee>
+    </editorialgroup>
+  </ext>
+</bibdata></relation>
+<relation type='partOf'><bibdata type="standard">
+  <title type="main" format="text/plain" language="en">vObject Internationalization</title>
+  <title type="abbrev" format="text/plain" language="en">vObject and vFormat</title>
+  <uri type="xml">documents/draft-calconnect-vobject-i18n.xml</uri>
+  <uri type="html">documents/draft-calconnect-vobject-i18n.html</uri>
+  <uri type="rxl">documents/draft-calconnect-vobject-i18n.rxl</uri>
+  <uri type="txt">documents/draft-calconnect-vobject-i18n.txt</uri>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Ronald Henry Tse</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Ribose</name>
+        </organization>
+      </affiliation>
+      <email>ronald.tse@ribose.com</email>
+      <uri>https://www.ribose.com</uri>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Jeffrey Lau</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Ribose</name>
+        </organization>
+      </affiliation>
+      <email>jeffrey.lau@ribose.com</email>
+      <uri>https://www.ribose.com</uri>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename>Mike Douglass</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Spherical Cow Group</name>
+        </organization>
+      </affiliation>
+      <email>mdouglass@sphericalcowgroup.com</email>
+      <uri>http://sphericalcowgroup.com</uri>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Internet Engineering Task Force</name>
+      <abbreviation>IETF</abbreviation>
+    </organization>
+  </contributor>
+  <version>
+    <revision-date>2018-06-08T00:00:00Z</revision-date>
+  </version>
+  <language>en</language>
+  <script>Latn</script>
+  <status>
+    <stage>standard</stage>
+  </status>
+  <copyright>
+    <from>2021</from>
+    <owner>
+      <organization>
+        <name>Internet Engineering Task Force</name>
+        <abbreviation>IETF</abbreviation>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="updates">
+    <bibitem>
+      <title>6321</title>
+      <docidentifier>5545</docidentifier>
+    </bibitem>
+  </relation>
+  <series type="stream">
+    <title>IETF</title>
+  </series>
+  <series type="intended">
+    <title>full-standard</title>
+  </series>
+  <ext>
+    <doctype>internet-draft</doctype>
+  </ext>
+</bibdata></relation>
+<relation type='partOf'><bibdata type="standard">
+  <fetched>2021-04-15</fetched>
+  <title format="text/plain" language="en" script="Latn">vObject Internationalization</title>
+  <uri type="xml">documents/draft-calconnect-vobject-i18n.rfc.xml</uri>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">Ronald Henry Tse</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Ribose</name>
+        </organization>
+      </affiliation>
+      <address>
+        <street>Suite 1109, 1 Pedder Street</street>
+        <city/>
+        <country/>
+      </address>
+      <email>ronald.tse@ribose.com</email>
+      <uri>https://www.ribose.com</uri>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">Jeffrey Lau</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Ribose</name>
+        </organization>
+      </affiliation>
+      <address>
+        <street>Suite 1109, 1 Pedder Street</street>
+        <city/>
+        <country/>
+      </address>
+      <email>jeffrey.lau@ribose.com</email>
+      <uri>https://www.ribose.com</uri>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">Mike Douglass</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Spherical Cow Group</name>
+        </organization>
+      </affiliation>
+      <address>
+        <street>226 3rd Street</street>
+        <city/>
+        <country/>
+      </address>
+      <email>mdouglass@sphericalcowgroup.com</email>
+      <uri>http://sphericalcowgroup.com</uri>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Internet Engineering Task Force</name>
+      <abbreviation>IETF</abbreviation>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">This document updates the following specifications:
+
+
+I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax
+
+
+RFC 6350, vCard version 4.0
+
+
+RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)
+
+
+RFC 7953, Calendar Availability Extensions
+
+
+This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</abstract>
+  <place>Fremont, CA</place>
+  <ext>
+    <doctype>rfc</doctype>
+  </ext>
+</bibdata></relation>
+</relaton-collection>

@@ -1,0 +1,1678 @@
+
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><style>
+  <!--
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-size: 100%; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  vertical-align: baseline; }
+
+html, body, div, span, applet, object, iframe,
+p, blockquote,
+a, abbr, acronym, address, big, cite,
+del, dfn, em, img, ins, q, s,
+small, strike, strong, sub, sup, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  font-family: "Source Sans Pro",sans-serif; }
+
+code, pre, tt, kbd, samp {
+  font-family: "Source Code Pro",monospace;
+  font-variant-ligatures: none; }
+
+code *, pre *, tt *, kbd *, samp * {
+  font-family: "Source Code Pro",monospace !important;
+  font-variant-ligatures: none; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Source Sans Pro",sans-serif; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+.h2Annex {
+  font-family: "Source Sans Pro",sans-serif; }
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+  dl dt p, dl dd p {
+    margin-top: 0; }
+  dl dt {
+    grid-column-start: 1; }
+  dl dd {
+    grid-column-start: 2; }
+
+b, strong {
+  font-weight: bold; }
+
+div.document-stage-band, div.document-type-band {
+  background-color: #333333; }
+
+a.FootnoteRef + a.FootnoteRef:before {
+  content: ", ";
+  vertical-align: super; }
+
+.addition {
+  color: blue; }
+
+.deletion {
+  color: red;
+  text-decoration: line-through; }
+
+#standard-band {
+  background-color: #0AC442; }
+
+#standard {
+  border-bottom: solid 3px #0AC442; }
+
+#directive-band {
+  background-color: #540D6E; }
+
+#directive {
+  border-bottom: solid 3px #540D6E; }
+
+#guide-band {
+  background-color: #D183C9; }
+
+#guide {
+  border-bottom: solid 3px #D183C9; }
+
+#specification-band {
+  background-color: #65AFFF; }
+
+#specification {
+  border-bottom: solid 3px #65AFFF; }
+
+#report-band {
+  background-color: #3A405A; }
+
+#report {
+  border-bottom: solid 3px #3A405A; }
+
+#amendment-band {
+  background-color: #F26430; }
+
+#amendment {
+  border-bottom: solid 3px #F26430; }
+
+#corrigendum-band {
+  background-color: #C84630; }
+
+#corrigendum {
+  border-bottom: solid 3px #C84630; }
+
+#administrative-band {
+  background-color: #BFAE48; }
+
+#administrative {
+  border-bottom: solid 3px #BFAE48; }
+
+#advisory-band {
+  background-color: #BD9391; }
+
+#advisory {
+  border-bottom: solid 3px #BD9391; }
+
+#proposal-band {
+  background-color: #39A0ED; }
+
+#proposal {
+  border-bottom: solid 3px #39A0ED; }
+
+#working-draft-band {
+  background-color: #2D7393; }
+
+#working-draft {
+  border-bottom: solid 3px #2D7393; }
+
+#committee-draft-band {
+  background-color: #2A6B7C; }
+
+#committee-draft {
+  border-bottom: solid 3px #2A6B7C; }
+
+#draft-standard-band {
+  background-color: #1C7F7A; }
+
+#draft-standard {
+  border-bottom: solid 3px #1C7F7A; }
+
+#final-draft-band {
+  background-color: #53C170; }
+
+#final-draft {
+  border-bottom: solid 3px #53C170; }
+
+#published-band {
+  background-color: #069E2D; }
+
+#published {
+  border-bottom: solid 3px #069E2D; }
+
+#withdrawn-band {
+  background-color: #004E64; }
+
+#withdrawn {
+  border-bottom: solid 3px #004E64; }
+
+#cancelled-band {
+  background-color: #2E382E; }
+
+#cancelled {
+  border-bottom: solid 3px #2E382E; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-size: 100%; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  vertical-align: baseline; }
+
+html, body, div, span, applet, object, iframe,
+p, blockquote,
+a, abbr, acronym, address, big, cite,
+del, dfn, em, img, ins, q, s,
+small, strike, strong, sub, sup, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  font-family: "Source Sans Pro",sans-serif; }
+
+code, pre, tt, kbd, samp {
+  font-family: "Source Code Pro",monospace;
+  font-variant-ligatures: none; }
+
+code *, pre *, tt *, kbd *, samp * {
+  font-family: "Source Code Pro",monospace !important;
+  font-variant-ligatures: none; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Source Sans Pro",sans-serif; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+.h2Annex {
+  font-family: "Source Sans Pro",sans-serif; }
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+  dl dt p, dl dd p {
+    margin-top: 0; }
+  dl dt {
+    grid-column-start: 1; }
+  dl dd {
+    grid-column-start: 2; }
+
+b, strong {
+  font-weight: bold; }
+
+div.document-stage-band, div.document-type-band {
+  background-color: #333333; }
+
+a.FootnoteRef + a.FootnoteRef:before {
+  content: ", ";
+  vertical-align: super; }
+
+.addition {
+  color: blue; }
+
+.deletion {
+  color: red;
+  text-decoration: line-through; }
+
+#standard-band {
+  background-color: #0AC442; }
+
+#standard {
+  border-bottom: solid 3px #0AC442; }
+
+#directive-band {
+  background-color: #540D6E; }
+
+#directive {
+  border-bottom: solid 3px #540D6E; }
+
+#guide-band {
+  background-color: #D183C9; }
+
+#guide {
+  border-bottom: solid 3px #D183C9; }
+
+#specification-band {
+  background-color: #65AFFF; }
+
+#specification {
+  border-bottom: solid 3px #65AFFF; }
+
+#report-band {
+  background-color: #3A405A; }
+
+#report {
+  border-bottom: solid 3px #3A405A; }
+
+#amendment-band {
+  background-color: #F26430; }
+
+#amendment {
+  border-bottom: solid 3px #F26430; }
+
+#corrigendum-band {
+  background-color: #C84630; }
+
+#corrigendum {
+  border-bottom: solid 3px #C84630; }
+
+#administrative-band {
+  background-color: #BFAE48; }
+
+#administrative {
+  border-bottom: solid 3px #BFAE48; }
+
+#advisory-band {
+  background-color: #BD9391; }
+
+#advisory {
+  border-bottom: solid 3px #BD9391; }
+
+#proposal-band {
+  background-color: #39A0ED; }
+
+#proposal {
+  border-bottom: solid 3px #39A0ED; }
+
+#working-draft-band {
+  background-color: #2D7393; }
+
+#working-draft {
+  border-bottom: solid 3px #2D7393; }
+
+#committee-draft-band {
+  background-color: #2A6B7C; }
+
+#committee-draft {
+  border-bottom: solid 3px #2A6B7C; }
+
+#draft-standard-band {
+  background-color: #1C7F7A; }
+
+#draft-standard {
+  border-bottom: solid 3px #1C7F7A; }
+
+#final-draft-band {
+  background-color: #53C170; }
+
+#final-draft {
+  border-bottom: solid 3px #53C170; }
+
+#published-band {
+  background-color: #069E2D; }
+
+#published {
+  border-bottom: solid 3px #069E2D; }
+
+#withdrawn-band {
+  background-color: #004E64; }
+
+#withdrawn {
+  border-bottom: solid 3px #004E64; }
+
+#cancelled-band {
+  background-color: #2E382E; }
+
+#cancelled {
+  border-bottom: solid 3px #2E382E; }
+
+.coverpage {
+  text-align: center;
+  padding-left: 1.5em; }
+
+.wrapper-top {
+  background-color: #0e1a85;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAACXBIWXMAABYlAAAWJQFJUiTwAAADwUlEQVR4nO3YgQ2AMAwDwcAiWZ1NizrH30lIeIEq9nPOGSDqPgC7+93v/suy3Mmvhx+6VAAIcwFAmc4nyzYAIMgGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAFTNzA9ggAr9aahO8QAAAABJRU5ErkJggg==");
+  color: #ffffff;
+  padding: 2em 0; }
+
+.doc-number {
+  font-size: 0.5em;
+  font-family: "Source Sans Pro",sans-serif; }
+
+.coverpage-maturity {
+  font-family: "Source Sans Pro",sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0 0 2em 0;
+  text-transform: uppercase; }
+
+.coverpage-title {
+  padding-bottom: 0.5em;
+  font-family: "Source Sans Pro",sans-serif;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-weight: 600;
+  padding-left: 1em;
+  padding-right: 1em; }
+
+.title-section1 {
+  padding: 0 2em 0 3em; }
+
+.prefatory-section {
+  padding: 0 3em 0 6em; }
+
+.zzSTDTitle1, .MsoCommentText {
+  display: none; }
+
+.coverpage-logo span, .coverpage-tc-name span {
+  font-family: "Source Sans Pro",sans-serif;
+  text-transform: uppercase;
+  font-weight: 600; }
+
+.coverpage-tc-name {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin: 0.25em 0; }
+
+.coverpage-contributors {
+  margin-top: 1em;
+  line-height: 1.5em;
+  font-weight: 300; }
+  .coverpage-contributors .role {
+    font-variant-caps: all-small-caps;
+    background: #f7f7f7;
+    border-radius: 5px;
+    padding: 0.1em 0.5em;
+    margin-left: 1em;
+    color: #485094;
+    font-size: 0.9em;
+    font-weight: 900; }
+  .coverpage-contributors .person {
+    display: block;
+    font-weight: 300; }
+
+.coverpage-doc-identity {
+  font-size: 2em;
+  line-height: 2em; }
+
+.coverpage-title .title-second {
+  display: none; }
+
+.coverpage-stage-block {
+  font-family: "Source Sans Pro",sans-serif;
+  font-weight: 700;
+  font-size: 1.25em;
+  margin: 2em 0em 2em 0em;
+  text-transform: uppercase; }
+
+.coverpage-warning {
+  border-top: solid 1px #f36f36;
+  border-bottom: solid 1px #f36f36;
+  margin: 1em 2em;
+  color: #485094;
+  padding: 1em; }
+  .coverpage-warning .title {
+    color: #f36f36;
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2em; }
+
+.copyright {
+  padding: 1em;
+  font-size: 0.9em;
+  text-align: left; }
+  .copyright .name, .copyright .address {
+    color: #485094; }
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.4em;
+  color: #1d1d1d;
+  background-color: #fff; }
+  body main {
+    margin: 0 3em 0 6em; }
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 360px; } }
+
+@media print {
+  .container {
+    padding-left: 0; } }
+
+@media screen and (min-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 323px;
+    font-size: 0.9em;
+    overflow: auto;
+    padding: 0 0 0 45px;
+    background-color: #f7f7f7; } }
+
+@media print {
+  nav {
+    position: relative;
+    width: auto;
+    font-size: 0.9em;
+    overflow: auto;
+    padding: 0;
+    margin-right: 0;
+    background-color: white; } }
+
+nav #toc {
+  font-family: "Source Sans Pro",sans-serif;
+  font-weight: 400; }
+  @media screen and (max-width: 768px) {
+    nav #toc {
+      padding: 0 1.5em;
+      overflow: visible; } }
+@media screen and (min-width: 768px) {
+  #toggle {
+    position: fixed;
+    height: 100%;
+    width: 30px;
+    background-color: #1d1d1d;
+    color: white !important;
+    cursor: pointer;
+    z-index: 100; }
+    #toggle span {
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%); } }
+
+@media screen and (max-width: 768px) {
+  #toggle {
+    display: none; } }
+
+@media print {
+  #toggle {
+    display: none; } }
+
+#toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  #toc ul li a {
+    padding: 5px 10px; }
+  #toc ul a {
+    color: #485094;
+    text-decoration: none;
+    display: block; }
+    #toc ul a:hover {
+      box-shadow: none;
+      color: white; }
+
+#toc .h2 {
+  padding-left: 30px; }
+
+#toc .h3 {
+  padding-left: 50px; }
+
+#toc .toc-active, #toc li:hover {
+  background: #1d1d1d;
+  box-shadow: inset -5px 0px 10px -5px #1d1d1d !important; }
+  #toc .toc-active a, #toc li:hover a {
+    color: white; }
+
+@media print {
+  #toc .toc-active, #toc li:hover {
+    background: white;
+    box-shadow: none !important; }
+  #toc .toc-active a {
+    color: #485094; }
+  #toc li:hover a {
+    color: black; } }
+
+#toc ul {
+  margin-bottom: 0.25em; }
+
+#toc li {
+  list-style-type: none; }
+  #toc li:before {
+    content: " " !important;
+    display: none; }
+
+.rule {
+  width: 100%;
+  height: 1px;
+  background-color: #0e1a85;
+  margin: 2em 0; }
+  @media screen and (min-width: 768px) {
+    .rule.toc {
+      display: none; } }
+.document-stage-band {
+  left: 0;
+  top: 0;
+  height: 100%;
+  position: fixed;
+  display: block;
+  z-index: 101;
+  box-shadow: -5px 0px 10px #1d1d1d; }
+  .document-stage-band > :first-child {
+    position: relative;
+    width: 25px;
+    font-weight: 300;
+    height: 160px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin: 0;
+    margin-left: 6px;
+    writing-mode: tb-rl;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    white-space: nowrap;
+    display: block;
+    bottom: 0; }
+  @media print {
+    .document-stage-band {
+      display: none; } }
+.document-type-band {
+  left: 0;
+  top: 180px;
+  height: 100%;
+  position: fixed;
+  display: block;
+  z-index: 102; }
+  .document-type-band > :first-child {
+    position: relative;
+    width: 25px;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin: 0;
+    margin-left: 6px;
+    writing-mode: tb-rl;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    white-space: nowrap;
+    display: block;
+    bottom: 0; }
+  @media print {
+    .document-type-band {
+      display: none; } }
+  .document-type-band .document-type {
+    top: 20px; }
+
+/* Typograpy */
+h1, h2, h3, h4, h5, h6 {
+  color: #0e1a85;
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 0.3em; }
+
+h1 {
+  font-size: 1.4em;
+  text-transform: uppercase;
+  margin-top: 2em; }
+  h1#content {
+    margin-top: 2em; }
+
+h2 {
+  font-size: 1.3em;
+  font-weight: 400; }
+  h2 p {
+    display: inline; }
+
+h3 {
+  font-size: 1.1em;
+  font-weight: 400; }
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+/* Terms */
+.TermNum, .Terms, .AltTerms {
+  color: #485094;
+  font-weight: 400; }
+
+p.TermNum {
+  font-size: 0.9em;
+  line-height: 1em;
+  margin: 0;
+  margin-top: 2em; }
+
+p.Terms {
+  font-size: 1.1em;
+  line-height: 1.7em;
+  margin: 0; }
+
+/* Links, selection */
+a, a:visited {
+  text-decoration: none;
+  color: #485094; }
+
+a:hover {
+  color: white;
+  background: #1d1d1d;
+  box-shadow: 3px 0 0 #1d1d1d, -3px 0 0 #1d1d1d; }
+
+::selection,
+::-moz-selection {
+  background: #1d1d1d;
+  color: white; }
+
+/* Lists */
+ol {
+  margin-left: 1.2em; }
+
+ul {
+  position: relative;
+  margin-left: 0;
+  list-style: none;
+  padding-left: 1.2em; }
+
+ul > li:before {
+  content: "\2014";
+  position: absolute;
+  left: 0; }
+
+main li {
+  margin-top: 1em;
+  padding-left: 0.5em; }
+
+/* Bibliograhy */
+p.Biblio, p.NormRef {
+  margin-top: 1em; }
+
+p.Biblio:before, p.NormRef:before {
+  content: "\2014";
+  padding-right: 1em; }
+
+/* Blocks */
+.figure {
+  line-height: 1.6em;
+  padding: 1.5em;
+  margin: 2em 0 1em 0;
+  overflow: auto;
+  font-family: "Source Code Pro",monospace;
+  font-variant-ligatures: none; }
+  .figure .FigureTitle, .figure .figure-title {
+    font-weight: 700;
+    font-size: 1em;
+    text-align: center; }
+  .figure > img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+    height: auto; }
+
+.SourceTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center; }
+
+pre {
+  font-family: "Source Code Pro",monospace;
+  font-variant-ligatures: none;
+  background-color: #f7f7f7;
+  font-size: ;
+  line-height: 1.6em;
+  padding: 1.5em;
+  margin: 2em 0 1em 0;
+  overflow-y: auto;
+  overflow-x: scroll; }
+  .example pre {
+    background: none; }
+
+.pseudocode {
+  background-color: #f7f7f7;
+  font-size: ;
+  line-height: 1.6em;
+  padding: 1.5em;
+  margin: 2em 0 1em 0;
+  overflow: auto; }
+  .pseudocode .SourceTitle {
+    font-weight: 700;
+    font-size: 1em;
+    text-align: center; }
+  .example .pseudocode {
+    background: none; }
+
+.Admonition .AdmonitionTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center; }
+
+.recommend .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center; }
+
+.require .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center; }
+
+.permission .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center; }
+
+.Note, .Admonition {
+  color: #47430c;
+  padding: 0.25em;
+  margin: 0; }
+
+.Note {
+  background-color: #fff495; }
+  .Note p {
+    margin: 1em; }
+
+.blockquote, .Quote {
+  background-color: #f7f7f7;
+  font-style: italic;
+  width: 80%;
+  padding: 1.5em;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto; }
+  .blockquote .QuoteAttribution, .Quote .QuoteAttribution {
+    text-align: right; }
+
+.formula, .Formula {
+  background-color: #f7f7f7;
+  padding: 1.5em;
+  margin-top: 2em;
+  text-align: center; }
+
+/* Examples */
+table.example {
+  background-color: #e1eef1; }
+
+td.example {
+  padding: 0 1em 0 1em;
+  margin: 2em 0 1em 0; }
+
+.example {
+  background-color: #e1eef1;
+  padding: 0.5em;
+  margin: 2em 0 1em 0;
+  text-align: left;
+  padding-left: 2em; }
+
+.example p {
+  margin: 0; }
+
+.example .example-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: -1.5em; }
+
+.example pre, .example .pseudocode {
+  background: none; }
+
+/* Tables */
+table {
+  width: 100%;
+  font-weight: 300;
+  margin: 1em 0 2em 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 2em; }
+  table, table th, table td {
+    border: 1px solid black;
+    font-size: 0.95em; }
+  table th, table td {
+    padding: 1em; }
+  table td.header {
+    font-weigth: 400; }
+
+p.TableTitle {
+  text-align: center;
+  margin-top: 2.5em;
+  font-weight: 400; }
+
+/* Footnotes */
+a.footnote-number {
+  vertical-align: super;
+  font-size: 0.8em; }
+
+.footnote {
+  font-size: 0.9em; }
+
+/* Contact Info */
+.contact-info {
+  background-color: #f7f7f7;
+  padding: 1em;
+  margin-top: 2em;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; }
+  .contact-info p, .contact-info a {
+    font-family: "Source Code Pro",monospace;
+    font-variant-ligatures: none;
+    font-weight: 400;
+    line-height: 1.3em;
+    font-size: 1em;
+    margin: 0; }
+  .contact-info a:hover {
+    color: #485094;
+    background: none;
+    text-decoration: underline;
+    box-shadow: none; }
+  .contact-info .name {
+    font-weight: 700; }
+
+/* Keywords */
+span.keyword {
+  font-weight: 600; }
+
+/* Admonitions */
+.Admonition, .admonition {
+  background-color: #ffb3b3;
+  padding: 0.5em;
+  margin: 1.5em 0 1.5em 0;
+  text-align: left; }
+  .Admonition p, .admonition p {
+    margin: 0; }
+
+#myBtn {
+  font-family: "Source Code Pro",monospace;
+  font-variant-ligatures: none;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  background-color: #1d1d1d;
+  opacity: 0.15;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px 10px 15px;
+  border-radius: 4px; }
+  #myBtn:hover {
+    opacity: 1; }
+  @media print {
+    #myBtn {
+      display: none; } }
+a.anchorjs-link:hover {
+  background: none;
+  color: #485094;
+  box-shadow: none; }
+
+@page {
+  margin: 2cm 1cm 2cm 1cm; }
+
+@media print {
+  h1, .title-section1 {
+    page-break-before: always; }
+  h1.toc-contents {
+    margin-top: 2em; } }
+
+-->
+</style><title>vObject&#x2009;&#x2014;&#x2009;Internationalization</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!--TOC script import-->
+<script type="text/javascript" src="https://cdn.rawgit.com/jgallen23/toc/0.3.2/dist/toc.min.js"></script>
+<script type="text/javascript">function toclevel() { return "h1:not(:empty):not(.TermNum):not(.noTOC),h2:not(:empty):not(.TermNum):not(.noTOC)";}
+</script>
+
+<!--Google fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com" /> 
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700" rel="stylesheet" />
+<!--Font awesome import for the link icon-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous" />
+<style class="anchorjs"></style>
+</head>
+  <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
+    <div class="title-section"><div class="document-stage-band" id="working-draft-band">
+  <p class="document-stage">Working Draft</p>
+</div>
+
+<div class="document-type-band" id="standard-band">
+  <p class="document-type">CalConnect Standard</p>
+</div>
+
+<div id="toggle"> <span>&#x2022;</span> </div>
+
+<header>
+
+  <!--<div class="WordSection1">-->
+  <div class="coverpage">
+    <div class="wrapper-top">
+
+      <div class="coverpage-doc-identity">
+        <div class="doc-number">
+          <span class="docnumber">CC/WD 56010:2019</span>
+          <!-- <span class="docnumber-separator">:</span>
+            <span class="docyear">2019</span> -->
+        </div>
+
+        <div class="coverpage-title">
+          <span class="title-first">vObject&#x2009;&#x2014;&#x2009;Internationalization</span>
+          <!--<span class="title-second"></span>-->
+        </div>
+      </div>
+
+      <div class="coverpage-logo">
+        <span>The Calendaring and Scheduling Consortium</span>
+      </div>
+
+      <div class="coverpage-tc-name">
+        <span>TC VCARD</span>
+      </div>
+
+      
+
+      
+
+      <div class="coverpage-contributors">
+        
+        <div class="group author">
+          
+          
+          <span class="person author">Ronald Tse<span class="role">Author</span></span>
+          
+          <span class="person author">Jeffrey Lau<span class="role">Author</span></span>
+          
+          <span class="person author">Mike Douglass<span class="role">Author</span></span>
+          
+          <div class="affiliation"></div>
+          
+        </div>
+        
+
+      </div>
+    </div>
+
+    <div class="title-section1">
+      <div class="coverpage-stage-block">
+        <span class="coverpage-stage" id="standard">CalConnect Standard</span>
+      </div>
+
+      <div class="coverpage-stage-block">
+        <span class="coverpage-maturity" id="working-draft">Working Draft</span>
+      </div>
+
+      
+      <div class="coverpage-warning">
+          <div class="boilerplate-license">
+    <div><h1 class="IntroTitle">Warning for Drafts</h1>
+
+      <p id="_3b2aad48-f558-4d9a-9960-d2168614aec7">This document is not a CalConnect Standard. It is distributed for review and
+        comment, and is subject to change without notice and may not be referred to as
+        a Standard. Recipients of this draft are invited to submit, with their
+        comments, notification of any relevant patent rights of which they are aware
+        and to provide supporting documentation.
+      </p>
+    </div>
+  </div>
+      </div>
+      
+
+      <div class="copyright">
+        <div class="year">
+          <div class="boilerplate-copyright">
+    <div>
+      <p id="_47845a92-acbb-4038-8b8d-e7454ec89886">&#xA9; 2019 The Calendaring and Scheduling Consortium, Inc. </p>
+    </div>
+  </div>
+        </div>
+
+        <div class="message">
+          <div class="boilerplate-legal">
+    <div>
+      <p id="_cabb88e5-ef5c-4709-89e2-b20b1e3b0bfa">All rights reserved. Unless otherwise specified, no part of this
+        publication may be reproduced or utilized otherwise in any form or by any
+        means, electronic or mechanical, including photocopying, or posting on the
+        internet or an intranet, without prior written permission. Permission can
+        be requested from the address below.  </p>
+    </div>
+  </div>
+        </div>
+
+        <div class="contact-info">
+          <div class="boilerplate-feedback">
+    <div>
+      <p id="boilerplate-name">The Calendaring and Scheduling Consortium, Inc.</p>
+      <p id="boilerplate-address">4390 Chaffin Lane<br />
+        McKinleyville<br />
+        California 95519<br />
+        United States of America<br />
+        <br />
+        <a href="mailto:copyright@calconnect.org">copyright@calconnect.org</a><br />
+        <a href="www.calconnect.org">www.calconnect.org</a>
+      </p>
+    </div>
+  </div>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+    </div>
+  </div>
+</header>
+
+      <p>&#xA0;</p>
+    </div>
+    <br />
+    <div class="prefatory-section"><nav>
+  <h1 id="content">Contents</h1>
+  <div id="toc"><ul><li class="h1"><a href="#toc0">      Foreword</a></li><li class="h1"><a href="#toc1">      Introduction</a></li><li class="h1"><a href="#toc2">      1.&#xA0; Scope</a></li><li class="h1"><a href="#toc3">      2.&#xA0; Normative references</a></li><li class="h1"><a href="#toc4">      3.&#xA0; Terms and definitions</a></li><li class="h2"><a href="#toc5">      3.2.&#xA0; Definitions</a></li><li class="h1"><a href="#toc6">      4.&#xA0; Property Parameter Usage Clarification: LANGUAGE</a></li><li class="h2"><a href="#toc7">      4.1.&#xA0; vFormat Implementation of LANGUAGE</a></li><li class="h1"><a href="#toc8">      5.&#xA0; Property Parameter: SCRIPT</a></li><li class="h2"><a href="#toc9">      5.1.&#xA0; vFormat Implementation of SCRIPT</a></li><li class="h1"><a href="#toc10">      6.&#xA0; Property Parameter: PHONETIC</a></li><li class="h2"><a href="#toc11">      6.1.&#xA0; vFormat Implementation of PHONETIC</a></li><li class="h1"><a href="#toc12">      7.&#xA0; Security Considerations</a></li><li class="h1"><a href="#toc13">      8.&#xA0; IANA Considerations</a></li><li class="h2"><a href="#toc14">      8.1.&#xA0; iCalendar and vCard Property Parameter Registration: SCRIPT</a></li><li class="h2"><a href="#toc15">      8.2.&#xA0; iCalendar and vCard Property Parameter Registration: PHONETIC</a></li><li class="h2"><a href="#toc16">      8.3.&#xA0; iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE</a></li><li class="h2"><a href="#toc17">      8.4.&#xA0; iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE</a></li><li class="h1"><a href="#toc18">      Bibliography</a></li></ul></div>
+
+</nav>
+
+
+<div class="rule toc"></div>
+
+      <p>&#xA0;</p>
+    </div>
+    <br />
+    <main class="main-section"><button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+      <div class="authority">
+  
+
+
+  
+
+
+  
+
+  
+</div>
+      <br />
+      <div id="_dea85bfd-6afe-4675-b585-5719d1a04f78">
+        <h1 class="ForewordTitle" id="toc0">Foreword</h1>
+        <p id="_7ad58d05-58c1-412b-af07-c6bef3e3817f">This document updates the following specifications:</p>
+        <ul id="_11d188ec-237c-48c3-8737-f8b2b99488c1">
+<li>
+<p id="_5b04ddc2-e7cf-45b6-95e7-e3da31798a09">I-D.calconnect-vobject-vformat, The vObject Model and vFormat Syntax</p>
+</li>
+<li>
+<p id="_36f99531-be54-4b4a-8411-c76eee7a03fb">RFC 6350, vCard version 4.0</p>
+</li>
+<li>
+<p id="_416f92bf-ed27-4ccf-832c-c564f7cb2a70">RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)</p>
+</li>
+<li>
+<p id="_ff954dea-8141-49ec-8aa0-3c51ad0f8238">RFC 7953, Calendar Availability Extensions</p>
+</li>
+</ul>
+        <p id="_1b23437d-63f5-49d4-908c-6eac51f2ce6f">This work is produced by the CalConnect TC-VCARD and TC-CALENDAR committees.</p>
+      </div>
+      <br />
+      <div class="Section3" id="introduction">
+        <h1 class="IntroTitle" id="toc1">Introduction</h1>
+        <p id="_b0226238-47ba-4acc-8760-8b4d6e12bd91">vCard <a href="#RFC6350">IETF RFC 6350</a> and iCalendar <a href="#RFC5545">IETF RFC 5545</a> are standards compliant to
+the vObject data model <a href="#I-D.calconnect-vobject-vformat">IETF I-D.calconnect-vobject-vformat</a>.</p>
+        <p id="_eef336d2-5498-40fd-9b14-154291c54ba1">These standards are used worldwide and require proper certain
+localization elements suitable for multi-cultural use.</p>
+        <p id="_981e4832-18b5-4422-a9c2-f344d9a82902">Previously, the only internationalization method for
+vCard <a href="#RFC6350">IETF RFC 6350</a> and iCalendar <a href="#RFC5545">IETF RFC 5545</a> standards was
+the <tt>language</tt> property parameter (<a href="#RFC5545">3.2.10</a>).</p>
+        <p id="_94273fb2-d645-4446-939a-09cc5af623aa">This document:</p>
+        <ul id="_1567c50a-a017-48c3-b9c2-4d9a74640b20">
+<li>
+<p id="_f6f9ad01-6f29-4adf-998d-d5eb1aa76e4e">defines additional internationalization features for the vObject data model,
+including a separate property parameter that denotes the script used in a
+property value, and a method to specify pronunciation of a property value</p>
+</li>
+<li>
+<p id="_87f3d82b-8143-4c65-9c34-123d0da1527c">defines realization methods of vObject internationalization in vFormat</p>
+</li>
+</ul>
+        <p id="_3f02282c-fc49-486f-bfd1-2736f53a825e">The methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <a href="#RFC6350">IETF RFC 6350</a> and
+iCalendar <a href="#RFC5545">IETF RFC 5545</a>.</p>
+        <p id="_69d22d29-c074-4961-b7be-1c10a46c0470">This is a work product of the CalConnect TC-VCARD <a href="#CALCONNECT-VCARD">CalConnect TC VCARD</a>
+and TC-CALENDAR <a href="#CALCONNECT-CALENDAR">CalConnect TC CALENDAR</a> committees.</p>
+      </div>
+      <p class="zzSTDTitle1">vObject&#x2009;&#x2014;&#x2009;Internationalization</p>
+      <div id="scope">
+        <h1 id="toc2">1.&#xA0; Scope</h1>
+        <p id="_3e0915ac-7562-4183-8a7a-3a29861a9e00">Methods described in this document are intended to be used
+by vObject-compliant standards, such as vCard 4.0 <a href="#RFC6350">IETF RFC 6350</a> and
+iCalendar <a href="#RFC5545">IETF RFC 5545</a>.</p>
+      </div>
+      <div><h1 id="toc3">2.&#xA0; Normative references</h1><p id="_773aeaac-4752-4fef-95f4-5cf2db511abb">The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p> <p id="RFC5545" class="NormRef">IETF RFC 5545, <i>Internet Calendaring and Scheduling Core Object Specification (iCalendar)</i></p> <p id="RFC6350" class="NormRef">IETF RFC 6350, <i>vCard Format Specification</i></p> <p id="I-D.calconnect-vobject-vformat" class="NormRef">IETF I-D.calconnect-vobject-vformat, <i>The vObject Model and vFormat Syntax</i></p></div>
+      <div id="terms"><h1 id="toc4">3.&#xA0; Terms and definitions</h1><p id="_bd7ca83d-9080-4a97-962c-b28e3b9baaa0">For the purposes of this document,
+    the following terms and definitions apply.</p><h2 class="TermNum" id="term-general">3.1.&#xA0;<p class="Terms" style="text-align:left;">General</p></h2><p id="_c20d3e78-ef99-47a3-8866-cd627470d9d2">The key words &#x201C;<b>MUST</b>&#x201C;, &#x201C;<b>MUST NOT</b>&#x201C;, &#x201C;<b>REQUIRED</b>&#x201C;, &#x201C;<b>SHALL</b>&#x201C;, &#x201C;<b>SHALL NOT</b>&#x201C;,
+&#x201C;<b>SHOULD</b>&#x201C;, &#x201C;<b>SHOULD NOT</b>&#x201C;, &#x201C;<b>RECOMMENDED</b>&#x201C;, &#x201C;<b>NOT RECOMMENDED</b>&#x201C;, &#x201C;<b>MAY</b>&#x201C;,
+and &#x201C;<b>OPTIONAL</b>&#x201D; in this document are to be interpreted as
+described in BCP 14 <a href="#RFC2119">IETF RFC 2119</a> <a href="#RFC8174">IETF RFC 8174</a> when, and only when, they
+appear in all capitals, as shown here.</p><p id="_03160a10-4e1a-4603-b8ef-6b3dd462664f">The key words &#x201C;<b>Private Use</b>&#x201C;, &#x201C;<b>Experimental Use</b>&#x201C;,
+&#x201C;<b>Hierarchical Allocation</b>&#x201C;, &#x201C;<b>First Come First Served</b>&#x201C;,
+&#x201C;<b>Expert Review</b>&#x201C;, &#x201C;<b>Specification Required</b>&#x201C;, &#x201C;<b>RFC Required</b>&#x201C;,
+&#x201C;<b>IETF Review</b>&#x201C;, &#x201C;<b>Standards Action</b>&#x201D; and &#x201C;<b>IESG Approval</b>&#x201D; in
+this document are to be interpreted as described in <a href="#RFC8126">4</a>.</p><p id="_0794c6a0-07d1-46c7-a0cd-644c1620e0b3">Notation in this document is described in ABNF <a href="#RFC5234">IETF RFC 5234</a> as used by
+<a href="#RFC6350">IETF RFC 6350</a>.</p><p id="_72e1fcc1-d7bb-4dcc-8162-ad14569f1d5e">Definitions from <a href="#RFC6350">IETF RFC 6350</a> apply to this specification except when
+explicitly overridden.</p><p id="_817bce42-9a2b-4c3d-91d5-133af53086e8">All names of properties, property parameters, enumerated property
+values, and property parameter values are case-insensitive. However,
+all property values are case-sensitive, unless otherwise stated.</p>
+
+
+
+<div id="_definitions"><h2 id="toc5">3.2.&#xA0; Definitions</h2><h3 class="TermNum" id="term-transliteration">3.2.1.&#xA0;<p class="Terms" style="text-align:left;">transliteration</p></h3><p id="_3bb6bcba-3015-498e-bf92-54eae99e80ba">operation which consists of representing the characters (3.1.4.02) of an entirely alphabetical (3.1.5.16) character or alphanumeric character writing system (3.1.6.01) by the characters of the conversion alphabet</p>
+<p>[SOURCE: <a href="#ISO5127">3.1.6.11</a>]</p>
+<h3 class="TermNum" id="term-script">3.2.2.&#xA0;<p class="Terms" style="text-align:left;">script</p></h3><p id="_bd557c7c-b3f1-4da5-83a2-2bc350575933">particular graphic representation or class of representations of a set of characters used to write one or more languages</p>
+<p>[SOURCE: <a href="#ISO5127">3.1.6.02</a>]</p>
+<h3 class="TermNum" id="term-phonetic-transcription">3.2.3.&#xA0;<p class="Terms" style="text-align:left;">phonetic transcription</p></h3>
+
+<p id="_37aa42da-8453-4d7e-9abc-e29a32857b05">representation or modelling of spoken language based on the sound system of the respective language
+<a href="#ISO24624">3.5</a></p>
+</div></div>
+      <div id="pp-language">
+        <h1 id="toc6">4.&#xA0; Property Parameter Usage Clarification: LANGUAGE</h1>
+        <p id="_8212d0bc-024d-4096-a6e0-16f496c4f100">This section clarifies the intent of the <tt>LANGUAGE</tt> property
+parameter in <a href="#RFC5545">IETF RFC 5545</a> and <a href="#RFC6350">IETF RFC 6350</a> to be for the
+identification of the language used in the property value
+where the parameter is specified.</p>
+        <p id="_4be35a22-2540-4402-8c50-83821a6d036e">The <a href="#RFC5646">IETF RFC 5646</a> defined <tt>language-tag</tt> allows specification
+of multiple attributes (called &#x201C;subtags&#x201D;) in addition
+to just language. Its basic form includes:</p>
+        <ul id="_d8628ff3-b2f1-4db5-9471-a1e5b20811c4">
+<li>
+<p id="_f0e4fd8f-17e7-41ef-b61f-f3b72ce986af">a mandatory language subtag, using a language identifier
+from ISO 639 (-2, -3) (called a &#x201C;primary&#x201D; or &#x201C;extended&#x201D; language subtag)</p>
+</li>
+<li>
+<p id="_9385f011-5b74-4f16-819f-a680be26af7c">an optional script subtag, using a script identifier
+from ISO 15924</p>
+</li>
+<li>
+<p id="_f6a8fb4f-857c-4810-9248-aed8be4d0dd9">an optional region subtag, using country codes listed in ISO 3166
+or a UN numeric code</p>
+</li>
+<li>
+<p id="_de434130-90c6-4618-b395-96b01265801f">one or more, optional, variant and extension subtags
+defined in the IANA language subtag registry.</p>
+</li>
+</ul>
+        <p id="_d770dc08-49f0-4ef4-ba02-492d175bea36">In practical usage of vObject standards, including
+<a href="#RFC5545">IETF RFC 5545</a> and <a href="#RFC6350">IETF RFC 6350</a>, it is determined that
+the combinatorial enumeration of non-language subtags often cause
+unnecessary confusion in interpretation and parsing, especially
+when the registry contain variant and extension subtags that either
+conflict in semantics or have overly restrictive in their
+supported prefixes.</p>
+        <p id="_74ae4257-1d19-4cc4-8325-5d39c61aee55">This document therefore clarifies the intent of
+<a href="#RFC5545">3.2.10</a> and <a href="#RFC6350">5.1</a>, such that
+the <tt>LANGUAGE</tt> property parameter <b>SHOULD</b> only support
+the mandatory language subtag.</p>
+        <p id="_ea9cb627-8358-478b-9cc2-cc74b2abbec9">Other subtags <b>MAY</b> be supplied as specified in <a href="#RFC5646">IETF RFC 5646</a>,
+but they are purely for informational purposes not used
+in the vObject specification.</p>
+        <dl id="_1564f2d5-f5fd-4371-985c-d577b1fcc6f4">
+          <dt>
+            <p>Namespace</p>
+          </dt>
+          <dd></dd>
+          <dt>
+            <p>Property parameter name</p>
+          </dt>
+          <dd>
+<p id="_c25efb4e-876a-4eb3-af6c-812128400322">
+<tt>LANGUAGE</tt>
+</p>
+</dd>
+          <dt>
+            <p>Purpose</p>
+          </dt>
+          <dd>
+<p id="_fdc06d7a-212c-42d0-b8f3-c7314961938c">To specify the language used in the property value.</p>
+</dd>
+          <dt>
+            <p>Value type</p>
+          </dt>
+          <dd>
+<p id="_1f0a1189-e12f-4481-95d7-a1387deaacc7"><tt>LANGUAGE-TAG</tt> <a href="#RFC6350">4.8</a></p>
+</dd>
+          <dt>
+            <p>Description</p>
+          </dt>
+          <dd>
+<p id="_451731bc-32a1-4944-b68b-51dc8276f06b">As provided above.</p>
+</dd>
+        </dl>
+        <div id="_vformat_implementation_of_language"><h2 id="toc7">4.1.&#xA0; vFormat Implementation of LANGUAGE</h2><p id="_8d57de98-c35f-40fd-abeb-c65d150ebf2f">The value of the <tt>LANGUAGE</tt> property parameter is
+re-defined as shown below.</p>
+<dl id="_a10cf45f-8474-4ef4-a7bc-45d268ac1cc7"><dt><p>Format definition</p></dt><dd></dd></dl>
+<pre id="_0f208284-54ae-4889-a90b-227229f44af4" class="prettyprint ">languageparam = "LANGUAGE" "=" language *(subpart)<br /><br />language = iso-639-3-code / iso-639-2-code<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ; a 2-alpha or 3-alpha language code<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ; defined in ISO 639<br /><br />subpart&#xA0; = "-" *alphanum<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ; all other subparts unsupported</pre><p class="SourceTitle" style="text-align:center;">Figure 1</p>
+
+<dl id="_0521d47d-39b3-480e-9f52-173507bb9591"><dt><p>Examples</p></dt><dd></dd></dl>
+<pre id="_99042bea-ee90-4429-8536-069cb436d703" class="prettyprint ">N;LANGUAGE=en:Miyazaki;Hayao;;;<br />N;LANGUAGE=jp:&#x5BAE;&#x5D0E;;&#x99FF;;;;</pre><p class="SourceTitle" style="text-align:center;">Figure 2</p>
+</div>
+      </div>
+      <div id="pp-script">
+        <h1 id="toc8">5.&#xA0; Property Parameter: SCRIPT</h1>
+        <p id="_42a255d6-dbbc-49e1-aff0-a223fee96145">The <tt>SCRIPT</tt> property parameter specifies the written script
+used in the property value which contains the parameter,
+which is amongst the valid codes in the ISO 15924 registry.</p>
+        <p id="_bae47aa5-f1bd-49f0-be80-5b47a6aa1f01">It is separated from the <tt>LANGUAGE</tt> property parameter
+defined in <a href="#RFC5545">IETF RFC 5545</a> and <a href="#RFC6350">IETF RFC 6350</a> for reasons
+stated in <a href="#pp-language">Clause 4</a>.</p>
+        <dl id="_3f17048b-df3d-4c23-a767-50b36d5907f1">
+          <dt>
+            <p>Namespace</p>
+          </dt>
+          <dd></dd>
+          <dt>
+            <p>Property parameter name</p>
+          </dt>
+          <dd>
+<p id="_533dc979-3be2-4fa8-912e-806861da01aa">SCRIPT</p>
+</dd>
+          <dt>
+            <p>Purpose</p>
+          </dt>
+          <dd>
+<p id="_422d049f-f9f8-44b6-9bf2-cdc7525bd165">To specify the script used in the property
+value, which is amongst the valid codes in the ISO 15924 registry.</p>
+</dd>
+          <dt>
+            <p>Value type</p>
+          </dt>
+          <dd>
+<p id="_0b654f4d-112a-4a84-a49e-64c6b98ef7dc">TEXT, a single value valid in the ISO 15924 script registry.</p>
+</dd>
+          <dt>
+            <p>Description</p>
+          </dt>
+          <dd>
+<p id="_a1d86652-a554-464d-93d4-ba631adad958">The property value of which this property parameter
+applies to must have identical structure to</p>
+</dd>
+        </dl>
+        <div id="_vformat_implementation_of_script"><h2 id="toc9">5.1.&#xA0; vFormat Implementation of SCRIPT</h2><dl id="_c88ab111-7709-460e-b45b-8addef548087"><dt><p>Format definition</p></dt><dd></dd></dl>
+<pre id="_4e09f743-c6f0-4495-9f7e-ed52aeedfe9f" class="prettyprint ">scriptparam = "SCRIPT" "=" script-code<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ; script-code defined in the value type SCRIPT-CODE</pre><p class="SourceTitle" style="text-align:center;">Figure 3</p>
+
+<dl id="_4959065d-9ed5-4cb6-be4e-20836b8ac3de"><dt><p>Examples</p></dt><dd></dd></dl>
+<pre id="_0be7228b-a755-47d1-83c8-bd96ed9fe920" class="prettyprint ">N;SCRIPT=Hira;LANGUAGE=jp:&#x307F;&#x3084;&#x3056;&#x304D;;&#x306F;&#x3084;&#x304A;;;;<br />N;SCRIPT=Hani;LANGUAGE=jp:&#x5BAE;&#x5D0E;;&#x99FF;;;;</pre><p class="SourceTitle" style="text-align:center;">Figure 4</p>
+</div>
+      </div>
+      <div id="pp-phonetic">
+        <h1 id="toc10">6.&#xA0; Property Parameter: PHONETIC</h1>
+        <p id="_891b0663-7d58-48d7-b641-6c8920ab5b33">A number of contact managers have long used &#x201C;X-properties&#x201D;
+to to store phonetic information of a vCard&#x2019;s subject, such as
+<tt>X-PHONETIC-NAME</tt>, <tt>X-PHONETIC-FIRST-NAME</tt> and <tt>X-PHONETIC-LAST-NAME</tt>.</p>
+        <p id="_0df23a09-48bd-44b1-ba3d-bf8182a54c7e">However, this is an issue for multiple reasons:</p>
+        <ul id="_b3b8e306-6211-4435-9730-bf28e0b722be">
+<li>
+<p id="_9e07202e-7a46-40f2-88cf-bc1a4476b7eb">The value of the X-property does not define the phonetic system
+used for its transcription;</p>
+</li>
+<li>
+<p id="_cf50bd5e-0346-40ff-946a-58c2a73cbd30">This X-property usage does not enable interoperability since
+it does not require specification of the language transcribed,
+as well as the script of the resulting transcription;</p>
+</li>
+<li>
+<p id="_414589ca-7717-4fa2-8a60-0ad5660ee005">The scheme of using X-properties does not allow representation
+of phonetics on other vCard values.</p>
+</li>
+</ul>
+        <p id="_34814d20-bde8-4140-ad7e-309e5f57023e">This section defines three property parameters used to
+store pronunciation information of a property value:</p>
+        <ol type="1" id="_d6592296-3f45-441e-a398-065e90bd1ba9">
+<li>
+<p id="_e2a3e3de-cd42-4a54-87c6-124ce79777d9">The script used in the pronunciation system;</p>
+</li>
+<li>
+<p id="_2791b157-fb1b-42ed-b5b0-cb88b376cf3d">An identifier of the pronunciation system used;</p>
+</li>
+<li>
+<p id="_5da3442f-3c91-4353-9477-5ea8caf4eae4">The source language that was transcribed by the pronunciation system.</p>
+</li>
+</ol>
+        <p id="_0e5c5822-6c68-4ec1-ac92-46ea7ca23fc7">The <tt>PHONETIC</tt> property parameter specifies the phonetic
+system used in the transcription of the property value,
+identified by the phonetic system code from the ISO XXXXX
+phonetic system registry.</p>
+        <p id="_c722a94f-d263-4460-82c0-e62bb7468dd3">This property parameter is often applied together with
+the <tt>LANGUAGE</tt> (<a href="#pp-language">Clause 4</a>)
+and <tt>SCRIPT</tt> (<a href="#pp-script">Clause 5</a>) property parameters.</p>
+        <dl id="_0cb5115a-652e-42db-806c-59c14cd858e7">
+          <dt>
+            <p>Namespace</p>
+          </dt>
+          <dd></dd>
+          <dt>
+            <p>Property parameter name</p>
+          </dt>
+          <dd>
+<p id="_55af7b5f-dcd3-4121-8c74-9d71a5e23505">PHONETIC</p>
+</dd>
+          <dt>
+            <p>Purpose</p>
+          </dt>
+          <dd>
+<p id="_3c20943e-2d99-414f-8543-3fa081b5b9aa">To specify the phonetic system used in the property
+value, which is amongst the valid codes in the ISO XXXXX registry.</p>
+</dd>
+          <dt>
+            <p>Value type</p>
+          </dt>
+          <dd>
+<p id="_92e223d8-7f89-4771-aad7-54ce5d13e806">TEXT, a single value valid in the ISO XXXXX phonetic system registry.</p>
+</dd>
+          <dt>
+            <p>Description</p>
+          </dt>
+          <dd>
+<p id="_c3a4ffd3-9f99-4894-aa7a-8fbf3833ac02">The property value of which this property parameter
+applies to must take an identical structure to the property
+value without application of this property parameter.</p>
+</dd>
+        </dl>
+        <div id="_vformat_implementation_of_phonetic"><h2 id="toc11">6.1.&#xA0; vFormat Implementation of PHONETIC</h2><dl id="_18dbcfe5-c828-4e4e-8585-2637e4447686"><dt><p>Format definition</p></dt><dd></dd></dl>
+<pre id="_ba33b7b1-7bd4-440f-896a-d7e3872e1332" class="prettyprint ">phoneticparam = "PHONETIC" "=" phonetic<br />phonetic&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; = 4ALPHA&#xA0; ; ISO XXXXX 4-digit phonetic system code</pre><p class="SourceTitle" style="text-align:center;">Figure 5</p>
+
+<dl id="_2a9ed197-3729-4340-bf0a-674d11a57cf1"><dt><p>Examples</p></dt><dd></dd></dl>
+<pre id="_3f036271-9965-47e0-9de6-06a377ca63e5" class="prettyprint ">N;SCRIPT=Hant;LANGUAGE=zho:&#x5B6B;;&#x4E2D;&#x5C71;;&#x6587;,&#x9038;&#x4ED9;;;<br />N;SCRIPT=Hans;LANGUAGE=zho:&#x5B59;;&#x4E2D;&#x5C71;;&#x6587;,&#x9038;&#x4ED9;;;<br />N;PHONETIC=jyut;SCRIPT=Latn;LANGUAGE=yue:syun1;zung1saan1;man4,jat6sin1;;<br />N;PHONETIC=ping;SCRIPT=Latn;LANGUAGE=cmn:sun;zhongshan;rixian;;</pre><p class="SourceTitle" style="text-align:center;">Figure 6</p>
+</div>
+      </div>
+      <div id="security">
+        <h1 id="toc12">7.&#xA0; Security Considerations</h1>
+        <p id="_81528c9b-969e-433d-a3e9-df5cc8d2ddd3">Security considerations of the vObject formats
+themselves <b>MUST</b> be adhered to, including:</p>
+        <ul id="_43bdcbfe-fd59-4cf4-a7b9-4a46382414ef">
+<li>
+<p id="_b39bc983-9832-4fe3-a53b-4e43389c49c5">vCard: <a href="#RFC6350">IETF RFC 6350</a></p>
+</li>
+<li>
+<p id="_7f236f6c-5f9b-43bb-b522-18ed05f581b4">iCalendar: <a href="#RFC5545">IETF RFC 5545</a>, <a href="#RFC4791">IETF RFC 4791</a></p>
+</li>
+<li>
+<p id="_53aeafa7-77ca-4d5a-acbc-a1cca96c159c">vObject: <a href="#I-D.calconnect-vobject-vformat">IETF I-D.calconnect-vobject-vformat</a></p>
+</li>
+</ul>
+        <p id="_d5a723da-32ec-4570-bfeb-e6f46232af10">vObject formats, especially for calendaring, scheduling
+and contact exchange, often involve privacy-sensitive information.
+Internationalization features defined in this document
+<b>MAY</b> pose risk of exposing private information if
+interchanged through unprotected communication channels.</p>
+        <p id="_e74c6781-344e-4935-b30c-7626c60f4e62">Mechanisms used for the transmission of such information
+should implement security measures to protect against possible threats,
+such as eavesdropping, replay, message insertion, deletion,
+modification, and man-in-the-middle attacks.</p>
+      </div>
+      <div id="iana">
+        <h1 id="toc13">8.&#xA0; IANA Considerations</h1>
+        <p id="_b68077db-c97c-453d-8fbd-60ca2a2684dc">IANA is requested to register the following property parameters
+and value types in the corresponding iCalendar and vCard registries.</p>
+        <div id="_icalendar_and_vcard_property_parameter_registration_script"><h2 id="toc14">8.1.&#xA0; iCalendar and vCard Property Parameter Registration: SCRIPT</h2>
+
+<dl id="_19807263-e98f-45d9-9f77-8f2297d6ab56"><dt><p>Namespace</p></dt><dd></dd><dt><p>Parameter name</p></dt><dd>
+<p id="_2a1b7300-4427-46c6-97c3-f0d1d8987a72">SCRIPT</p>
+</dd><dt><p>Purpose</p></dt><dd>
+<p id="_77fa606f-f445-42d0-b6e3-43c655e5934f">Given in <a href="#pp-script">Clause 5</a>.</p>
+</dd><dt><p>Description</p></dt><dd>
+<p id="_8eb221fa-7f51-4863-9fa3-d1aaa2ae13b9">Given in <a href="#pp-script">Clause 5</a>.</p>
+</dd><dt><p>Format definition</p></dt><dd>
+<p id="_765afa37-c938-476e-866c-de355776fba3">Given in <a href="#pp-script">Clause 5</a>.</p>
+</dd><dt><p>Examples</p></dt><dd>
+<p id="_30d23fec-812b-4965-8b51-0191234a0589">Given in <a href="#pp-script">Clause 5</a>.</p>
+</dd></dl>
+</div>
+        <div id="_icalendar_and_vcard_property_parameter_registration_phonetic"><h2 id="toc15">8.2.&#xA0; iCalendar and vCard Property Parameter Registration: PHONETIC</h2>
+
+<dl id="_4eef23e6-40dc-42e5-8c9c-4280032f5c16"><dt><p>Namespace</p></dt><dd></dd><dt><p>Parameter name</p></dt><dd>
+<p id="_c455a151-9c9c-4ce5-9d8b-a81106c13af4">PHONETIC</p>
+</dd><dt><p>Purpose</p></dt><dd>
+<p id="_f4e393bd-3c0f-41fa-ae73-fc8b03ef5d13">Given in <a href="#pp-phonetic">Clause 6</a>.</p>
+</dd><dt><p>Description</p></dt><dd>
+<p id="_310d1844-0bc5-4bba-983c-6b2280dc35f8">Given in <a href="#pp-phonetic">Clause 6</a>.</p>
+</dd><dt><p>Format definition</p></dt><dd>
+<p id="_28ed4e55-553e-4df2-b3a0-0a95ec389f25">Given in <a href="#pp-phonetic">Clause 6</a>.</p>
+</dd><dt><p>Examples</p></dt><dd>
+<p id="_7469391e-d016-419c-88a4-b0c4cab6e78b">Given in <a href="#pp-phonetic">Clause 6</a>.</p>
+</dd></dl>
+</div>
+        <div id="_icalendar_and_vcard_registration_for_value_data_type_script_code"><h2 id="toc16">8.3.&#xA0; iCalendar and vCard Registration for Value Data Type: SCRIPT-CODE</h2><dl id="_cbf005dd-bd21-421f-a235-95b17ec0ec88"><dt><p>Value name</p></dt><dd>
+<p id="_a6c90c40-55f9-40eb-b1e7-b8f2b79e8340">SCRIPT-CODE</p>
+</dd><dt><p>Purpose</p></dt><dd>
+<p id="_21a3cf05-cbef-433b-8b5a-2ed9cd17bcb4">Indicate script used in property value
+using a valid value from the ISO 15924 registry.</p>
+</dd><dt><p>Description</p></dt><dd>
+<p id="_fd3f8ae0-baf5-4712-ba7d-684de02656e8">Used by the SCRIPT property parameter.</p>
+</dd><dt><p>Format definition</p></dt><dd></dd></dl>
+<pre id="_8dba920d-2b00-4d3b-aed4-8a591486be9f" class="prettyprint ">script-code = 4ALPHA<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ; ISO 15924 4-digit script code</pre><p class="SourceTitle" style="text-align:center;">Figure 7</p>
+
+<dl id="_109ba76c-1fc2-495e-b8d5-6de4089a8066"><dt><p>Examples</p></dt><dd>
+<p id="_864343ea-a6ae-419f-a572-7e84c70cd976"><tt>Latn</tt>, <tt>Cyrl</tt>, <tt>Hani</tt></p>
+</dd></dl></div>
+        <div id="_icalendar_and_vcard_registration_for_value_data_type_phonetic_code"><h2 id="toc17">8.4.&#xA0; iCalendar and vCard Registration for Value Data Type: PHONETIC-CODE</h2><dl id="_c870e4de-d7a2-4245-8ea1-992ad452d07b"><dt><p>Value name</p></dt><dd>
+<p id="_6d48c4eb-e45c-4b5f-a10b-aed450cfb547">PHONETIC-CODE</p>
+</dd><dt><p>Purpose</p></dt><dd>
+<p id="_73c7b1ff-b87f-425f-9f92-758d2a5762c1">Indicate phonetic system used in the transcription
+of property value,
+using a valid value from the ISO XXXXX registry.</p>
+</dd><dt><p>Description</p></dt><dd>
+<p id="_f7d6d5e2-2d1d-4cc5-9c1b-7b4c7afafc14">Used by the SCRIPT property parameter.</p>
+</dd><dt><p>Format definition</p></dt><dd></dd></dl>
+<pre id="_6e939cbf-ca03-48bb-8862-95619e570c02" class="prettyprint ">phonetic-code = 4ALPHA<br />&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ; ISO XXXXX 4-digit script code</pre><p class="SourceTitle" style="text-align:center;">Figure 8</p>
+
+<dl id="_fdb78d01-263a-4324-8f05-44bf871b40bb"><dt><p>Examples</p></dt><dd>
+<p id="_7deec1bb-231e-4d77-8a48-65d9c515d5da"><tt>ipa</tt>, <tt>jyut</tt>, <tt>ping</tt></p>
+</dd></dl></div>
+      </div>
+      <br />
+      <div><h1 class="Section3" id="toc18">Bibliography</h1><p id="CALCONNECT-VCARD" class="Biblio">[1]&#xA0; CalConnect TC VCARD,
+    <i>CalConnect VCARD Technical Committee</i>
+  </p><p id="CALCONNECT-CALENDAR" class="Biblio">[2]&#xA0; CalConnect TC CALENDAR,
+    <i>CalConnect CALENDAR Technical Committee</i>
+  </p><p id="ISO5127" class="Biblio">[3]&#xA0; ISO 5127 (all parts), <i>Information and documentation &#x2013; Foundation and vocabulary</i></p><p id="ISO24624" class="Biblio">[4]&#xA0; ISO 24624:2016, <i>Language resource management&#x2009;&#x2014;&#x2009;Transcription of spoken language</i></p><p id="RFC2119" class="Biblio">[5]&#xA0; IETF RFC 2119, <i>Key words for use in RFCs to Indicate Requirement Levels</i></p><p id="RFC3986" class="Biblio">[6]&#xA0; IETF RFC 3986, <i>Uniform Resource Identifier (URI): Generic Syntax</i></p><p id="RFC5646" class="Biblio">[7]&#xA0; IETF RFC 5646, <i>Tags for Identifying Languages</i></p><p id="RFC8174" class="Biblio">[8]&#xA0; IETF RFC 8174, <i>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</i></p><p id="RFC6321" class="Biblio">[9]&#xA0; IETF RFC 6321, <i>xCal: The XML Format for iCalendar</i></p><p id="RFC7265" class="Biblio">[10]&#xA0; IETF RFC 7265, <i>jCal: The JSON Format for iCalendar</i></p><p id="RFC7095" class="Biblio">[11]&#xA0; IETF RFC 7095, <i>jCard: The JSON Format for vCard</i></p><p id="RFC6352" class="Biblio">[12]&#xA0; IETF RFC 6352, <i>CardDAV: vCard Extensions to Web Distributed Authoring and Versioning (WebDAV)</i></p><p id="RFC6351" class="Biblio">[13]&#xA0; IETF RFC 6351, <i>xCard: vCard XML Representation</i></p><p id="RFC4791" class="Biblio">[14]&#xA0; IETF RFC 4791, <i>Calendaring Extensions to WebDAV (CalDAV)</i></p><p id="RFC5234" class="Biblio">[15]&#xA0; IETF RFC 5234, <i>Augmented BNF for Syntax Specifications: ABNF</i></p><p id="RFC8126" class="Biblio">[16]&#xA0; IETF RFC 8126, <i>Guidelines for Writing an IANA Considerations Section in RFCs</i></p>             </div>
+    </main>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { preferredFont: "STIX" },
+    asciimath2jax: { delimiters: [['(#(', ')#)']] }
+ });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=MML_HTMLorMML-full" async="async"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>  <script>
+    $("#toc").on('click', 'li', function(e) {
+    $(this).parent().find('li.toc-active').removeClass('toc-active');
+    $(this).addClass('toc-active');
+});
+  </script>
+  
+  <script>
+  //TOC toggle animation
+$('#toggle').on('click', function(){
+    if( $('nav').is(':visible') ) {
+        $('nav').animate({ 'left': '-353px' }, 'slow', function(){
+            $('nav').hide();
+        });
+        $('.container').animate({ 'padding-left': '31px' }, 'slow');
+    }
+    else {
+        $('nav').show();
+        $('nav').animate({ 'left': '0px' }, 'slow');
+        $('.container').animate({ 'padding-left': '360px' }, 'slow');
+    }
+});
+</script>
+
+<script>
+    // Scroll to top button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+
+  <script>
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+//
+// AnchorJS - v4.2.2 - 2020-04-20
+// https://www.bryanbraun.com/anchorjs/
+// Copyright (c) 2020 Bryan Braun; Licensed MIT
+//
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+!function(A,e){"use strict";"function"==typeof define&&define.amd?define([],e):"object"==typeof module&&module.exports?module.exports=e():(A.AnchorJS=e(),A.anchors=new A.AnchorJS)}(this,function(){"use strict";return function(A){function f(A){A.icon=A.hasOwnProperty("icon")?A.icon:"",A.visible=A.hasOwnProperty("visible")?A.visible:"hover",A.placement=A.hasOwnProperty("placement")?A.placement:"right",A.ariaLabel=A.hasOwnProperty("ariaLabel")?A.ariaLabel:"Anchor",A.class=A.hasOwnProperty("class")?A.class:"",A.base=A.hasOwnProperty("base")?A.base:"",A.truncate=A.hasOwnProperty("truncate")?Math.floor(A.truncate):64,A.titleText=A.hasOwnProperty("titleText")?A.titleText:""}function p(A){var e;if("string"==typeof A||A instanceof String)e=[].slice.call(document.querySelectorAll(A));else{if(!(Array.isArray(A)||A instanceof NodeList))throw new Error("The selector provided to AnchorJS was invalid.");e=[].slice.call(A)}return e}this.options=A||{},this.elements=[],f(this.options),this.isTouchDevice=function(){return!!("ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch)},this.add=function(A){var e,t,i,n,o,s,a,r,c,h,l,u,d=[];if(f(this.options),"touch"===(l=this.options.visible)&&(l=this.isTouchDevice()?"always":"hover"),0===(e=p(A=A||"h2, h3, h4, h5, h6")).length)return this;for(!function(){if(null!==document.head.querySelector("style.anchorjs"))return;var A,e=document.createElement("style");e.className="anchorjs",e.appendChild(document.createTextNode("")),void 0===(A=document.head.querySelector('[rel="stylesheet"],style'))?document.head.appendChild(e):document.head.insertBefore(e,A);e.sheet.insertRule(".anchorjs-link{opacity:0;text-decoration:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}",e.sheet.cssRules.length),e.sheet.insertRule(":hover>.anchorjs-link,.anchorjs-link:focus{opacity:1}",e.sheet.cssRules.length),e.sheet.insertRule("[data-anchorjs-icon]::after{content:attr(data-anchorjs-icon)}",e.sheet.cssRules.length),e.sheet.insertRule('@font-face{font-family:anchorjs-icons;src:url(data:n/a;base64,AAEAAAALAIAAAwAwT1MvMg8yG2cAAAE4AAAAYGNtYXDp3gC3AAABpAAAAExnYXNwAAAAEAAAA9wAAAAIZ2x5ZlQCcfwAAAH4AAABCGhlYWQHFvHyAAAAvAAAADZoaGVhBnACFwAAAPQAAAAkaG10eASAADEAAAGYAAAADGxvY2EACACEAAAB8AAAAAhtYXhwAAYAVwAAARgAAAAgbmFtZQGOH9cAAAMAAAAAunBvc3QAAwAAAAADvAAAACAAAQAAAAEAAHzE2p9fDzz1AAkEAAAAAADRecUWAAAAANQA6R8AAAAAAoACwAAAAAgAAgAAAAAAAAABAAADwP/AAAACgAAA/9MCrQABAAAAAAAAAAAAAAAAAAAAAwABAAAAAwBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAMCQAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg//0DwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAIAAAACgAAxAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADAAAAAIAAgAAgAAACDpy//9//8AAAAg6cv//f///+EWNwADAAEAAAAAAAAAAAAAAAAACACEAAEAAAAAAAAAAAAAAAAxAAACAAQARAKAAsAAKwBUAAABIiYnJjQ3NzY2MzIWFxYUBwcGIicmNDc3NjQnJiYjIgYHBwYUFxYUBwYGIwciJicmNDc3NjIXFhQHBwYUFxYWMzI2Nzc2NCcmNDc2MhcWFAcHBgYjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAAADACWAAEAAAAAAAEACAAAAAEAAAAAAAIAAwAIAAEAAAAAAAMACAAAAAEAAAAAAAQACAAAAAEAAAAAAAUAAQALAAEAAAAAAAYACAAAAAMAAQQJAAEAEAAMAAMAAQQJAAIABgAcAAMAAQQJAAMAEAAMAAMAAQQJAAQAEAAMAAMAAQQJAAUAAgAiAAMAAQQJAAYAEAAMYW5jaG9yanM0MDBAAGEAbgBjAGgAbwByAGoAcwA0ADAAMABAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAH//wAP) format("truetype")}',e.sheet.cssRules.length)}(),t=document.querySelectorAll("[id]"),i=[].map.call(t,function(A){return A.id}),o=0;o<e.length;o++)if(this.hasAnchorJSLink(e[o]))d.push(o);else{if(e[o].hasAttribute("id"))n=e[o].getAttribute("id");else if(e[o].hasAttribute("data-anchor-id"))n=e[o].getAttribute("data-anchor-id");else{for(c=r=this.urlify(e[o].textContent),a=0;void 0!==s&&(c=r+"-"+a),a+=1,-1!==(s=i.indexOf(c)););s=void 0,i.push(c),e[o].setAttribute("id",c),n=c}(h=document.createElement("a")).className="anchorjs-link "+this.options.class,h.setAttribute("aria-label",this.options.ariaLabel),h.setAttribute("data-anchorjs-icon",this.options.icon),this.options.titleText&&(h.title=this.options.titleText),u=document.querySelector("base")?window.location.pathname+window.location.search:"",u=this.options.base||u,h.href=u+"#"+n,"always"===l&&(h.style.opacity="1"),""===this.options.icon&&(h.style.font="1em/1 anchorjs-icons","left"===this.options.placement&&(h.style.lineHeight="inherit")),"left"===this.options.placement?(h.style.position="absolute",h.style.marginLeft="-1em",h.style.paddingRight="0.5em",e[o].insertBefore(h,e[o].firstChild)):(h.style.paddingLeft="0.375em",e[o].appendChild(h))}for(o=0;o<d.length;o++)e.splice(d[o]-o,1);return this.elements=this.elements.concat(e),this},this.remove=function(A){for(var e,t,i=p(A),n=0;n<i.length;n++)(t=i[n].querySelector(".anchorjs-link"))&&(-1!==(e=this.elements.indexOf(i[n]))&&this.elements.splice(e,1),i[n].removeChild(t));return this},this.removeAll=function(){this.remove(this.elements)},this.urlify=function(A){return this.options.truncate||f(this.options),A.trim().replace(/\'/gi,"").replace(/[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\\n\t\b\v]/g,"-").replace(/-{2,}/g,"-").substring(0,this.options.truncate).replace(/^-+|-+$/gm,"").toLowerCase()},this.hasAnchorJSLink=function(A){var e=A.firstChild&&-1<(" "+A.firstChild.className+" ").indexOf(" anchorjs-link "),t=A.lastChild&&-1<(" "+A.lastChild.className+" ").indexOf(" anchorjs-link ");return e||t||!1}}});
+// @license-end
+  </script>
+  <script>
+/*
+  $(document).ready(function() {
+          $('[id^=toc]').each(function ()
+          {
+             var currentToc = $(this);
+       var url = window.location.href;
+             currentToc.wrap("<a href='" + url + "#" + currentToc.attr("id") + "' </a>");
+          });
+});
+*/
+  anchors.options = {
+  placement: 'left'
+};
+anchors.add('h1, h2, h3, h4');
+</script>
+
+</body>
+</html>

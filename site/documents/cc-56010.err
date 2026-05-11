@@ -1,0 +1,38 @@
+/Users/mulgogi/src/calconnect/csd-vobject-i18n/site/documents/cc-56010.err errors
+
+
+== Style
+
+(): Scope must occur before Terms and Definitions
+(): Scope must occur before Terms and Definitions
+(): Scope must occur before Terms and Definitions
+(): Scope must occur before Terms and Definitions
+(XML Line 000147): Hanging paragraph in clause
+	<clause id="pp-language" obligation="normative"><title>Property Parameter Usage Clarification: LANGUAGE</title><p id="_8212d0bc-024d-4096-a6e0-16f496c4f100">This section clarifies the intent of the <tt>LANGUAGE</tt> property
+	parameter in <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545"/> and <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350"/> to be for the
+	identification of the language used in the property value
+	where the parameter is specified.</p>
+	<p id="_4be35a22-2540-4402-8c50-83821a6d036e">The <eref type="inline" bibitemid="RFC5646" citeas="IETF RFC 5646"/> defined <tt>language-tag</tt> allows specification
+(XML Line 000230): Hanging paragraph in clause
+	<clause id="pp-script" obligation="normative"><title>Property Parameter: SCRIPT</title><p id="_42a255d6-dbbc-49e1-aff0-a223fee96145">The <tt>SCRIPT</tt> property parameter specifies the written script
+	used in the property value which contains the parameter,
+	which is amongst the valid codes in the ISO 15924 registry.</p>
+	<p id="_bae47aa5-f1bd-49f0-be80-5b47a6aa1f01">It is separated from the <tt>LANGUAGE</tt> property parameter
+	defined in <eref type="inline" bibitemid="RFC5545" citeas="IETF RFC 5545"/> and <eref type="inline" bibitemid="RFC6350" citeas="IETF RFC 6350"/> for reasons
+(XML Line 000272): Hanging paragraph in clause
+	<clause id="pp-phonetic" obligation="normative"><title>Property Parameter: PHONETIC</title><p id="_891b0663-7d58-48d7-b641-6c8920ab5b33">A number of contact managers have long used “X-properties”
+	to to store phonetic information of a vCard’s subject, such as
+	<tt>X-PHONETIC-NAME</tt>, <tt>X-PHONETIC-FIRST-NAME</tt> and <tt>X-PHONETIC-LAST-NAME</tt>.</p>
+	<p id="_0df23a09-48bd-44b1-ba3d-bf8182a54c7e">However, this is an issue for multiple reasons:</p>
+	<ul id="_b3b8e306-6211-4435-9730-bf28e0b722be">
+(XML Line 000372): Hanging paragraph in clause
+	<clause id="iana" obligation="normative"><title>IANA Considerations</title><p id="_b68077db-c97c-453d-8fbd-60ca2a2684dc">IANA is requested to register the following property parameters
+	and value types in the corresponding iCalendar and vCard registries.</p>
+	<clause id="_icalendar_and_vcard_property_parameter_registration_script" obligation="normative">
+	<title>iCalendar and vCard Property Parameter Registration: SCRIPT</title>
+	<dl id="_19807263-e98f-45d9-9f77-8f2297d6ab56">
+
+
+== Metanorma XML Syntax
+
+(XML Line 000165:25): element "term" not allowed here; expected the element end-tag or element "admonition", "bookmark", "clause", "definitions", "dl", "example", "figure", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "terms" or "ul"

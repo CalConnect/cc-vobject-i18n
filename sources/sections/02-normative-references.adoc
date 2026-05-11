@@ -1,6 +1,6 @@
 
 [bibliography]
-== Normative References
+== Normative references
 
 * [[[RFC5545,IETF RFC 5545]]], _Internet Calendaring and Scheduling Core Object Specification (iCalendar)_
 
