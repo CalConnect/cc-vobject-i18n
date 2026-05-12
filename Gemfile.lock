@@ -38,6 +38,10 @@ GEM
       rubyzip (~> 2.3)
       seven_zip_ruby (~> 1.0)
       thor (~> 1.0)
+    expressir (0.2.27)
+      nokogiri (~> 1.10)
+      rice (~> 3)
+      thor (~> 1.0)
     expressir (0.2.27-x86_64-darwin)
       nokogiri (~> 1.10)
       thor (~> 1.0)
@@ -55,6 +59,8 @@ GEM
     ffi-libarchive (1.0.17)
       ffi (~> 1.0)
     ffi-libarchive-binary (0.2.3-x86_64-darwin)
+      ffi-libarchive (~> 1.0)
+    ffi-libarchive-binary (0.2.3-x86_64-linux)
       ffi-libarchive (~> 1.0)
     fontist (1.8.12)
       down (~> 5.0)
@@ -374,6 +380,7 @@ GEM
     reverse_markdown (1.4.0)
       nokogiri
     rexml (3.2.5)
+    rice (3.0.0)
     roman-numerals (0.3.0)
     rsec (1.0.0)
     ruby-graphviz (1.2.5)
@@ -413,7 +420,7 @@ GEM
     unf_ext (0.0.7.7)
     unicode2latex (0.0.4)
     uuidtools (2.2.0)
-    webrick (1.7.0)
+    webrick (1.8.2)
     webrobots (0.1.2)
     word-to-markdown (1.1.8)
       cliver (~> 0.3)
@@ -425,6 +432,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   metanorma-cli
