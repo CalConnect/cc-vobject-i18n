@@ -1,3 +1,5 @@
+# metanorma.release.yml — cc-vobject-i18n
+
 documents:
-  - source: sources/cc-56010.adoc
-  - source: sources/draft-calconnect-vobject-i18n.adoc
+  - pattern: "cc-*"
+    channels: [public/standards]
