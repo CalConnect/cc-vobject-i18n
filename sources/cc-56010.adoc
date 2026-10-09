@@ -27,6 +27,12 @@ include::sections/00-abstract.adoc[]
 
 include::sections/01-intro.adoc[]
 
+[abstract]
+== Abstract
+
+This document defines methods for internationalization of vObject-compliant standards, such as vCard 4.0 (RFC 6350) and iCalendar (RFC 5545).
+
+
 include::sections/01-scope.adoc[]
 
 include::sections/02-normative-references.adoc[]
